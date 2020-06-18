@@ -1,1 +1,1 @@
-# StanfordCovidResearch
+# StanfordCoronavirusResearch
