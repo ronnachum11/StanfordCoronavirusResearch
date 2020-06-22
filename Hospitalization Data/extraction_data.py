@@ -8,7 +8,7 @@ r = requests.get("https://covidtracking.com/api/v1/states/daily.json")
 
 # print(r.status_code)
 
-with open('data.json', 'w') as f:
+with open('../data.json', 'w') as f:
     json.dump(r.json(), f)
 
 data = pd.read_json("data.json")
