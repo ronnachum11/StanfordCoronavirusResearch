@@ -1,4 +1,0 @@
-NYCGovData.csv is a file storing hospitlization data in New York by county since 4/1/2020
-NYCGovData.csv originates from https://raw.githubusercontent.com/nychealth/coronavirus-data/master/boro/boroughs-case-hosp-death.csv
-Graphs of NYCGovData.csv are updated daily at https://www1.nyc.gov/site/doh/covid/covid-19-data.page
-To update NYCGovData.csv run UpdateNYCGovData.py

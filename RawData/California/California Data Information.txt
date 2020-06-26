@@ -1,0 +1,4 @@
+CHHSData.csv is a file storing hospitlization data in Calfornia by county since 4/1/2020
+CHHSData.csv originates from https://data.chhs.ca.gov/dataset/california-covid-19-hospital-data-and-case-statistics/resource/6cd8d424-dfaa-4bdd-9410-a3d656e1176e
+Graphs of CHHSData.csv are updated daily at https://public.tableau.com/profile/ca.open.data#!/vizhome/COVID-19PublicDashboard/Covid-19Hospitals
+To update CHHSData.csv run UpdateCHHSData.py
