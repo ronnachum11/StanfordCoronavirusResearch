@@ -1,0 +1,1 @@
+Download for hospitalized COVID-poisitve Patients by Day.scv available at http://ldh.la.gov/coronavirus/
