@@ -56,7 +56,7 @@ states = {
     'Wisconsin': 'WI',
     'Wyoming': 'WY'
 }
-directory = "C:\\Users\\Ron\\StanfordCoronavirusResearch\\Data"
+directory = "C:\\Users\\Ron\\StanfordCoronavirusResearch\\RawData"
 
 import csv
 import requests
