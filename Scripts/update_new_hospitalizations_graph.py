@@ -36,9 +36,14 @@ for state in states:
     plt.xticks(x_ticks, x_tick_labels)
     plt.xlabel("Dates")
     plt.ylabel("Net Change in Hospitalizations")
-    plt.title(f"COVID-19 Net Change Hospitalizations (7-Day Moving Avg) - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
-    plt.plot(change_in_hospitalizations_moving_average)
-    plt.savefig(os.path.join("Graphs", f"NetChange{state}.png"))
+    
+    plt.title(f"COVID-19 Net Change Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    plt.plot(change_in_hospitalizations)
+    
+    # plt.title(f"COVID-19 Net Change Hospitalizations (7-Day Moving Avg) - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    # plt.plot(change_in_hospitalizations_moving_average)
+    
+    plt.savefig(os.path.join("Graphs", f"NetChangeHospitalizations{state}.png"))
     # plt.show()
     plt.cla()
 # print(len(states))
