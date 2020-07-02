@@ -50,7 +50,7 @@ for state in states:
     plt.plot([0 for i in range(len(new_hospitalizations_moving_average))], color='r', label='Zero')
     plt.legend()
 
-    plt.savefig(os.path.join("Graphs", f"NewHospitalizations{state}.png"))
+    plt.savefig(os.path.join("Graphs", "New Hospitalizations", f"{state}.png"))
     # plt.show()
     plt.cla()
 
