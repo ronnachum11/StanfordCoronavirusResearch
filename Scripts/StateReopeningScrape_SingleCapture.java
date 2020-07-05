@@ -4,9 +4,9 @@ import java.util.*;
 
 public class StateReopeningScrape_SingleCapture {
 
-	// alphabetical list of all state names (as well as certain territories)
-	// NYTimes has reopening data for all fifty states, plus "District of Columbia"
-	// and "Puerto Rico"
+	// alphabetical list of all fifty state names, as well as "District of Columbia"
+	// NYTimes has reopening data for all fifty states, plus "District of Columbia";
+	// later captures also have data for "Puerto Rico", but this is not collected
 	static String[] states;
 	// data.get([state name]) = a String-to-String HashMap, where
 	// keys are reopening categories ("Retail", "Personal Care"), and
@@ -63,22 +63,35 @@ public class StateReopeningScrape_SingleCapture {
 				}
 			}
 			String state = line.substring(lState.length(), line.length() - endDiv.length());
-			System.out.println();// debug
-			System.out.println(state);// debug
+			// check if current state is not in states (ex. state = "Puerto Rico")
+			boolean inStates = false;
+			for (int j = 0; j < states.length; j++) {
+				if (state.equals(states[j])) {
+					inStates = true;
+				}
+			}
+			if (!inStates) {
+				i--;
+				// debug
+				System.out.println();
+				System.out.println("not collected: " + state);
+				continue;
+			}
+			// debug
+			System.out.println();
+			System.out.println(state);
 			// get categories and corresponding info
-			// move to next state name upon reaching a second header (ex. "Reopening
-			// Soon" or "Closed") or upon reaching the end of the current state's data
-			boolean reachedHeader = false;
+			// move to next state name upon reaching an undesired header (ex. "Reopening
+			// Soon", "Closed"), or upon reaching the end of the current state's data
 			while (true) {
 				line = br.readLine();
 				line = trimTo(line, "<");
 				line = trimFrom(line, ">");
 				// reaching header
 				if (line.length() >= lHeader.length() && line.substring(0, lHeader.length()).equals(lHeader)) {
-					if (reachedHeader) {
+					String header = line.substring(lHeader.length(), line.length() - endDiv.length());
+					if (!header.equals("Reopened") && !header.equals("Open")) {
 						break;
-					} else {
-						reachedHeader = true;
 					}
 				}
 				// reaching end of current state's data
@@ -89,7 +102,6 @@ public class StateReopeningScrape_SingleCapture {
 				else if (line.length() >= lCategory.length()
 						&& line.substring(0, lCategory.length()).equals(lCategory)) {
 					String category = line.substring(lCategory.length(), line.length() - endDiv.length());
-					System.out.println(category);// debug
 					// get corresponding info
 					while (true) {
 						line = br.readLine();
@@ -102,7 +114,8 @@ public class StateReopeningScrape_SingleCapture {
 					// note that info may be an empty string, especially if category = "Houses of
 					// Worship"
 					String info = line.substring(lInfo.length(), line.length() - endDiv.length());
-					System.out.println(info);// debug
+					// debug
+					System.out.println(category + ": " + info);
 					// update data with category-info pair
 					data.get(state).put(category, info);
 				}
@@ -116,8 +129,8 @@ public class StateReopeningScrape_SingleCapture {
 				"Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan",
 				"Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
 				"New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon",
-				"Pennsylvania", "Puerto Rico", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas",
-				"Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming" };
+				"Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah",
+				"Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming" };
 		data = new HashMap<String, HashMap<String, String>>();
 		for (String state : states) {
 			data.put(state, new HashMap<String, String>());
@@ -126,7 +139,6 @@ public class StateReopeningScrape_SingleCapture {
 		extractData(
 				"https://web.archive.org/web/20200630083851/https://www.nytimes.com/interactive/2020/us/states-reopen-map-coronavirus.html");
 		// debug
-		System.out.println("-------------------------------------");
 		for (String state : states) {
 			System.out.println(data.get(state));
 		}
