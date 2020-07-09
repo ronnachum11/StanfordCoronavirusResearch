@@ -3,6 +3,8 @@ import pandas as pd
 import json
 import matplotlib.pyplot as plt
 import os 
+import math
+import time
 
 r = requests.get("https://covidtracking.com/api/v1/states/daily.json")
 
@@ -14,14 +16,22 @@ with open('data.json', 'w') as f:
 data = pd.read_json("data.json")
 states = set(data['state'])
 states = sorted(states)
+
 # print(data.columns)
 for state in states:
     state_data = data.loc[data['state'] == state]
     hospitalized = list(state_data['hospitalizedCumulative'])[::-1]
     dates = list(state_data['date'])[::-1]
 
+    dates = [dates[i] for i in range(len(dates)) if not math.isnan(hospitalized[i])]
+    hospitalized = [i for i in hospitalized if not math.isnan(i)]
+
+    for i in range(1, len(hospitalized)):
+        if math.isnan(hospitalized[i]):
+            hospitalized[i] = hospitalized[i-1]
+
     x_ticks, x_tick_labels = [], []
-    for i in range(0, len(dates), len(dates)//7 - 1):
+    for i in range(0, len(dates), max(1, len(dates)//7 - 1)):
         date = str(dates[i])
         x_ticks.append(i)
         x_tick_labels.append(date[4:6] + "/" + date[6:8])
