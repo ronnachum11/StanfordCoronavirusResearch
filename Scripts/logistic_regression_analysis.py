@@ -135,7 +135,7 @@ for state in states:
             y_values = logistic(x_values, a, b, c)
             y_values -= y_values[0] - hospitalized[index]
 
-            plt.plot(x_values, y_values, linestyle='dashed', label=f'{names[i]} Trajectories', color=colors[color_num])
+            plt.plot(x_values, y_values, linestyle='dashed', label=f'Pre-{names[i]} Trajectory', color=colors[color_num])
             plt.axvline(x=index - lag_time, color=colors[color_num])
         else:
             bounds = (0, [5000., 1.1, 1000.])
@@ -150,7 +150,7 @@ for state in states:
             y_values = exponential(x_values, a, b, c)
             y_values -= y_values[0] - hospitalized[-1]
 
-            plt.plot(x_values, y_values, linestyle='dashed', label=f'{names[i]} Trajectories', color='b')
+            plt.plot(x_values, y_values, linestyle='dashed', label=f'{names[i]} Trajectory', color='b')
         color_num += 1
 
     x_ticks, x_tick_labels = [], []
