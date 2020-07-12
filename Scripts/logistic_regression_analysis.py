@@ -9,15 +9,71 @@ import scipy.optimize as optimize
 
 path = "C:\\Users\\Ron\\StanfordCoronavirusResearch"
 
-states = ["AZ", "FL", "GA"]
+states_dict = {
+    'Alabama': 'AL',
+    'Alaska': 'AK',
+    'American Samoa': 'AS',
+    'Arizona': 'AZ',
+    'Arkansas': 'AR',
+    'California': 'CA',
+    'Colorado': 'CO',
+    'Connecticut': 'CT',
+    'Delaware': 'DE',
+    'District of Columbia': 'DC',
+    'Florida': 'FL',
+    'Georgia': 'GA',
+    'Guam': 'GU',
+    'Hawaii': 'HI',
+    'Idaho': 'ID',
+    'Illinois': 'IL',
+    'Indiana': 'IN',
+    'Iowa': 'IA',
+    'Kansas': 'KS',
+    'Kentucky': 'KY',
+    'Louisiana': 'LA',
+    'Maine': 'ME',
+    'Maryland': 'MD',
+    'Massachusetts': 'MA',
+    'Michigan': 'MI',
+    'Minnesota': 'MN',
+    'Mississippi': 'MS',
+    'Missouri': 'MO',
+    'Montana': 'MT',
+    'Nebraska': 'NE',
+    'Nevada': 'NV',
+    'New Hampshire': 'NH',
+    'New Jersey': 'NJ',
+    'New Mexico': 'NM',
+    'New York': 'NY',
+    'North Carolina': 'NC',
+    'North Dakota': 'ND',
+    'Northern Mariana Islands':'MP',
+    'Ohio': 'OH',
+    'Oklahoma': 'OK',
+    'Oregon': 'OR',
+    'Pennsylvania': 'PA',
+    'Puerto Rico': 'PR',
+    'Rhode Island': 'RI',
+    'South Carolina': 'SC',
+    'South Dakota': 'SD',
+    'Tennessee': 'TN',
+    'Texas': 'TX',
+    'Utah': 'UT',
+    'Vermont': 'VT',
+    'Virgin Islands': 'VI',
+    'Virginia': 'VA',
+    'Washington': 'WA',
+    'West Virginia': 'WV',
+    'Wisconsin': 'WI',
+    'Wyoming': 'WY'
+}
+
+states_dict = {states_dict[name]: name for name in states_dict}
+
+states = ["AZ", "FL", "GA", "OK", "SC"]
 
 for state in states:
-    if state == "FL":
-        state_data = pd.read_csv(os.path.join(path, "RawData", "Florida", "fl_covid_track_api_data.csv"))
-    elif state == "AZ":
-        state_data = pd.read_csv(os.path.join(path, "RawData", "Arizona", "az_covid_track_api_data.csv"))
-    elif state == "GA":
-        state_data = pd.read_csv(os.path.join(path, "RawData", "Georgia", "ga_covid_track_api_data.csv"))
+    state_data = pd.read_csv(os.path.join(path, "RawData", states_dict[state], f"{state.lower()}_covid_track_api_data.csv"))
 
     hospitalized = list(state_data['hospitalizedCumulative'])[::-1]
     dates = list(state_data['date'])[::-1]
@@ -31,11 +87,18 @@ for state in states:
 
     ## LINES TO CHANGE
     if state == "FL":
-        names, reopening_dates = ["Phase 1", "Phase 2", "Current"], [20200504, 20200605, dates[-1]]
+        names, reopening_dates = ["Phase 1", "Phase 2"], [20200504, 20200605]
     elif state == "AZ":
-        names, reopening_dates = ["Phase 1", "Current"], [20200515, dates[-1]]
+        names, reopening_dates = ["Phase 1"], [20200515]
     elif state == "GA":
-        names, reopening_dates = ["Phase 1", "Current"], [20200424, dates[-1]]
+        names, reopening_dates = ["Phase 1"], [20200424]
+    elif state == "OK":
+        names, reopening_dates = ["Phase 1", "Phase 2", "Phase 3"], [20200501, 20200515, 20200601]
+    elif state == "SC":
+        names, reopening_dates = ["Phase 1", "Phase 2"], [20200504, 20200522]
+
+    names.append("Current")
+    reopening_dates.append(dates[-1])
 
     lag_time = 12
 
@@ -43,7 +106,7 @@ for state in states:
     spike_expectations = [min(i + lag_time, len(hospitalized)) for i in reopening_indecies]
 
     # regression_data = [[range(spike_expectations[i], spike_expectations[i+1]), hospitalized[spike_expectations[i]:spike_expectations[i+1]]] for i in range(len(spike_expectations) - 1)]
-    regression_data = [[i - lag_time, range(i), hospitalized[:i], range(i - lag_time, int(len(hospitalized)*1.2))] for i in spike_expectations]
+    regression_data = [[i, range(i), hospitalized[:i], range(i, int(len(hospitalized)*1.2))] for i in spike_expectations]
     # print(regression_data)
 
     def logistic(t, a, b, c):
@@ -54,7 +117,7 @@ for state in states:
 
     # regressions = {"Logistic": logistic, "Exponential": exponential}
 
-    colors, color_num = ['y', 'r', 'b'], 0
+    colors, color_num = ['r', 'y', 'g'], 0
     for i, data in enumerate(regression_data):
         index, x, y, x_values = data
         if i == len(regression_data) - 1:
@@ -69,9 +132,11 @@ for state in states:
                 except Exception:
                     continue
                 break
+            y_values = logistic(x_values, a, b, c)
+            y_values -= y_values[0] - hospitalized[index]
 
-            plt.plot(x_values, logistic(x_values, a, b, c), linestyle='dashed', label=f'{names[i]} Trajectories', color=colors[color_num])
-            plt.axvline(x=index, color=colors[color_num])
+            plt.plot(x_values, y_values, linestyle='dashed', label=f'{names[i]} Trajectories', color=colors[color_num])
+            plt.axvline(x=index - lag_time, color=colors[color_num])
         else:
             bounds = (0, [5000., 1.1, 1000.])
 
@@ -82,8 +147,10 @@ for state in states:
                 except Exception:
                     continue
                 break
-            
-            plt.plot(x_values, exponential(x_values, a, b, c), linestyle='dashed', label=f'{names[i]} Trajectories', color=colors[color_num])
+            y_values = exponential(x_values, a, b, c)
+            y_values -= y_values[0] - hospitalized[-1]
+
+            plt.plot(x_values, y_values, linestyle='dashed', label=f'{names[i]} Trajectories', color='b')
         color_num += 1
 
     x_ticks, x_tick_labels = [], []
@@ -97,6 +164,7 @@ for state in states:
     plt.title(f"COVID-19 Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
     plt.plot(hospitalized, label="Actual Data", color='k')
 
-    plt.savefig(os.path.join("Graphs", "Analysis", f"{state}.png"))
     plt.legend()
-    plt.show()
+    plt.savefig(os.path.join("Graphs", "Analysis", f"{state}.png"))
+    plt.cla()
+    # plt.show()
