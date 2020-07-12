@@ -1,0 +1,14 @@
+5/9
+ADDED: Industries : Manufacturing
+ADDED: Retail : Retail stores open to curbside pickup
+5/15
+ADDED: Food and drink : Restaurant dining in 11 counties
+CHANGED: Industries : Manufacturing : Manufacturing; Offices
+CHANGED: Retail : Retail stores open to curbside pickup : Retail stores open to curbside pickup; Malls open to curbside pickup in 11 counties
+5/16
+ADDED: Personal care : Pet groomers
+CHANGED: Industries : Manufacturing; Offices : Manufacturing; Warehouses; Offices
+CHANGED: Retail : Retail stores open to curbside pickup; Malls open to curbside pickup in 11 counties : Retail stores open to curbside pickup; Malls open to curbside pickup in some counties
+CHANGED: Food and drink : Restaurant dining in 11 counties : Restaurant dining in some counties
+5/17
+CHANGED: Retail : Retail stores open to curbside pickup; Malls open to curbside pickup in some counties : Retail stores open to curbside pickup
