@@ -1,0 +1,106 @@
+5/1
+ADDED
+Outdoor and recreation
+Golf courses, marinas, guided fishing trips and privately owned campgrounds
+5/2
+CHANGED
+Outdoor and recreation
+Golf courses, marinas, guided fishing trips and privately owned campgrounds
+Golf courses, marinas, guided fishing trips, privately owned campgrounds
+5/8
+ADDED
+Retail
+Retail stores in some counties
+5/29
+ADDED
+Food and drink
+Restaurants and bars in some counties
+ADDED
+Entertainment
+Casinos, theaters, shopping malls in some counties
+ADDED
+Personal care
+Hair salons, barbershops, spas in some counties
+CHANGED
+Outdoor and recreation
+Golf courses, marinas, guided fishing trips, privately owned campgrounds
+Golf courses, marinas, guided fishing trips, privately owned campgrounds; Gyms in some counties
+6/6
+CHANGED
+Retail
+Retail stores in some counties
+Retail stores
+CHANGED
+Food and drink
+Restaurants and bars in some counties
+Restaurants and bars in some counties; Outdoor dining restaurants and bars
+6/11
+CHANGED
+Outdoor and recreation
+Golf courses, marinas, guided fishing trips, privately owned campgrounds; Gyms in some counties
+Golf courses, marinas, guided fishing trips, privately owned campgrounds; Gyms in some counties; Beaches
+6/12
+CHANGED
+Food and drink
+Restaurants and bars in some counties; Outdoor dining restaurants and bars
+Restaurants and bars in most counties; Outdoor dining restaurants and bars
+CHANGED
+Entertainment
+Casinos, theaters, shopping malls in some counties
+Casinos, theaters, shopping malls in most counties
+CHANGED
+Personal care
+Hair salons, barbershops, spas in some counties
+Hair salons, barbershops, spas in most counties
+CHANGED
+Outdoor and recreation
+Golf courses, marinas, guided fishing trips, privately owned campgrounds; Gyms in some counties; Beaches
+Golf courses, marinas, guided fishing trips, privately owned campgrounds; Gyms in most counties; Beaches; Outdoor sports; State parks
+6/15
+CHANGED
+Outdoor and recreation
+Golf courses, marinas, guided fishing trips, privately owned campgrounds; Gyms in most counties; Beaches; Outdoor sports; State parks
+Golf courses, marinas, guided fishing trips, privately owned campgrounds; Gyms in most counties; Beaches; Outdoor sports; State parks; Public pools
+6/24
+CHANGED
+Food and drink
+Restaurants and bars in most counties; Outdoor dining restaurants and bars
+Outdoor dining restaurants and bars; Restaurants and bars in most counties
+CHANGED
+Outdoor and recreation
+Golf courses, marinas, guided fishing trips, privately owned campgrounds; Gyms in most counties; Beaches; Outdoor sports; State parks; Public pools
+Golf courses, marinas, guided fishing trips, privately owned campgrounds; Beaches; Gyms in most counties; Outdoor sports; State parks; Public pools
+6/26
+CHANGED
+Food and drink
+Outdoor dining restaurants and bars; Restaurants and bars in most counties
+Restaurants and bars in most counties
+CHANGED
+Outdoor and recreation
+Golf courses, marinas, guided fishing trips, privately owned campgrounds; Beaches; Gyms in most counties; Outdoor sports; State parks; Public pools
+Golf courses, marinas, private campgrounds; Beaches; Gyms in most counties; State parks; Public pools
+6/27
+ADDED
+Houses of worship
+[no info]
+7/3
+CHANGED
+Retail
+Retail stores
+Retail stores; Shopping malls
+CHANGED
+Food and drink
+Restaurants and bars in most counties
+Restaurants and bars in most counties; Restaurants and bars
+CHANGED
+Entertainment
+Casinos, theaters, shopping malls in most counties
+Casinos, theaters, shopping malls in most counties; Casinos, theaters in all counties
+CHANGED
+Personal care
+Hair salons, barbershops, spas in most counties
+Hair salons, barbershops, spas in most counties; Hair salons, barbershops, spas
+CHANGED
+Outdoor and recreation
+Golf courses, marinas, private campgrounds; Beaches; Gyms in most counties; State parks; Public pools
+Golf courses, marinas, private campgrounds; Beaches; Gyms in most counties; State parks; Public pools; Gyms

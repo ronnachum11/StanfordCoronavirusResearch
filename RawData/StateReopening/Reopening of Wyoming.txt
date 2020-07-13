@@ -1,0 +1,34 @@
+5/1
+ADDED
+Retail and beauty
+Hair salons, barbershops, tattoo parlors, massage therapy, etc.
+ADDED
+Outdoor and recreation
+Gyms
+5/6
+REMOVED
+Retail and beauty
+Hair salons, barbershops, tattoo parlors, massage therapy, etc.
+ADDED
+Personal care
+Hair salons, barbershops, tattoo parlors, massage therapy, etc.
+5/15
+ADDED
+Food and drink
+Restaurant dining
+ADDED
+Entertainment
+Movie theaters, entertaiment venues
+5/18
+CHANGED
+Outdoor and recreation
+Gyms
+Gyms; State parks
+6/27
+ADDED
+Houses of worship
+[no info]
+7/3
+ADDED
+Retail
+Retail stores

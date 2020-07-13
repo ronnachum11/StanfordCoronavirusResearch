@@ -1,0 +1,57 @@
+5/20
+ADDED
+Industries
+Offices
+ADDED
+Retail
+Retail stores, malls
+ADDED
+Food and drink
+Restaurants open for outdoor dining
+ADDED
+Entertainment
+Museums, zoos
+5/22
+ADDED
+Outdoor and recreation
+Beaches
+5/30
+CHANGED
+Entertainment
+Museums, zoos
+Museums, zoos; Casinos
+6/1
+ADDED
+Personal care
+Hair salons, barbershops
+6/17
+CHANGED
+Food and drink
+Restaurants open for outdoor dining
+Restaurants dining
+CHANGED
+Entertainment
+Museums, zoos; Casinos
+Museums, zoos; Casinos; Movie theaters; Libraries; Amusement parks, bowling alleys
+CHANGED
+Personal care
+Hair salons, barbershops
+Hair salons, barbershops; Nail salons; Tattoo parlors, spas
+CHANGED
+Outdoor and recreation
+Beaches
+Beaches; Gyms
+6/26
+CHANGED
+Food and drink
+Restaurants dining
+Restaurant dining
+6/27
+ADDED
+Houses of worship
+[no info]
+7/9
+CHANGED
+Outdoor and recreation
+Beaches; Gyms
+Beaches; Gyms; State campgrounds

@@ -1,0 +1,66 @@
+5/1
+ADDED
+Outdoor and recreation
+Golfing; Recreational equipment, including boats, golf carts and kayaks; State parks
+5/2
+CHANGED
+Outdoor and recreation
+Golfing; Recreational equipment, including boats, golf carts and kayaks; State parks
+Golfing; Recreational equipment rentals, including boats, golf carts and kayaks; State parks
+5/6
+ADDED
+Retail stores
+Retail stores open for curbside pickup
+ADDED
+Personal care
+Pet groomers for curbside dropoff
+CHANGED
+Outdoor and recreation
+Golfing; Recreational equipment rentals, including boats, golf carts and kayaks; State parks
+Golfing; State parks
+5/8
+REMOVED
+Retail stores
+Retail stores open for curbside pickup
+ADDED
+Retail
+Retail stores open for curbside pickup
+CHANGED
+Outdoor and recreation
+Golfing; State parks
+Golf courses; State parks
+5/12
+CHANGED
+Retail
+Retail stores open for curbside pickup
+Retail stores for curbside pick up only; Limited retail shopping
+5/16
+CHANGED
+Retail
+Retail stores for curbside pick up only; Limited retail shopping
+Retail stores
+6/22
+ADDED
+Houses of worship
+[no info]
+6/24
+ADDED
+Food and drink
+Restaurants and bars
+CHANGED
+Personal care
+Pet groomers for curbside dropoff
+Pet groomers for curbside dropoff; Hair salons, spas, barbershops
+6/25
+CHANGED
+Outdoor and recreation
+Golf courses; State parks
+Golf courses; State parks; Gyms
+6/26
+REMOVED
+Houses of worship
+[no info]
+6/27
+ADDED
+Houses of worship
+[no info]

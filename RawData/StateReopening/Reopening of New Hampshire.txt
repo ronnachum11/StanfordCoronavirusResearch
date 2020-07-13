@@ -1,0 +1,66 @@
+5/11
+ADDED
+Retail
+Retail stores
+ADDED
+Personal care
+Barbershops, hair salons, etc.
+ADDED
+Outdoor and recreation
+Golf courses
+5/18
+ADDED
+Food and drink
+Restaurants open for outdoor dining
+5/19
+CHANGED
+Outdoor and recreation
+Golf courses
+Golf courses; Outdoor attractions
+6/1
+CHANGED
+Personal care
+Barbershops, hair salons, etc.
+Barbershops, hair salons, etc.; Nail salons; Tanning salons; Tattoo shops; Acupuncturists and massage therapists
+CHANGED
+Outdoor and recreation
+Golf courses; Outdoor attractions
+Golf courses; Outdoor attractions; Beaches; Personal and small group fitness training
+6/3
+ADDED
+Houses of worship
+[no info]
+6/15
+ADDED
+Entertainment
+Libraries, museums, art galleries; Bowling alleys and entertainment centers
+CHANGED
+Food and drink
+Restaurants open for outdoor dining
+Restaurants open for outdoor dining; Restaurant dining in some counties
+CHANGED
+Outdoor and recreation
+Golf courses; Outdoor attractions; Beaches; Personal and small group fitness training
+Golf courses; Outdoor attractions; Beaches; Personal and small group fitness training; Gyms; Pools
+6/24
+CHANGED
+Food and drink
+Restaurants open for outdoor dining; Restaurant dining in some counties
+Restaurant dining
+6/26
+REMOVED
+Houses of worship
+[no info]
+CHANGED
+Outdoor and recreation
+Golf courses; Outdoor attractions; Beaches; Personal and small group fitness training; Gyms; Pools
+Golf courses; Outdoor attractions; Beaches; Gyms; Pools
+6/27
+ADDED
+Houses of worship
+[no info]
+6/30
+CHANGED
+Entertainment
+Libraries, museums, art galleries; Bowling alleys and entertainment centers
+Libraries, museums, art galleries; Bowling alleys and entertainment centers; Movie theaters; Amusement parks; Live performances

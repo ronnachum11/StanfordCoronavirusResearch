@@ -1,0 +1,137 @@
+5/1
+ADDED
+Retail and beauty
+Retail stores open to curbside pickup
+ADDED
+Outdoor and recreation
+Golfing, boating
+5/6
+REMOVED
+Retail and beauty
+Retail stores open to curbside pickup
+ADDED
+Retail stores
+Retail stores open to curbside pickup
+5/7
+ADDED
+Industries
+Construction, real estate
+5/8
+REMOVED
+Retail stores
+Retail stores open to curbside pickup
+ADDED
+Retail
+Retail stores open to curbside pickup
+CHANGED
+Outdoor and recreation
+Golfing, boating
+Golf courses boating
+5/9
+CHANGED
+Outdoor and recreation
+Golf courses boating
+Golf courses, boating
+5/11
+CHANGED
+Industries
+Construction, real estate
+Manufacturing, including auto companies; Construction, real estate
+5/12
+CHANGED
+Industries
+Manufacturing, including auto companies; Construction, real estate
+Construction, real estate; Manufacturing, including auto companies
+5/15
+CHANGED
+Outdoor and recreation
+Golf courses, boating
+Golf courses, marinas
+5/22
+ADDED
+Food and drink
+Restaurants in certain counties; Bars in certain counties
+CHANGED
+Industries
+Construction, real estate; Manufacturing, including auto companies
+Construction, real estate; Manufacturing, including auto companies; Offices in certain counties
+CHANGED
+Retail
+Retail stores open to curbside pickup
+Retail stores open to curbside pickup; Retail in certain counties
+5/26
+CHANGED
+Retail
+Retail stores open to curbside pickup; Retail in certain counties
+Retail statewide by appointment
+5/28
+ADDED
+Medical
+Veterinary services statewide
+6/3
+CHANGED
+Industries
+Construction, real estate; Manufacturing, including auto companies; Offices in certain counties
+Construction, real estate; Manufacturing, including auto companies; Offices
+6/4
+CHANGED
+Retail
+Retail statewide by appointment
+Retail
+6/5
+ADDED
+Personal care
+Pet groomers
+6/8
+REMOVED
+Medical
+Veterinary services statewide
+6/9
+CHANGED
+Food and drink
+Restaurants in certain counties; Bars in certain counties
+Restaurant dining; Bars
+CHANGED
+Outdoor and recreation
+Golf courses, marinas
+Golf courses, marinas; Pools
+6/10
+ADDED
+Entertainment
+Arcades, bowling alleys, theaters, night clubs and convention centers
+CHANGED
+Personal care
+Pet groomers
+Pet groomers; Hair salons, barbershops, nail salons, tattoo parlors in some regions
+CHANGED
+Outdoor and recreation
+Golf courses, marinas; Pools
+Golf courses, marinas; Pools; Gyms
+6/11
+CHANGED
+Entertainment
+Arcades, bowling alleys, theaters, night clubs and convention centers
+Arcades, bowling alleys, theaters, night clubs and convention centers in some regions
+CHANGED
+Outdoor and recreation
+Golf courses, marinas; Pools; Gyms
+Golf courses, marinas; Pools; Gyms in some regions
+6/15
+CHANGED
+Personal care
+Pet groomers; Hair salons, barbershops, nail salons, tattoo parlors in some regions
+Pet groomers; Hair salons, barbershops, nail salons, tattoo parlors
+6/26
+CHANGED
+Retail
+Retail
+Retail stores
+6/27
+ADDED
+Houses of worship
+[no info]
+7/2
+CHANGED
+Food and drink
+Restaurant dining; Bars
+Bars for indoor service in certain counties; Restaurant dining; Bars for outdoor service

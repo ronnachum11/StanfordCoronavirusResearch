@@ -1,0 +1,86 @@
+5/1
+ADDED
+Retail and beauty
+Retail stores open to curbside pickup
+ADDED
+Outdoor and recreation
+Golf, pickleball and tennis
+5/6
+REMOVED
+Retail and beauty
+Retail stores open to curbside pickup
+ADDED
+Retail stores
+Retail stores open to curbside pickup
+5/8
+REMOVED
+Retail stores
+Retail stores open to curbside pickup
+ADDED
+Retail
+Retail stores open to curbside pickup
+CHANGED
+Outdoor and recreation
+Golf, pickleball and tennis
+Golf courses, pickleball, tennis courts
+5/9
+ADDED
+Food and drink
+Restaurants
+ADDED
+Personal care
+Barbershops, hair salons and nail salons
+CHANGED
+Retail
+Retail stores open to curbside pickup
+Retail stores
+CHANGED
+Outdoor and recreation
+Golf courses, pickleball, tennis courts
+State parks; Golf courses, pickleball, tennis courts
+5/12
+CHANGED
+Outdoor and recreation
+State parks; Golf courses, pickleball, tennis courts
+Golf courses, pickleball, tennis courts; State parks
+5/29
+ADDED
+Entertainment
+Museums, art galleries, zoos and aquariums; Movie theaters, bowling alleys; Outdoor attractions
+ADDED
+Houses of worship
+[no info]
+CHANGED
+Retail
+Retail stores
+Retail stores; Malls
+CHANGED
+Food and drink
+Restaurants
+Restaurants; Bars
+CHANGED
+Personal care
+Barbershops, hair salons and nail salons
+Barbershops, hair salons and nail salons; Cosmetology and skin services; Massage therapy; Tattoo and piercing shops
+CHANGED
+Outdoor and recreation
+Golf courses, pickleball, tennis courts; State parks
+Golf courses, pickleball, tennis courts; State parks; Gyms; Pools and waterparks
+6/4
+CHANGED
+Entertainment
+Museums, art galleries, zoos and aquariums; Movie theaters, bowling alleys; Outdoor attractions
+Museums, art galleries, zoos and aquariums; Movie theaters, bowling alleys; Outdoor attractions; Gaming
+6/26
+CHANGED
+Entertainment
+Museums, art galleries, zoos and aquariums; Movie theaters, bowling alleys; Outdoor attractions; Gaming
+Museums, art galleries, zoos and aquariums; Movie theaters, bowling alleys; Gaming
+CHANGED
+Personal care
+Barbershops, hair salons and nail salons; Cosmetology and skin services; Massage therapy; Tattoo and piercing shops
+Barbershops, hair salons and nail salons; Massage therapy; Tattoo and piercing shops
+CHANGED
+Outdoor and recreation
+Golf courses, pickleball, tennis courts; State parks; Gyms; Pools and waterparks
+Golf courses, pickleball, tennis courts; State parks; Gyms; Pools and water parks

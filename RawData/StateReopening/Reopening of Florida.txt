@@ -1,0 +1,75 @@
+5/4
+ADDED
+Food and drink
+Restaurant dining
+ADDED
+Retail and beauty
+Retail stores
+5/6
+REMOVED
+Retail and beauty
+Retail stores
+ADDED
+Retail stores
+[no info]
+5/7
+ADDED
+Outdoor and recreation
+Beaches and trails
+5/8
+REMOVED
+Retail stores
+[no info]
+ADDED
+Retail
+Retail stores
+CHANGED
+Outdoor and recreation
+Beaches and trails
+Beaches, trails
+5/12
+ADDED
+Entertainment
+Sporting venues without spectators
+ADDED
+Houses of worship
+[no info]
+5/18
+CHANGED
+Outdoor and recreation
+Beaches, trails
+Beaches, trails; Gyms
+6/5
+ADDED
+Personal care
+Tattoo parlors, massage therapy, tanning salons, acupuncture in most counties
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Bars in most counties
+CHANGED
+Entertainment
+Sporting venues without spectators
+Sporting venues without spectators; Movie theaters, concert halls, bowling alleys in most counties
+6/22
+CHANGED
+Entertainment
+Sporting venues without spectators; Movie theaters, concert halls, bowling alleys in most counties
+Sporting venues without spectators; Museums, libraries; Movie theaters, concert halls, bowling alleys in most counties
+6/24
+CHANGED
+Personal care
+Tattoo parlors, massage therapy, tanning salons, acupuncture in most counties
+Salons; Tattoo parlors, massage therapy, tanning salons, acupuncture in most counties
+6/26
+REMOVED
+Houses of worship
+[no info]
+6/27
+ADDED
+Houses of worship
+[no info]
+CHANGED
+Food and drink
+Restaurant dining; Bars in most counties
+Restaurant dining

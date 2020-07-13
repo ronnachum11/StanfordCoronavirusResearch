@@ -1,0 +1,48 @@
+5/1
+ADDED
+Industries
+Some construction
+5/7
+ADDED
+Outdoor and recreation
+Parks, golf courses, trails etc.
+CHANGED
+Industries
+Some construction
+Manufacturing, construction and distribution
+5/8
+CHANGED
+Industries
+Manufacturing, construction and distribution
+Manufacturing, construction, distribution
+CHANGED
+Outdoor and recreation
+Parks, golf courses, trails etc.
+State parks, golf courses, trails etc.
+5/18
+ADDED
+Retail
+Retail stores
+6/10
+ADDED
+Food and drink
+Restaurant dining
+ADDED
+Entertainment
+Museums, theaters, libraries
+ADDED
+Personal care
+Hair salons and barbershops; Nail salons, spas, tattoo parlors
+CHANGED
+Outdoor and recreation
+State parks, golf courses, trails etc.
+State parks, golf courses, trails etc.; Campgrounds; Gyms, fitness centers
+6/26
+CHANGED
+Outdoor and recreation
+State parks, golf courses, trails etc.; Campgrounds; Gyms, fitness centers
+State parks, golf courses, trails, etc.; Campgrounds; Gyms, fitness centers
+6/27
+ADDED
+Houses of worship
+[no info]

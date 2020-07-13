@@ -1,0 +1,75 @@
+5/6
+ADDED
+Retail stores
+Retail stores open to curbside pickup only
+ADDED
+Food and drink
+Restaurants open to outdoor dining
+5/8
+REMOVED
+Retail stores
+Retail stores open to curbside pickup only
+ADDED
+Retail
+Retail stores open to curbside pickup
+CHANGED
+Food and drink
+Restaurants open to outdoor dining
+Restaurants open for outdoor dining
+5/9
+CHANGED
+Food and drink
+Restaurants open for outdoor dining
+Restaurants open for outdoor dining, without tableside service
+5/15
+ADDED
+Entertainment
+Movie theaters; Certain museums, zoos and aquariums
+ADDED
+Personal care
+Salons and barbershops
+ADDED
+Houses of worship
+[no info]
+ADDED
+Outdoor and recreation
+Gyms; State parks
+CHANGED
+Retail
+Retail stores open to curbside pickup
+Mall stores open to curbside pickup; Malls
+CHANGED
+Food and drink
+Restaurants open for outdoor dining, without tableside service
+Restaurants open for outdoor dining, without tableside service; Restaurant dining; Bars with food licenses
+5/16
+CHANGED
+Retail
+Mall stores open to curbside pickup; Malls
+Malls
+CHANGED
+Food and drink
+Restaurants open for outdoor dining, without tableside service; Restaurant dining; Bars with food licenses
+Restaurant dining; Bars with food licenses
+5/18
+CHANGED
+Entertainment
+Movie theaters; Certain museums, zoos and aquariums
+Movie theaters; Certain museums, zoos and aquariums; Casinos
+6/5
+CHANGED
+Food and drink
+Restaurant dining; Bars with food licenses
+Restaurant dining; Bars
+CHANGED
+Entertainment
+Movie theaters; Certain museums, zoos and aquariums; Casinos
+Movie theaters; Certain museums, zoos and aquariums; Casinos; Event centers
+CHANGED
+Personal care
+Salons and barbershops
+Salons and barbershops; Spas, tattoo parlors
+CHANGED
+Outdoor and recreation
+Gyms; State parks
+Gyms; State parks; Pools; Bowling alleys, skating rinks

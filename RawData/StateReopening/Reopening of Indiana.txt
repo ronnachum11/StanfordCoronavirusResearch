@@ -1,0 +1,82 @@
+5/4
+ADDED
+Retail and beauty
+Retail stores
+5/6
+REMOVED
+Retail and beauty
+Retail stores
+ADDED
+Retail stores
+[no info]
+ADDED
+Industries
+Manufacturing, offices
+ADDED
+Entertainment
+Public libraries
+5/8
+REMOVED
+Retail stores
+[no info]
+ADDED
+Retail
+Retail stores
+ADDED
+Houses of worship
+[no info]
+CHANGED
+Entertainment
+Public libraries
+Libraries
+5/11
+ADDED
+Food and drink
+Restaurant dining
+ADDED
+Personal care
+Spas, salons, barbershops, tattoo parlors
+5/22
+ADDED
+Outdoor and recreation
+Gyms in most counties; Pools, tennis and basketball courts in most counties; Campgrounds in most counties
+CHANGED
+Retail
+Retail stores
+Retail stores in all counties
+CHANGED
+Entertainment
+Libraries
+Libraries; Movie theaters in most counties
+6/1
+CHANGED
+Outdoor and recreation
+Gyms in most counties; Pools, tennis and basketball courts in most counties; Campgrounds in most counties
+Gyms; Pools, tennis and basketball courts; Campgrounds
+6/12
+CHANGED
+Retail
+Retail stores in all counties
+Retail stores
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Bars and nightclubs
+CHANGED
+Entertainment
+Libraries; Movie theaters in most counties
+Libraries; Museums, zoos and aquariums; Large venues; Movie theaters, bowling alleys
+CHANGED
+Outdoor and recreation
+Gyms; Pools, tennis and basketball courts; Campgrounds
+Gyms; Pools, tennis and basketball courts; Campgrounds; Amusement parks, water parks
+6/25
+CHANGED
+Entertainment
+Libraries; Museums, zoos and aquariums; Large venues; Movie theaters, bowling alleys
+Libraries; Museums, zoos and aquariums; Venues; Movie theaters; Bowling alleys
+7/3
+CHANGED
+Entertainment
+Libraries; Museums, zoos and aquariums; Venues; Movie theaters; Bowling alleys
+Libraries; Museums, zoos and aquariums; Venues; Movie theaters; Bowling alleys; Conventions, fairs, parades and similar events in most counties

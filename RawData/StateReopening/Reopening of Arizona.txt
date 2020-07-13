@@ -1,0 +1,47 @@
+5/4
+ADDED
+Retail and beauty
+Retail stores open to curbside pickup
+5/6
+REMOVED
+Retail and beauty
+Retail stores open to curbside pickup
+ADDED
+Retail stores
+Retail stores open to curbside pickup
+5/8
+REMOVED
+Retail stores
+Retail stores open to curbside pickup
+ADDED
+Retail
+Retail stores open to curbside pickup; Retail stores open to in-person shopping
+ADDED
+Personal care
+Barbershops, salons, etc.
+5/11
+ADDED
+Food and drink
+Restaurant dining
+5/14
+ADDED
+Outdoor and recreation
+Pools, gyms, spas
+5/15
+CHANGED
+Retail
+Retail stores open to curbside pickup; Retail stores open to in-person shopping
+Retail stores
+5/19
+ADDED
+Entertainment
+Casinos
+6/27
+ADDED
+Houses of worship
+[no info]
+6/30
+CHANGED
+Outdoor and recreation
+Pools, gyms, spas
+Pools, spas

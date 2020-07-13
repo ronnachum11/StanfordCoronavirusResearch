@@ -1,0 +1,87 @@
+5/1
+ADDED
+Outdoor and recreation
+Beaches, piers, docks etc.
+5/6
+CHANGED
+Outdoor and recreation
+Beaches, piers, docks etc.
+Beaches, piers, docks, etc.
+5/7
+ADDED
+Retail stores
+Retail stores; Repair stores
+ADDED
+Personal care
+Pet groomers
+CHANGED
+Outdoor and recreation
+Beaches, piers, docks, etc.
+Beaches, piers, docks, etc.; State parks
+5/8
+REMOVED
+Retail stores
+Retail stores; Repair stores
+ADDED
+Retail
+Retail stores
+5/27
+ADDED
+Industries
+Construction in some areas
+ADDED
+Houses of worship
+[no info]
+CHANGED
+Personal care
+Pet groomers
+Pet groomers; Salons and barbershops in some areas
+CHANGED
+Outdoor and recreation
+Beaches, piers, docks, etc.; State parks
+Beaches, piers, docks, etc.; State parks; Pools in some areas
+5/29
+CHANGED
+Personal care
+Pet groomers; Salons and barbershops in some areas
+Pet groomers; Salons and barbershops in some areas; Nail salons in some areas; Tattoo parlors in some areas
+CHANGED
+Outdoor and recreation
+Beaches, piers, docks, etc.; State parks; Pools in some areas
+Beaches, piers, docks, etc.; State parks; Pools and waterparks in some areas; Campgrounds in some areas
+6/1
+ADDED
+Food and drink
+Restaurant dining in some areas
+CHANGED
+Outdoor and recreation
+Beaches, piers, docks, etc.; State parks; Pools and waterparks in some areas; Campgrounds in some areas
+Beaches, piers, docks, etc.; State parks; Pools and waterparks in some areas; Campgrounds in some areas; Gyms in some areas
+6/5
+CHANGED
+Industries
+Construction in some areas
+Construction in some areas; Offices in some areas
+6/6
+CHANGED
+Personal care
+Pet groomers; Salons and barbershops in some areas; Nail salons in some areas; Tattoo parlors in some areas
+Pet groomers; Nail salons in some areas; Tattoo parlors in some areas; Salons and barbershops
+6/22
+CHANGED
+Food and drink
+Restaurant dining in some areas
+Restaurant dining
+CHANGED
+Outdoor and recreation
+Beaches, piers, docks, etc.; State parks; Pools and waterparks in some areas; Campgrounds in some areas; Gyms in some areas
+Beaches, piers, docks, etc.; State parks; Pools and waterparks in some areas; Campgrounds in some areas; Gyms
+6/26
+ADDED
+Entertainment
+Arcades, bowling alleys, theaters in some areas
+6/27
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Bars

@@ -1,0 +1,55 @@
+5/1
+ADDED
+Retail and beauty
+Retail stores
+ADDED
+Outdoor and recreation
+Beaches, piers, docks, etc.
+5/4
+ADDED
+Food and drink
+Restaurants for outdoor service only
+5/6
+REMOVED
+Retail and beauty
+Retail stores
+ADDED
+Retail stores
+[no info]
+5/8
+REMOVED
+Retail stores
+[no info]
+ADDED
+Retail
+Retail stores
+CHANGED
+Food and drink
+Restaurants for outdoor service only
+Restaurants open for outdoor dining
+5/11
+CHANGED
+Food and drink
+Restaurants open for outdoor dining
+Restaurant dining
+5/18
+ADDED
+Personal care
+Salons, barbershops, tattoo parlors etc.
+CHANGED
+Outdoor and recreation
+Beaches, piers, docks, etc.
+Beaches, piers, docks, etc.; Gyms; Pools
+6/25
+ADDED
+Entertainment
+Museums, zoos, aquariums
+6/26
+CHANGED
+Personal care
+Salons, barbershops, tattoo parlors etc.
+Salons, barbershops, tattoo parlors, etc.
+6/27
+ADDED
+Houses of worship
+[no info]

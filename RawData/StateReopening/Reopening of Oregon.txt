@@ -1,0 +1,77 @@
+5/6
+ADDED
+Outdoor and recreation
+Some state parks, outdoor recreation facilities
+5/15
+ADDED
+Retail
+Retail stores
+ADDED
+Food and drink
+Restaurant dining in some counties
+ADDED
+Personal care
+Salons, barbershops in some counties
+CHANGED
+Outdoor and recreation
+Some state parks, outdoor recreation facilities
+Some state parks, outdoor recreation facilities; Gyms in some counties
+6/5
+ADDED
+Industries
+Offices
+ADDED
+Entertainment
+Movie theaters, bowling alleys
+CHANGED
+Outdoor and recreation
+Some state parks, outdoor recreation facilities; Gyms in some counties
+Some state parks, outdoor recreation facilities; Gyms in some counties; Pools
+6/6
+CHANGED
+Industries
+Offices
+Offices in some counties
+CHANGED
+Entertainment
+Movie theaters, bowling alleys
+Movie theaters, bowling alleys in some counties
+CHANGED
+Outdoor and recreation
+Some state parks, outdoor recreation facilities; Gyms in some counties; Pools
+Some state parks, outdoor recreation facilities; Gyms in some counties; Pools in some counties
+6/11
+CHANGED
+Industries
+Offices in some counties
+Offices in most counties
+CHANGED
+Entertainment
+Movie theaters, bowling alleys in some counties
+Movie theaters, bowling alleys in most counties
+CHANGED
+Outdoor and recreation
+Some state parks, outdoor recreation facilities; Gyms in some counties; Pools in some counties
+Some state parks, outdoor recreation facilities; Gyms in some counties; Pools in most counties
+6/22
+CHANGED
+Food and drink
+Restaurant dining in some counties
+Restaurants and bars
+CHANGED
+Personal care
+Salons, barbershops in some counties
+Salons, barbershops
+CHANGED
+Outdoor and recreation
+Some state parks, outdoor recreation facilities; Gyms in some counties; Pools in most counties
+Some state parks, outdoor recreation facilities; Pools in most counties; Gyms
+6/24
+ADDED
+Houses of worship
+[no info]
+6/26
+CHANGED
+Outdoor and recreation
+Some state parks, outdoor recreation facilities; Pools in most counties; Gyms
+Some state parks; Pools in most counties; Gyms

@@ -1,0 +1,52 @@
+5/4
+ADDED
+Food and drink
+Restaurant dining
+ADDED
+Retail and beauty
+Salons, barbers, tattoo parlors etc.; Retail stores
+ADDED
+Outdoor and recreation
+Gyms
+5/6
+REMOVED
+Retail and beauty
+Salons, barbers, tattoo parlors etc.; Retail stores
+ADDED
+Retail stores
+[no info]
+ADDED
+Entertainment
+Movie theaters, concert venues, etc.
+ADDED
+Personal care
+Salons, barbers, tattoo parlors, etc.
+5/8
+REMOVED
+Retail stores
+[no info]
+ADDED
+Retail
+Retail stores
+CHANGED
+Entertainment
+Movie theaters, concert venues, etc.
+Movie theaters, music venues, etc.
+CHANGED
+Personal care
+Salons, barbers, tattoo parlors, etc.
+Salons, barbershops, tattoo parlors, etc.
+5/19
+CHANGED
+Outdoor and recreation
+Gyms
+Gyms; Campgrounds
+6/24
+CHANGED
+Entertainment
+Movie theaters, music venues, etc.
+Movie theaters, music venues, etc.; Casinos
+6/27
+ADDED
+Houses of worship
+[no info]

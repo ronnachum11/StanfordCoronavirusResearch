@@ -1,0 +1,64 @@
+5/8
+ADDED
+Outdoor and recreation
+Golf courses
+5/18
+ADDED
+Industries
+Construction, manufacturing
+ADDED
+Houses of worship
+[no info]
+5/26
+ADDED
+Retail
+Retail for curbside pickup
+ADDED
+Personal care
+Hair salons, barbershops; Pet grooming
+CHANGED
+Industries
+Construction, manufacturing
+Construction, manufacturing; Offices
+CHANGED
+Outdoor and recreation
+Golf courses
+Golf courses; Beaches, parks, fishing, hunting and boating
+6/8
+ADDED
+Food and drink
+Outdoor dining at restaurants
+CHANGED
+Industries
+Construction, manufacturing; Offices
+Construction, manufacturing; Offices; Hotels, lodging
+CHANGED
+Retail
+Retail for curbside pickup
+Retail for curbside pickup; Retail
+6/22
+CHANGED
+Retail
+Retail for curbside pickup; Retail
+Retail
+CHANGED
+Food and drink
+Outdoor dining at restaurants
+Restaurant dining
+CHANGED
+Personal care
+Hair salons, barbershops; Pet grooming
+Hair salons, barbershops; Pet grooming; Nail salons, massage parlors, tanning salons
+6/26
+CHANGED
+Retail
+Retail
+Retail stores
+7/6
+ADDED
+Entertainment
+Bowling alleys in most regions; Museums, aquariums in most regions; Theaters and performance venues in most regions; Movie theaters in most regions; Casinos in most regions
+CHANGED
+Outdoor and recreation
+Golf courses; Beaches, parks, fishing, hunting and boating
+Golf courses; Beaches, parks, fishing, hunting and boating; Gyms in most regions

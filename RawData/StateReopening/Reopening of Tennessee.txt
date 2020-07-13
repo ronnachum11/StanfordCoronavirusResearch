@@ -1,0 +1,64 @@
+5/1
+ADDED
+Food and drink
+Restaurant dining in most counties
+ADDED
+Retail and beauty
+Retail stores in most counties
+ADDED
+Outdoor and recreation
+State parks; Gyms in most counties
+5/6
+REMOVED
+Retail and beauty
+Retail stores in most counties
+ADDED
+Retail stores
+Retail stores in most counties
+ADDED
+Personal care
+Salons, barbers, etc. in most counties
+5/8
+REMOVED
+Retail stores
+Retail stores in most counties
+ADDED
+Retail
+Retail stores in most counties
+CHANGED
+Personal care
+Salons, barbers, etc. in most counties
+Salons, barbershops, etc. in most counties
+5/22
+CHANGED
+Outdoor and recreation
+State parks; Gyms in most counties
+State parks; Gyms in most counties; Theaters, museums, amusement parks
+6/26
+ADDED
+Entertainment
+Theaters, museums, amusement parks
+CHANGED
+Outdoor and recreation
+State parks; Gyms in most counties; Theaters, museums, amusement parks
+State parks; Gyms in most counties
+7/2
+ADDED
+Houses of worship
+[no info]
+CHANGED
+Retail
+Retail stores in most counties
+Retail stores
+CHANGED
+Food and drink
+Restaurant dining in most counties
+Restaurant dining
+CHANGED
+Personal care
+Salons, barbershops, etc. in most counties
+Salons, barbershops, etc.
+CHANGED
+Outdoor and recreation
+State parks; Gyms in most counties
+State parks; Gyms
