@@ -154,15 +154,15 @@ public class StateReopeningScrape_AllCaptures {
 		urls.add("");
 		ArrayList<Integer> days = new ArrayList<Integer>();
 		ArrayList<Integer> months = new ArrayList<Integer>();
-		days.add(-1);
-		months.add(-1);
+		days.add(4);
+		months.add(30);
 		// start from 2020 May 1
 		int month = 5;
 		int day = 1;
 		int[] daysInMonth = {0, 0, 0, 0, 0, 31, 30, 31, 31, 30, 31, 30, 31};
 		// change endMonth and endDay as needed
-		int endMonth = 5;
-		int endDay = 20;
+		int endMonth = 7;
+		int endDay = 10;
 		while (endMonth != month || endDay != day) {
 			String stringMonth = Integer.toString(month);
 			if (month < 10) {
@@ -174,10 +174,7 @@ public class StateReopeningScrape_AllCaptures {
 			}
 			// note that Internet Archive uses 24-hour GMT
 			// GMT is four hours ahead of New York's EST
-			// change firstHr and dHr as needed (and then rewrite output code)
-			int firstHr = 9; // 5:00 EST
-			int dHr = 24; // only one url per day
-			for (int hr = firstHr; hr < 24; hr += dHr) {
+			for (int hr : new int[]{16}) {
 				String stringHr = Integer.toString(hr);
 				if (hr < 10) {
 					stringHr = "0" + stringHr;
@@ -207,9 +204,12 @@ public class StateReopeningScrape_AllCaptures {
 		// use data to write output files (one for each state)
 		System.out.println("Generating output...");
 		for (String state : states) {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(state + "_Reopening.txt"));
+			BufferedWriter bw = new BufferedWriter(new FileWriter("Reopening of " + state + ".txt"));
+			boolean writtenDate = false;
 			for (int i = 1; i < urls.size(); i++) {
-				boolean writtenDate = false;
+				if (days.get(i) != days.get(i - 1)) {
+					writtenDate = false;
+				}
 				HashMap<String, String> curr = data.get(state).get(urls.get(i));
 				HashMap<String, String> prev = data.get(state).get(urls.get(i - 1));
 				// check for removed categories
@@ -219,7 +219,9 @@ public class StateReopeningScrape_AllCaptures {
 							bw.write(months.get(i) + "/" + days.get(i) + '\n');
 							writtenDate = true;
 						}
-						bw.write("REMOVED: " + category + " : " + prev.get(category) + '\n');
+						bw.write("REMOVED" + '\n');
+						bw.write(category + '\n');
+						bw.write(prev.get(category) + '\n');
 					}
 				}
 				// check for added categories
@@ -229,7 +231,9 @@ public class StateReopeningScrape_AllCaptures {
 							bw.write(months.get(i) + "/" + days.get(i) + '\n');
 							writtenDate = true;
 						}
-						bw.write("ADDED: " + category + " : " + curr.get(category) + '\n');
+						bw.write("ADDED" + '\n');
+						bw.write(category + '\n');
+						bw.write(curr.get(category) + '\n');
 					}
 				}
 				// check for changed categories
@@ -239,7 +243,10 @@ public class StateReopeningScrape_AllCaptures {
 							bw.write(months.get(i) + "/" + days.get(i) + '\n');
 							writtenDate = true;
 						}
-						bw.write("CHANGED: " + category + " : " + prev.get(category) + " : " + curr.get(category) + '\n');
+						bw.write("CHANGED" + '\n');
+						bw.write(category + '\n');
+						bw.write(prev.get(category) + '\n');
+						bw.write(curr.get(category) + '\n');
 					}
 				}
 			}
