@@ -1,0 +1,40 @@
+5/1
+ADDED
+Retail and beauty
+Retail stores
+ADDED
+Outdoor and recreation
+Beaches
+5/6
+REMOVED
+Retail and beauty
+Retail stores
+ADDED
+Retail stores
+[no info]
+5/8
+REMOVED
+Retail stores
+[no info]
+ADDED
+Retail
+Retail stores
+5/11
+ADDED
+Food and drink
+Restaurant dining, bars and breweries
+ADDED
+Personal care
+Salons
+CHANGED
+Outdoor and recreation
+Beaches
+Beaches; Gyms
+5/22
+ADDED
+Entertainment
+Entertainment venues
+6/27
+ADDED
+Houses of worship
+[no info]
