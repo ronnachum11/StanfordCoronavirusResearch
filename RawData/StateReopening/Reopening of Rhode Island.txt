@@ -1,0 +1,56 @@
+5/9
+ADDED
+Industries
+Offices
+ADDED
+Retail
+Retail stores
+ADDED
+Personal care
+Hair salons, barbershops
+ADDED
+Outdoor and recreation
+State parks
+5/18
+ADDED
+Food and drink
+Restaurants for outdoor dining
+5/30
+ADDED
+Houses of worship
+[no info]
+6/1
+CHANGED
+Industries
+Offices
+Offices; Malls
+CHANGED
+Food and drink
+Restaurants for outdoor dining
+Restaurant dining
+CHANGED
+Personal care
+Hair salons, barbershops
+Hair salons, barbershops; Nail salons, massage parlors, tattoo shops
+CHANGED
+Outdoor and recreation
+State parks
+State parks; Beaches; Gyms
+6/8
+CHANGED
+Outdoor and recreation
+State parks; Beaches; Gyms
+State parks; Beaches; Gyms; Casinos
+6/26
+REMOVED
+Houses of worship
+[no info]
+6/27
+ADDED
+Houses of worship
+[no info]
+7/1
+CHANGED
+Outdoor and recreation
+State parks; Beaches; Gyms; Casinos
+State parks; Beaches; Gyms; Casinos; Campgrounds

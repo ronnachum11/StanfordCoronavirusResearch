@@ -1,0 +1,96 @@
+5/1
+ADDED
+Retail and beauty
+Salons, barbershops, pet groomers
+ADDED
+Outdoor and recreation
+State parks; Hunting, fishing, limited golfing
+5/6
+REMOVED
+Retail and beauty
+Salons, barbershops, pet groomers
+ADDED
+Personal care
+Salons, barbershops, pet groomers
+5/8
+CHANGED
+Outdoor and recreation
+State parks; Hunting, fishing, limited golfing
+State parks; State parks, limited fishing, boating, golf courses
+5/11
+ADDED
+Retail
+Retail stores in most counties
+5/15
+CHANGED
+Personal care
+Salons, barbershops, pet groomers
+Hair salons, barbershops, pet groomers
+CHANGED
+Outdoor and recreation
+State parks; State parks, limited fishing, boating, golf courses
+State parks, limited fishing, boating, golf courses
+5/18
+ADDED
+Food and drink
+Restaurants in most counties
+CHANGED
+Outdoor and recreation
+State parks, limited fishing, boating, golf courses
+State parks, limited fishing, boating, golf courses; Campgrounds, hunting and fishing
+5/20
+CHANGED
+Outdoor and recreation
+State parks, limited fishing, boating, golf courses; Campgrounds, hunting and fishing
+State parks, boating, golf courses; Remote campgrounds, hunting and fishing
+5/22
+CHANGED
+Outdoor and recreation
+State parks, boating, golf courses; Remote campgrounds, hunting and fishing
+State parks, boating, golf courses; Remote campgrounds, hunting and fishing; Private campgrounds, RV parks
+6/1
+ADDED
+Houses of worship
+[no info]
+CHANGED
+Retail
+Retail stores in most counties
+Retail stores
+CHANGED
+Food and drink
+Restaurants in most counties
+Restaurants
+6/12
+CHANGED
+Food and drink
+Restaurants
+Restaurants; Bars for outdoor service in most counties
+CHANGED
+Personal care
+Hair salons, barbershops, pet groomers
+Hair salons, barbershops, pet groomers; Nail salons and tattoo parlors in most counties
+CHANGED
+Outdoor and recreation
+State parks, boating, golf courses; Remote campgrounds, hunting and fishing; Private campgrounds, RV parks
+State parks, boating, golf courses; Remote campgrounds, hunting and fishing; Private campgrounds, RV parks; Gyms in most counties
+6/17
+CHANGED
+Food and drink
+Restaurants; Bars for outdoor service in most counties
+Restaurants; Bars open for outdoor service
+CHANGED
+Personal care
+Hair salons, barbershops, pet groomers; Nail salons and tattoo parlors in most counties
+Hair salons, barbershops, pet groomers; Nail salons and tattoo parlors
+CHANGED
+Outdoor and recreation
+State parks, boating, golf courses; Remote campgrounds, hunting and fishing; Private campgrounds, RV parks; Gyms in most counties
+State parks, boating, golf courses; Remote campgrounds, hunting and fishing; Private campgrounds, RV parks; Gyms
+7/2
+ADDED
+Entertainment
+Amusement parks, water parks; Bowling alleys and arcades; Movie theaters; Performing arts venues
+CHANGED
+Personal care
+Hair salons, barbershops, pet groomers; Nail salons and tattoo parlors
+Hair salons, barbershops, pet groomers; Nail salons and tattoo parlors; Spas and massage parlors

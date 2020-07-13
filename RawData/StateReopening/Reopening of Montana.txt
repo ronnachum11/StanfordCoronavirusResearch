@@ -1,0 +1,49 @@
+5/1
+ADDED
+Retail and beauty
+Retail stores
+ADDED
+Houses of worship
+[no info]
+5/4
+ADDED
+Food and drink
+Restaurant dining, bars, breweries and distilleries
+5/6
+REMOVED
+Retail and beauty
+Retail stores
+ADDED
+Retail stores
+[no info]
+ADDED
+Personal care
+Salons, barbers, massage parlors
+5/8
+REMOVED
+Retail stores
+[no info]
+ADDED
+Retail
+Retail stores
+CHANGED
+Personal care
+Salons, barbers, massage parlors
+Salons, barbershops, massage parlors
+5/15
+ADDED
+Entertainment
+Museums, movie theaters
+ADDED
+Outdoor and recreation
+Gyms
+6/1
+CHANGED
+Entertainment
+Museums, movie theaters
+Museums, movie theaters; Concert venues; Bowling alleys
+6/25
+CHANGED
+Entertainment
+Museums, movie theaters; Concert venues; Bowling alleys
+Museums, movie theaters; Concert venues; Bowling alleys; Casinos

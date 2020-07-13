@@ -1,0 +1,74 @@
+5/4
+ADDED
+Industries
+Manufacturing, distribution and construction businesses; Offices
+5/8
+CHANGED
+Industries
+Manufacturing, distribution and construction businesses; Offices
+Manufacturing, distribution, construction; Offices
+5/12
+ADDED
+Retail
+Retail stores
+5/15
+ADDED
+Food and drink
+Restaurants and bars outdoor dining
+ADDED
+Personal care
+Salons, barbershops etc.
+5/16
+CHANGED
+Food and drink
+Restaurants and bars outdoor dining
+Restaurants and bars open for outdoor dining
+5/21
+ADDED
+Outdoor and recreation
+Campgrounds
+CHANGED
+Food and drink
+Restaurants and bars open for outdoor dining
+Restaurants and bars open for outdoor dining; Restaurants and bars
+5/22
+CHANGED
+Food and drink
+Restaurants and bars open for outdoor dining; Restaurants and bars
+Dine-in restaurants and bars
+5/26
+CHANGED
+Outdoor and recreation
+Campgrounds
+Campgrounds; Gyms, pools, and sports leagues
+6/1
+CHANGED
+Outdoor and recreation
+Campgrounds; Gyms, pools, and sports leagues
+Campgrounds; Gyms, pools, and sports leagues; Bowling alleys, miniature golf and batting cages
+6/10
+ADDED
+Entertainment
+Movie theaters, museums, art galleries
+CHANGED
+Outdoor and recreation
+Campgrounds; Gyms, pools, and sports leagues; Bowling alleys, miniature golf and batting cages
+Campgrounds; Gyms, pools, and sports leagues; Bowling alleys, miniature golf and batting cages; Aquariums, zoos; Skating rinks, playgrounds, country clubs
+6/22
+CHANGED
+Entertainment
+Movie theaters, museums, art galleries
+Movie theaters, museums, art galleries; Casinos, racinos, amusement parks, water parks
+6/26
+CHANGED
+Food and drink
+Dine-in restaurants and bars
+Restaurant dining and bars
+6/27
+ADDED
+Houses of worship
+[no info]
+CHANGED
+Personal care
+Salons, barbershops etc.
+Salons, barbershops, etc.

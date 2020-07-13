@@ -1,0 +1,64 @@
+5/4
+ADDED
+Outdoor and recreation
+State parks, golf courses
+5/8
+CHANGED
+Outdoor and recreation
+State parks, golf courses
+Golf courses
+5/18
+ADDED
+Industries
+Construction
+ADDED
+Retail
+Retail stores open to curbside pickup
+5/22
+CHANGED
+Outdoor and recreation
+Golf courses
+Golf courses; Outdoor recreational businesses; Beaches
+6/15
+ADDED
+Food and drink
+Outdoor dining at restaurants
+CHANGED
+Retail
+Retail stores open to curbside pickup
+Retail stores
+6/16
+ADDED
+Entertainment
+Libraries for curbside pickup
+6/22
+ADDED
+Personal care
+Hair salons, barbershops; Nail salons, tattoo parlors, spas, massage therapy, tanning salons
+CHANGED
+Outdoor and recreation
+Golf courses; Outdoor recreational businesses; Beaches
+Golf courses; Outdoor recreational businesses; Beaches; Campgrounds; Pools
+6/26
+ADDED
+Houses of worship
+[no info]
+CHANGED
+Outdoor and recreation
+Golf courses; Outdoor recreational businesses; Beaches; Campgrounds; Pools
+Golf courses; Beaches; Campgrounds; Pools
+6/30
+CHANGED
+Retail
+Retail stores
+Retail stores; Malls
+7/2
+CHANGED
+Entertainment
+Libraries for curbside pickup
+Libraries for curbside pickup; Casinos; Playgrounds, water parks, amusement parks; Museums, libraries, aquariums; Bowling alleys, batting cages, shooting ranges
+7/3
+CHANGED
+Outdoor and recreation
+Golf courses; Beaches; Campgrounds; Pools
+Golf courses; Beaches; Campgrounds; Gyms for personal training; Pools

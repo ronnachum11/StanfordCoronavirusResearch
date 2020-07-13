@@ -1,0 +1,72 @@
+5/15
+ADDED
+Retail
+Retail stores
+ADDED
+Food and drink
+Restaurants and bars for outdoor dining
+ADDED
+Personal care
+Salons, barbershops, etc.
+ADDED
+Houses of worship
+[no info]
+ADDED
+Outdoor and recreation
+Campgrounds
+5/29
+CHANGED
+Outdoor and recreation
+Campgrounds
+Campgrounds; Beaches
+6/5
+ADDED
+Entertainment
+Museums, zoos, aquariums, outdoor concerts
+CHANGED
+Food and drink
+Restaurants and bars for outdoor dining
+Restaurants and bars
+CHANGED
+Outdoor and recreation
+Campgrounds; Beaches
+Campgrounds; Gyms; Pools; Beaches
+6/8
+CHANGED
+Outdoor and recreation
+Campgrounds; Gyms; Pools; Beaches
+Campgrounds; Beaches; Gyms; Pools
+6/9
+CHANGED
+Food and drink
+Restaurants and bars
+Restaurants and bars in most counties
+CHANGED
+Entertainment
+Museums, zoos, aquariums, outdoor concerts
+Museums, zoos, aquariums, outdoor concerts in most counties
+CHANGED
+Outdoor and recreation
+Campgrounds; Beaches; Gyms; Pools
+Campgrounds; Beaches; Gyms in most counties; Pools in most counties
+6/12
+CHANGED
+Food and drink
+Restaurants and bars in most counties
+Restaurants and bars
+CHANGED
+Entertainment
+Museums, zoos, aquariums, outdoor concerts in most counties
+Museums, zoos, aquariums, outdoor concerts
+CHANGED
+Outdoor and recreation
+Campgrounds; Beaches; Gyms in most counties; Pools in most counties
+Campgrounds; Beaches; Gyms; Pools
+6/26
+REMOVED
+Houses of worship
+[no info]
+6/27
+ADDED
+Houses of worship
+[no info]

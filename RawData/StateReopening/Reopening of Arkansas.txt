@@ -1,0 +1,52 @@
+5/1
+ADDED
+Outdoor and recreation
+State park camping
+5/4
+CHANGED
+Outdoor and recreation
+State park camping
+State park camping; Gyms
+5/6
+ADDED
+Personal care
+Hair salons, barbershops, nail salons etc.
+5/8
+CHANGED
+Outdoor and recreation
+State park camping; Gyms
+Campgrounds; Gyms
+5/11
+ADDED
+Food and drink
+Restaurant dining
+5/18
+ADDED
+Entertainment
+Theaters, stadiums, museums, bowling alleys; Casinos
+5/22
+CHANGED
+Outdoor and recreation
+Campgrounds; Gyms
+Campgrounds; Gyms; Pools
+5/26
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Bars
+6/15
+CHANGED
+Entertainment
+Theaters, stadiums, museums, bowling alleys; Casinos
+Theaters, stadiums, museums, bowling alleys; Casinos; Large venues
+6/27
+ADDED
+Retail
+Retail
+ADDED
+Houses of worship
+[no info]
+CHANGED
+Personal care
+Hair salons, barbershops, nail salons etc.
+Hair salons, barbershops, nail salons, etc.

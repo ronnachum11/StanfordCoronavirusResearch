@@ -1,0 +1,100 @@
+5/2
+ADDED
+Retail and beauty
+Retail stores open to curbside pickup and delivery; Pet services
+ADDED
+Outdoor and recreation
+State parks; Golf
+5/6
+REMOVED
+Retail and beauty
+Retail stores open to curbside pickup and delivery; Pet services
+ADDED
+Retail stores
+Retail stores open to curbside pickup and delivery
+ADDED
+Personal care
+Pet grooming and boarding
+CHANGED
+Outdoor and recreation
+State parks; Golf
+State parks; Golf courses
+5/8
+REMOVED
+Retail stores
+Retail stores open to curbside pickup and delivery
+ADDED
+Retail
+Retail stores open to curbside pickup
+CHANGED
+Outdoor and recreation
+State parks; Golf courses
+State parks; Golf courses, boating
+5/16
+ADDED
+Industries
+Offices at 25 percent capacity
+ADDED
+Houses of worship
+[no info]
+CHANGED
+Retail
+Retail stores open to curbside pickup
+Retail stores at 25 percent capacity
+CHANGED
+Personal care
+Pet grooming and boarding
+Pet and veterinary services
+CHANGED
+Outdoor and recreation
+State parks; Golf courses, boating
+State parks; Golf courses, boating; Golf
+5/21
+CHANGED
+Personal care
+Pet and veterinary services
+Pet grooming and boarding, veterinary services
+CHANGED
+Outdoor and recreation
+State parks; Golf courses, boating; Golf
+State parks; Golf courses, boating
+5/28
+ADDED
+Food and drink
+Restaurants open for outdoor dining in most counties
+6/1
+CHANGED
+Retail
+Retail stores at 25 percent capacity
+Retail stores at 25 percent capacity; Malls
+CHANGED
+Food and drink
+Restaurants open for outdoor dining in most counties
+Restaurant dining
+CHANGED
+Personal care
+Pet grooming and boarding, veterinary services
+Pet grooming and boarding, veterinary services; Hair salons, barbershops, tattoo parlors, massage parlors, nail salons
+CHANGED
+Outdoor and recreation
+State parks; Golf courses, boating
+State parks; Golf courses, boating; Gyms, pools
+6/12
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Breweries for outdoor service
+6/15
+CHANGED
+Food and drink
+Restaurant dining; Breweries for outdoor service
+Restaurant dining; Breweries
+6/24
+CHANGED
+Industries
+Offices at 25 percent capacity
+Offices
+CHANGED
+Retail
+Retail stores at 25 percent capacity; Malls
+Retail stores; Malls

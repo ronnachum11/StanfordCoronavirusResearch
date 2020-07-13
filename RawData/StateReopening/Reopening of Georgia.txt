@@ -1,0 +1,43 @@
+5/1
+ADDED
+Food and drink
+Restaurant dining
+ADDED
+Retail and beauty
+Hair salons, barbershops, etc.
+ADDED
+Entertainment
+Bowling alleys; Theaters and private social clubs
+ADDED
+Outdoor and recreation
+Gyms
+5/6
+REMOVED
+Retail and beauty
+Hair salons, barbershops, etc.
+ADDED
+Personal care
+Hair salons, barbershops, etc.
+5/8
+CHANGED
+Entertainment
+Bowling alleys; Theaters and private social clubs
+Bowling alleys; Theaters, private social clubs
+6/1
+CHANGED
+Entertainment
+Bowling alleys; Theaters, private social clubs
+Bowling alleys; Theaters, private social clubs; Bars, nightclubs
+6/26
+ADDED
+Retail
+Retail
+6/27
+ADDED
+Houses of worship
+[no info]
+7/2
+CHANGED
+Entertainment
+Bowling alleys; Theaters, private social clubs; Bars, nightclubs
+Bowling alleys; Theaters, private social clubs; Large venues; Bars, nightclubs

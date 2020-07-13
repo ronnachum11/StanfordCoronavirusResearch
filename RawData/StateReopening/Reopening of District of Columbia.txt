@@ -1,0 +1,46 @@
+5/20
+ADDED
+Retail
+Educational and academic retail shops for curbside pickup
+5/29
+ADDED
+Food and drink
+Restaurants open for outdoor dining
+ADDED
+Entertainment
+Libraries open to curbside pickup
+ADDED
+Personal care
+Barbershops, hair salons
+ADDED
+Outdoor and recreation
+Dog parks, golf courses, tennis courts, parks
+CHANGED
+Retail
+Educational and academic retail shops for curbside pickup
+Retail stores open to curbside pickup
+6/22
+CHANGED
+Retail
+Retail stores open to curbside pickup
+Retail stores
+CHANGED
+Food and drink
+Restaurants open for outdoor dining
+Restaurants dining
+CHANGED
+Entertainment
+Libraries open to curbside pickup
+Museums, libraries
+CHANGED
+Personal care
+Barbershops, hair salons
+Barbershops, hair salons; Nail salons, waxing salons, spas
+CHANGED
+Outdoor and recreation
+Dog parks, golf courses, tennis courts, parks
+Dog parks, golf courses, tennis courts, parks; Gyms
+6/25
+ADDED
+Houses of worship
+[no info]

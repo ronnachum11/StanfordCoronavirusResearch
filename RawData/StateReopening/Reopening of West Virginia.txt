@@ -1,0 +1,88 @@
+5/4
+ADDED
+Food and drink
+Restaurants open for outdoor dining
+ADDED
+Retail and beauty
+Salons, barbers, pet groomers
+5/8
+REMOVED
+Retail and beauty
+Salons, barbers, pet groomers
+ADDED
+Personal care
+Salons, barbershops, pet groomers
+5/18
+ADDED
+Outdoor and recreation
+Gyms, recreation centers
+5/21
+ADDED
+Retail
+Retail stores; Malls
+CHANGED
+Food and drink
+Restaurants open for outdoor dining
+Restaurants open for outdoor dining; Restaurant dining
+CHANGED
+Personal care
+Salons, barbershops, pet groomers
+Salons, barbershops, pet groomers; Tanning salons
+CHANGED
+Outdoor and recreation
+Gyms, recreation centers
+Gyms, recreation centers; State parks, campgrounds
+5/22
+CHANGED
+Food and drink
+Restaurants open for outdoor dining; Restaurant dining
+Restaurant dining
+5/26
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Bars
+CHANGED
+Outdoor and recreation
+Gyms, recreation centers; State parks, campgrounds
+Gyms, recreation centers; State parks, campgrounds; Museums, zoos
+5/30
+ADDED
+Entertainment
+Bowling alleys, pool halls, roller rinks
+CHANGED
+Personal care
+Salons, barbershops, pet groomers; Tanning salons
+Salons, barbershops, pet groomers; Tanning salons; Massage parlors and spas
+CHANGED
+Outdoor and recreation
+Gyms, recreation centers; State parks, campgrounds; Museums, zoos
+Gyms, recreation centers; State parks, campgrounds; Museums, zoos; Pools
+6/5
+CHANGED
+Outdoor and recreation
+Gyms, recreation centers; State parks, campgrounds; Museums, zoos; Pools
+Gyms, recreation centers; State parks, campgrounds; Museums, zoos; Pools; Casinos
+6/24
+CHANGED
+Entertainment
+Bowling alleys, pool halls, roller rinks
+Bowling alleys, pool halls, roller rinks; Movie theaters
+6/26
+CHANGED
+Entertainment
+Bowling alleys, pool halls, roller rinks; Movie theaters
+Museums, zoos; Bowling alleys, pool halls, roller rinks; Casinos; Movie theaters
+CHANGED
+Outdoor and recreation
+Gyms, recreation centers; State parks, campgrounds; Museums, zoos; Pools; Casinos
+Gyms, recreation centers; State parks, campgrounds; Pools
+6/27
+ADDED
+Houses of worship
+[no info]
+7/3
+CHANGED
+Entertainment
+Museums, zoos; Bowling alleys, pool halls, roller rinks; Casinos; Movie theaters
+Museums, zoos; Bowling alleys, pool halls, roller rinks; Casinos; Movie theaters; Amusement parks, fairs, festivals

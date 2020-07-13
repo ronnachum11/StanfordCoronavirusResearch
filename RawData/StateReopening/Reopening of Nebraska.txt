@@ -1,0 +1,49 @@
+5/4
+ADDED
+Food and drink
+Restaurant dining in certain areas
+ADDED
+Retail and beauty
+Salons, barbershops, tattoo parlors, etc. in certain areas
+ADDED
+Houses of worship
+[no info]
+5/6
+REMOVED
+Retail and beauty
+Salons, barbershops, tattoo parlors, etc. in certain areas
+ADDED
+Personal care
+Salons, barbershops, tattoo parlors, etc. in certain areas
+6/1
+ADDED
+Entertainment
+Zoos in certain counties; Movie theaters in certain counties
+ADDED
+Outdoor and recreation
+Pools in certain counties
+CHANGED
+Food and drink
+Restaurant dining in certain areas
+Bars in certain counties; Restaurant dining
+CHANGED
+Personal care
+Salons, barbershops, tattoo parlors, etc. in certain areas
+Salons, barbershops, tattoo parlors, etc.
+6/22
+CHANGED
+Food and drink
+Bars in certain counties; Restaurant dining
+Restaurant dining; Bars
+CHANGED
+Entertainment
+Zoos in certain counties; Movie theaters in certain counties
+Zoos, movie theaters, libraries and venues
+CHANGED
+Outdoor and recreation
+Pools in certain counties
+Pools; Gyms
+6/27
+ADDED
+Retail
+Retail

@@ -1,0 +1,87 @@
+5/1
+ADDED
+Food and drink
+Restaurant dining
+ADDED
+Retail and beauty
+Retail stores, malls
+ADDED
+Entertainment
+Movie theaters, museums, libraries
+ADDED
+Outdoor and recreation
+State parks; Outdoor sports
+5/6
+REMOVED
+Retail and beauty
+Retail stores, malls
+ADDED
+Retail stores
+Retail stores, malls
+5/8
+REMOVED
+Retail stores
+Retail stores, malls
+ADDED
+Retail
+Retail stores, malls
+ADDED
+Personal care
+Salons, barbershops, etc.
+CHANGED
+Outdoor and recreation
+State parks; Outdoor sports
+State parks; Pools
+5/18
+ADDED
+Industries
+Offices, manufacturing
+CHANGED
+Outdoor and recreation
+State parks; Pools
+State parks; Pools; Gyms
+5/19
+CHANGED
+Personal care
+Salons, barbershops, etc.
+Salons, barbershops, etc.; Massage and personal care
+5/22
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Bars
+CHANGED
+Entertainment
+Movie theaters, museums, libraries
+Movie theaters, museums, libraries; Bowling alleys, bingo halls, skating rinks, rodeos; Aquariums
+CHANGED
+Outdoor and recreation
+State parks; Pools; Gyms
+State parks; Pools; Gyms; Natural caverns
+5/29
+CHANGED
+Outdoor and recreation
+State parks; Pools; Gyms; Natural caverns
+State parks; Pools; Gyms; Natural caverns; Water parks; Zoos
+6/22
+CHANGED
+Entertainment
+Movie theaters, museums, libraries; Bowling alleys, bingo halls, skating rinks, rodeos; Aquariums
+Movie theaters, museums, libraries; Bowling alleys, bingo halls, skating rinks, rodeos; Aquariums; Amusement parks; Carnivals
+6/26
+CHANGED
+Food and drink
+Restaurant dining; Bars
+Restaurant dining
+CHANGED
+Personal care
+Salons, barbershops, etc.; Massage and personal care
+Salons, barbershops, etc.; Massage services
+CHANGED
+Outdoor and recreation
+State parks; Pools; Gyms; Natural caverns; Water parks; Zoos
+State parks; Pools; Gyms; Water parks; Zoos
+6/27
+ADDED
+Houses of worship
+[no info]

@@ -1,0 +1,118 @@
+5/1
+ADDED
+Food and drink
+Restaurant dining in certain counties
+ADDED
+Retail and beauty
+Malls and other retail stores in certain counties
+ADDED
+Entertainment
+Libraries in certain counties
+ADDED
+Outdoor and recreation
+Gyms
+5/2
+CHANGED
+Outdoor and recreation
+Gyms
+Gyms in certain counties
+5/6
+REMOVED
+Retail and beauty
+Malls and other retail stores in certain counties
+ADDED
+Retail stores
+Malls and other retail stores in certain counties
+5/8
+REMOVED
+Retail stores
+Malls and other retail stores in certain counties
+ADDED
+Retail
+Retail stores, malls
+ADDED
+Personal care
+Medical spas, tanning salons
+CHANGED
+Entertainment
+Libraries in certain counties
+Libraries
+CHANGED
+Outdoor and recreation
+Gyms in certain counties
+Gyms; Campgrounds
+5/12
+ADDED
+Houses of worship
+[no info]
+5/14
+CHANGED
+Retail
+Retail stores, malls
+Retail stores, malls in most counties
+CHANGED
+Food and drink
+Restaurant dining in certain counties
+Restaurant dining in most counties
+CHANGED
+Outdoor and recreation
+Gyms; Campgrounds
+Gyms in most counties; Campgrounds
+5/15
+CHANGED
+Retail
+Retail stores, malls in most counties
+Retail stores, malls in most counties; Retail stores, malls in all counties
+CHANGED
+Food and drink
+Restaurant dining in most counties
+Restaurant dining in most counties; Restaurant dining in all counties
+CHANGED
+Personal care
+Medical spas, tanning salons
+Medical spas, tanning salons; Salons, barbershops, tattoo parlors, etc.
+CHANGED
+Outdoor and recreation
+Gyms in most counties; Campgrounds
+Gyms in most counties; Campgrounds; Gyms in all counties
+5/16
+CHANGED
+Retail
+Retail stores, malls in most counties; Retail stores, malls in all counties
+Retail stores, malls
+CHANGED
+Food and drink
+Restaurant dining in most counties; Restaurant dining in all counties
+Restaurant dining
+CHANGED
+Outdoor and recreation
+Gyms in most counties; Campgrounds; Gyms in all counties
+Campgrounds; Gyms
+5/22
+CHANGED
+Entertainment
+Libraries
+Libraries; Movie theaters; Museums, zoos, aquariums
+CHANGED
+Outdoor and recreation
+Campgrounds; Gyms
+Campgrounds; Gyms; Pools
+5/28
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Bars
+6/1
+CHANGED
+Entertainment
+Libraries; Movie theaters; Museums, zoos, aquariums
+Libraries; Movie theaters; Museums, zoos, aquariums; Casinos; Outdoor venues; Bowling alleys, amusement parks
+CHANGED
+Outdoor and recreation
+Campgrounds; Gyms; Pools
+Campgrounds; Gyms; Pools; Playgrounds, skating rinks, skate parks
+6/25
+CHANGED
+Entertainment
+Libraries; Movie theaters; Museums, zoos, aquariums; Casinos; Outdoor venues; Bowling alleys, amusement parks
+Libraries; Movie theaters; Museums, zoos, aquariums; Casinos; Outdoor venues; Bowling alleys, amusement parks; Indoor venues

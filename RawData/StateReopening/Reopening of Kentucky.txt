@@ -1,0 +1,58 @@
+5/11
+ADDED
+Industries
+Manufacturing, construction, offices
+ADDED
+Personal care
+Pet grooming and boarding
+5/15
+ADDED
+Houses of worship
+[no info]
+5/20
+ADDED
+Retail
+Retail stores
+5/22
+ADDED
+Food and drink
+Restaurant dining
+5/26
+CHANGED
+Personal care
+Pet grooming and boarding
+Pet grooming and boarding; Salons, barbershops, tattoo parlors, etc.
+6/1
+ADDED
+Entertainment
+Movie theaters; Bowling alleys
+ADDED
+Outdoor and recreation
+Gyms; Aquatic centers
+6/8
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Distilleries
+CHANGED
+Entertainment
+Movie theaters; Bowling alleys
+Movie theaters; Bowling alleys; Museums, aquariums, libraries, outdoor attractions
+6/11
+CHANGED
+Outdoor and recreation
+Gyms; Aquatic centers
+Gyms; Aquatic centers; Campgrounds
+6/30
+CHANGED
+Food and drink
+Restaurant dining; Distilleries
+Restaurant dining; Distilleries; Bars
+CHANGED
+Entertainment
+Movie theaters; Bowling alleys; Museums, aquariums, libraries, outdoor attractions
+Movie theaters; Bowling alleys; Museums, aquariums, libraries, outdoor attractions; Venues and events spaces
+CHANGED
+Outdoor and recreation
+Gyms; Aquatic centers; Campgrounds
+Gyms; Aquatic centers; Campgrounds; Public pools

@@ -1,0 +1,39 @@
+5/1
+ADDED
+Houses of worship
+[no info]
+5/16
+ADDED
+Food and drink
+Restaurant dining
+ADDED
+Personal care
+Hair salons
+ADDED
+Outdoor and recreation
+Gyms
+5/30
+ADDED
+Entertainment
+Movie theaters
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Bars
+CHANGED
+Outdoor and recreation
+Gyms
+Gyms; Pools and waterparks
+6/15
+CHANGED
+Entertainment
+Movie theaters
+Movie theaters; Nightclubs; Large venues
+6/26
+ADDED
+Retail
+Retail
+CHANGED
+Outdoor and recreation
+Gyms; Pools and waterparks
+Gyms; Pools and water parks

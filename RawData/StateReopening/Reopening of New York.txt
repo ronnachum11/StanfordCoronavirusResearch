@@ -1,0 +1,100 @@
+5/15
+ADDED
+Industries
+Construction, manufacturing in certain regions; Agriculture, forestry, fishing, and hunting in certain regions
+ADDED
+Retail
+Retail stores open to pickup in certain regions; Low-risk businesses
+5/16
+CHANGED
+Industries
+Construction, manufacturing in certain regions; Agriculture, forestry, fishing, and hunting in certain regions
+Construction, manufacturing in some regions; Agriculture, forestry, fishing and hunting in some regions
+CHANGED
+Retail
+Retail stores open to pickup in certain regions; Low-risk businesses
+Retail stores open to pickup in some regions; Low-risk businesses
+5/21
+ADDED
+Houses of worship
+[no info]
+5/22
+ADDED
+Outdoor and recreation
+Beaches
+5/30
+ADDED
+Personal care
+Hair salons, barbershops in some regions
+CHANGED
+Industries
+Construction, manufacturing in some regions; Agriculture, forestry, fishing and hunting in some regions
+Construction, manufacturing in some regions; Agriculture, forestry, fishing and hunting in some regions; Offices in some regions
+CHANGED
+Retail
+Retail stores open to pickup in some regions; Low-risk businesses
+Retail stores open to pickup in some regions; Low-risk businesses; Retail for in-store shopping in some regions
+6/4
+ADDED
+Food and drink
+Outdoor dining at restaurants in some regions
+6/8
+CHANGED
+Industries
+Construction, manufacturing in some regions; Agriculture, forestry, fishing and hunting in some regions; Offices in some regions
+Offices in some regions; Construction, manufacturing
+CHANGED
+Retail
+Retail stores open to pickup in some regions; Low-risk businesses; Retail for in-store shopping in some regions
+Low-risk businesses; Retail for in-store shopping in some regions; Retail stores open to pickup
+CHANGED
+Outdoor and recreation
+Beaches
+Beaches; Fishing and hunting
+6/12
+CHANGED
+Food and drink
+Outdoor dining at restaurants in some regions
+Outdoor dining at restaurants in some regions; Indoor dining in some regions
+CHANGED
+Personal care
+Hair salons, barbershops in some regions
+Hair salons, barbershops, tattoo parlors, massage parlors, nail salons in some regions
+CHANGED
+Outdoor and recreation
+Beaches; Fishing and hunting
+Beaches; Fishing and hunting; Public pools and playgrounds
+6/22
+CHANGED
+Industries
+Offices in some regions; Construction, manufacturing
+Construction, manufacturing; Offices
+CHANGED
+Retail
+Low-risk businesses; Retail for in-store shopping in some regions; Retail stores open to pickup
+Low-risk businesses; Retail stores
+CHANGED
+Personal care
+Hair salons, barbershops, tattoo parlors, massage parlors, nail salons in some regions
+Tattoo parlors, massage parlors, nail salons in some regions; Hair salons, barbershops
+6/26
+ADDED
+Entertainment
+Museums and aquariums in some regions
+CHANGED
+Industries
+Construction, manufacturing; Offices
+Construction, manufacturing; Offices; Film and TV production in some regions
+CHANGED
+Retail
+Low-risk businesses; Retail stores
+Retail stores
+CHANGED
+Outdoor and recreation
+Beaches; Fishing and hunting; Public pools and playgrounds
+Beaches; Fishing and hunting; Public pools and playgrounds; Outdoor zoos, botanical gardens and nature parks in some regions
+7/6
+CHANGED
+Personal care
+Tattoo parlors, massage parlors, nail salons in some regions; Hair salons, barbershops
+Hair salons, barbershops; Tattoo parlors, massage parlors, nail salons

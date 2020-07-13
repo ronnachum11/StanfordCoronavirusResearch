@@ -1,0 +1,66 @@
+5/1
+ADDED
+Food and drink
+Restaurant dining
+ADDED
+Retail and beauty
+Salons, barbers, pet groomers, etc.; Tattoo parlors
+ADDED
+Houses of worship
+[no info]
+ADDED
+Outdoor and recreation
+State parks; Movie theaters, gyms and sporting venues
+5/2
+ADDED
+Industries
+Offices
+ADDED
+Entertainment
+Movie theaters, sporting venues, museums
+CHANGED
+Retail and beauty
+Salons, barbers, pet groomers, etc.; Tattoo parlors
+Salons, barbers, spas, pet groomers, etc.; Tattoo parlors
+CHANGED
+Outdoor and recreation
+State parks; Movie theaters, gyms and sporting venues
+State parks
+5/5
+CHANGED
+Outdoor and recreation
+State parks
+State parks; Gyms
+5/6
+REMOVED
+Retail and beauty
+Salons, barbers, spas, pet groomers, etc.; Tattoo parlors
+ADDED
+Personal care
+Salons, barbers, spas, pet groomers, etc.; Tattoo parlors
+5/8
+CHANGED
+Entertainment
+Movie theaters, sporting venues, museums
+Movie theaters, sports venues, museums
+CHANGED
+Personal care
+Salons, barbers, spas, pet groomers, etc.; Tattoo parlors
+Salons, barbershops, spas, pet groomers, etc.; Tattoo parlors
+5/15
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Bars
+CHANGED
+Entertainment
+Movie theaters, sports venues, museums
+Movie theaters, sports venues, museums; Nightclubs
+6/24
+ADDED
+Retail
+Retail stores
+CHANGED
+Outdoor and recreation
+State parks; Gyms
+State parks; Zoos; Gyms

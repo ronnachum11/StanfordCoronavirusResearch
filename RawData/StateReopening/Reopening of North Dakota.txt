@@ -1,0 +1,41 @@
+5/1
+ADDED
+Food and drink
+Restaurant dining, bars
+ADDED
+Retail and beauty
+Salons, tattoo parlors, massage therapy, etc.
+ADDED
+Entertainment
+Movie theaters
+ADDED
+Outdoor and recreation
+Gyms
+5/6
+REMOVED
+Retail and beauty
+Salons, tattoo parlors, massage therapy, etc.
+ADDED
+Personal care
+Salons, tattoo parlors, massage therapy, etc.
+5/19
+CHANGED
+Entertainment
+Movie theaters
+Music and entertainment venues; Movie theaters
+CHANGED
+Outdoor and recreation
+Gyms
+Gyms; Sports venues
+5/21
+CHANGED
+Entertainment
+Music and entertainment venues; Movie theaters
+Movie theaters; Music and entertainment venues
+6/27
+ADDED
+Retail
+Retail
+ADDED
+Houses of worship
+[no info]

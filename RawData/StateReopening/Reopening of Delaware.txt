@@ -1,0 +1,68 @@
+5/8
+ADDED
+Retail
+Retail stores open to curbside pickup
+ADDED
+Personal care
+Hair salons
+5/15
+ADDED
+Food and drink
+Farmers markets
+5/20
+CHANGED
+Retail
+Retail stores open to curbside pickup
+Retail stores open to curbside pickup; Retail by appointment
+5/22
+ADDED
+Outdoor and recreation
+Beaches
+CHANGED
+Retail
+Retail stores open to curbside pickup; Retail by appointment
+Retail stores by appointment
+6/1
+ADDED
+Entertainment
+Museums, libraries, galleries, live performances; Casinos
+CHANGED
+Retail
+Retail stores by appointment
+Retail stores; Malls
+CHANGED
+Food and drink
+Farmers markets
+Farmers markets; Restaurants, bars and breweries
+CHANGED
+Personal care
+Hair salons
+Barber shops, hair salons, tanning salons
+CHANGED
+Outdoor and recreation
+Beaches
+Beaches; Pools; Gyms
+6/8
+CHANGED
+Personal care
+Barber shops, hair salons, tanning salons
+Barber shops, hair salons, tanning salons; Nail salons, tattoo parlors, massage therapy
+6/25
+CHANGED
+Outdoor and recreation
+Beaches; Pools; Gyms
+Beaches; Pools; Gyms; Campgrounds
+6/27
+ADDED
+Houses of worship
+[no info]
+7/1
+CHANGED
+Food and drink
+Farmers markets; Restaurants, bars and breweries
+Farmers markets; Restaurants; Bars
+7/3
+CHANGED
+Food and drink
+Farmers markets; Restaurants; Bars
+Farmers markets; Restaurants; Bars in some areas

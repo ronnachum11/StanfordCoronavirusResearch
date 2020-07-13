@@ -1,0 +1,62 @@
+5/1
+ADDED
+Industries
+Industrial and manufacturing businesses; Offices
+5/4
+ADDED
+Retail and beauty
+Retail stores open to curbside pickup
+5/6
+REMOVED
+Retail and beauty
+Retail stores open to curbside pickup
+ADDED
+Retail stores
+Retail stores open to curbside pickup
+5/8
+REMOVED
+Retail stores
+Retail stores open to curbside pickup
+ADDED
+Retail
+Retail stores open to curbside pickup
+CHANGED
+Industries
+Industrial and manufacturing businesses; Offices
+Manufacturing; Offices
+5/18
+CHANGED
+Retail
+Retail stores open to curbside pickup
+Retail stores; Malls
+5/27
+ADDED
+Houses of worship
+[no info]
+6/1
+ADDED
+Food and drink
+Restaurants and bars for outdoor service
+ADDED
+Personal care
+Salons, barbershops, tattoo parlors
+ADDED
+Outdoor and recreation
+Campgrounds
+6/10
+ADDED
+Entertainment
+Theaters and concert halls; Bowling alleys, arcades and museums
+CHANGED
+Food and drink
+Restaurants and bars for outdoor service
+Restaurants and bars for outdoor service; Restaurants
+CHANGED
+Outdoor and recreation
+Campgrounds
+Campgrounds; Gyms
+6/11
+CHANGED
+Food and drink
+Restaurants and bars for outdoor service; Restaurants
+Restaurants and bars

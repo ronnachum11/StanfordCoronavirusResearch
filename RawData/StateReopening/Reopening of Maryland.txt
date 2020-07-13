@@ -1,0 +1,75 @@
+5/7
+ADDED
+Outdoor and recreation
+Golf courses, outdoor shooting ranges, marinas, campgrounds; Beaches
+5/15
+ADDED
+Industries
+Manufacturing
+ADDED
+Retail
+Retail stores
+ADDED
+Personal care
+Hair salons, barbershops
+ADDED
+Houses of worship
+[no info]
+5/29
+ADDED
+Food and drink
+Restaurants open for outdoor dining
+CHANGED
+Outdoor and recreation
+Golf courses, outdoor shooting ranges, marinas, campgrounds; Beaches
+Golf courses, outdoor shooting ranges, marinas, campgrounds; Beaches; Outdoor pools and day camps
+5/30
+CHANGED
+Food and drink
+Restaurants open for outdoor dining
+Restaurants open for outdoor dining; Outdoor service at breweries, wineries, and distilleries
+6/5
+CHANGED
+Industries
+Manufacturing
+Manufacturing; Construction, offices
+CHANGED
+Personal care
+Hair salons, barbershops
+Hair salons, barbershops; Nail salons, massage parlors, tanning salons, tattoo parlors
+6/12
+CHANGED
+Food and drink
+Restaurants open for outdoor dining; Outdoor service at breweries, wineries, and distilleries
+Restaurants open for outdoor dining; Outdoor service at breweries, wineries, and distilleries; Restaurants
+CHANGED
+Outdoor and recreation
+Golf courses, outdoor shooting ranges, marinas, campgrounds; Beaches; Outdoor pools and day camps
+Golf courses, outdoor shooting ranges, marinas, campgrounds; Beaches; Outdoor pools and day camps; Outdoor amusements
+6/15
+CHANGED
+Food and drink
+Restaurants open for outdoor dining; Outdoor service at breweries, wineries, and distilleries; Restaurants
+Outdoor service at breweries, wineries, and distilleries; Restaurants
+6/22
+ADDED
+Entertainment
+Casinos
+CHANGED
+Retail
+Retail stores
+Retail stores; Malls
+CHANGED
+Outdoor and recreation
+Golf courses, outdoor shooting ranges, marinas, campgrounds; Beaches; Outdoor pools and day camps; Outdoor amusements
+Golf courses, outdoor shooting ranges, marinas, campgrounds; Beaches; Outdoor pools and day camps; Outdoor amusements; Gyms
+6/26
+CHANGED
+Outdoor and recreation
+Golf courses, outdoor shooting ranges, marinas, campgrounds; Beaches; Outdoor pools and day camps; Outdoor amusements; Gyms
+Golf courses, outdoor shooting ranges, marinas, campgrounds; Beaches; Outdoor pools and day camps; Gyms
+7/9
+CHANGED
+Food and drink
+Outdoor service at breweries, wineries, and distilleries; Restaurants
+Outdoor service at breweries, wineries, and distilleries; Restaurants; Bars

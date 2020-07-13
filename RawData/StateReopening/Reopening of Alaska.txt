@@ -1,0 +1,53 @@
+5/1
+ADDED
+Food and drink
+Restaurant dining
+ADDED
+Retail and beauty
+Retail stores; Hair salons, barbershops, nail salons etc.
+5/6
+REMOVED
+Retail and beauty
+Retail stores; Hair salons, barbershops, nail salons etc.
+ADDED
+Retail stores
+[no info]
+ADDED
+Personal care
+Hair salons, barbershops, nail salons etc.
+5/7
+ADDED
+Outdoor and recreation
+Gyms
+5/8
+REMOVED
+Retail stores
+[no info]
+ADDED
+Retail
+Retail stores
+ADDED
+Entertainment
+Libraries
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Bars
+CHANGED
+Outdoor and recreation
+Gyms
+Gyms; Pools
+5/9
+CHANGED
+Entertainment
+Libraries
+Libraries; Theaters; Bowling alleys; Museums
+6/25
+ADDED
+Houses of worship
+[no info]
+6/27
+CHANGED
+Personal care
+Hair salons, barbershops, nail salons etc.
+Hair salons, barbershops, nail salons, etc.

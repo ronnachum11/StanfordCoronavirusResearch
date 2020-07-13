@@ -1,0 +1,68 @@
+5/4
+ADDED
+Food and drink
+Restaurants
+ADDED
+Retail and beauty
+Retail
+ADDED
+Houses of worship
+[no info]
+5/6
+REMOVED
+Retail and beauty
+Retail
+ADDED
+Retail stores
+[no info]
+ADDED
+Industries
+Some businesses
+5/8
+REMOVED
+Retail stores
+[no info]
+ADDED
+Retail
+Retail stores
+CHANGED
+Industries
+Some businesses
+Offices
+CHANGED
+Food and drink
+Restaurants
+Restaurant dining
+5/18
+ADDED
+Personal care
+Salons, barbershops, tattoo parlors
+ADDED
+Outdoor and recreation
+Gyms
+5/22
+ADDED
+Entertainment
+Theaters, museums and bowling alleys
+CHANGED
+Outdoor and recreation
+Gyms
+Gyms; Community centers, sports facilities
+6/8
+CHANGED
+Food and drink
+Restaurant dining
+Restaurant dining; Bars
+CHANGED
+Entertainment
+Theaters, museums and bowling alleys
+Theaters, museums and bowling alleys; Nightclubs
+CHANGED
+Outdoor and recreation
+Gyms; Community centers, sports facilities
+Gyms; Community centers, sports facilities; Pools
+6/24
+CHANGED
+Entertainment
+Theaters, museums and bowling alleys; Nightclubs
+Theaters, museums and bowling alleys; Casinos; Nightclubs

@@ -1,0 +1,116 @@
+5/1
+ADDED
+Industries
+Some construction
+5/6
+ADDED
+Retail stores
+Retail stores open to curbside pickup
+ADDED
+Outdoor and recreation
+Fishing, hunting, golfing, state parks
+5/8
+REMOVED
+Retail stores
+Retail stores open to curbside pickup
+ADDED
+Retail
+Retail stores open to curbside pickup
+CHANGED
+Outdoor and recreation
+Fishing, hunting, golfing, state parks
+State parks, fishing, hunting, golf courses
+5/12
+ADDED
+Food and drink
+Restaurant dining for certain counties
+5/14
+CHANGED
+Industries
+Some construction
+Some construction; Personal services in certain counties
+CHANGED
+Food and drink
+Restaurant dining for certain counties
+Restaurant dining in certain counties
+5/19
+ADDED
+Personal care
+Pet grooming
+CHANGED
+Industries
+Some construction; Personal services in certain counties
+Some construction; Personal services in certain counties; Construction
+5/20
+CHANGED
+Industries
+Some construction; Personal services in certain counties; Construction
+Construction
+5/28
+ADDED
+Houses of worship
+[no info]
+6/6
+CHANGED
+Retail
+Retail stores open to curbside pickup
+Retail stores open to curbside pickup; In-store retail in some counties
+CHANGED
+Personal care
+Pet grooming
+Hair salons, barbershops, tattoo parlors, etc.in some counties; Pet grooming in some counties
+CHANGED
+Houses of worship
+[no info]
+Drive-in religious services; Religious services in some counties
+CHANGED
+Outdoor and recreation
+State parks, fishing, hunting, golf courses
+State parks, fishing, hunting, golf courses; Gyms in some counties
+6/12
+ADDED
+Entertainment
+Casinos
+6/24
+CHANGED
+Retail
+Retail stores open to curbside pickup; In-store retail in some counties
+Retail stores open to curbside pickup; Retail stores in most counties
+CHANGED
+Food and drink
+Restaurant dining in certain counties
+Restaurant dining in most counties
+CHANGED
+Personal care
+Hair salons, barbershops, tattoo parlors, etc.in some counties; Pet grooming in some counties
+Hair salons, barbershops, tattoo parlors, etc. in most counties; Pet grooming in most counties; Gyms in most counties; Religious services in most counties
+CHANGED
+Houses of worship
+Drive-in religious services; Religious services in some counties
+Drive-in religious services
+CHANGED
+Outdoor and recreation
+State parks, fishing, hunting, golf courses; Gyms in some counties
+State parks, fishing, hunting, golf courses
+6/26
+CHANGED
+Retail
+Retail stores open to curbside pickup; Retail stores in most counties
+Retail stores in most counties
+CHANGED
+Personal care
+Hair salons, barbershops, tattoo parlors, etc. in most counties; Pet grooming in most counties; Gyms in most counties; Religious services in most counties
+Hair salons, barbershops, tattoo parlors, etc. in most counties; Pet grooming in most counties; Gyms in most counties
+CHANGED
+Houses of worship
+Drive-in religious services
+Religious services in most counties
+7/7
+CHANGED
+Retail
+Retail stores in most counties
+Retail stores in most counties; Retail stores
+CHANGED
+Personal care
+Hair salons, barbershops, tattoo parlors, etc. in most counties; Pet grooming in most counties; Gyms in most counties
+Hair salons, barbershops, tattoo parlors, etc. in most counties; Pet grooming in most counties; Gyms in most counties; Hair salons, barbershops, tattoo parlors, etc.; Pet grooming
