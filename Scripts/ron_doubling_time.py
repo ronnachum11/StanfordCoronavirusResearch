@@ -121,7 +121,7 @@ for state in ["Florida"]: # states_dict:
     plt.ylabel("Doubling Time (Days)")
     plt.title(f"COVID-19 Hospitalization Doubling Time (7-Day Moving Avg) - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)")
-    plt.legend()
+    # plt.legend()
     # plt.show()
     plt.savefig(os.path.join("Graphs", "DoublingTime", f"{states_dict[state]}.png"))
     plt.cla()
@@ -145,7 +145,7 @@ for state in ["Florida"]: # states_dict:
         plt.ylabel("Cumulative Hospitalizations")
         plt.title(f"COVID-19 Cumulative Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
         plt.savefig(os.path.join("Graphs", "DoublingTime", f"{states_dict[state]} PREDICTION.png"))
-        plt.legend()
+        # plt.legend()
         plt.show()
         plt.cla()
         # for i in range(len(hospitalized)):
