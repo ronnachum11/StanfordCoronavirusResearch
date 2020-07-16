@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import os 
 import math
 import time
+import numpy as np
 from ConvertCurrentToCumulative import hasCumulativeHospitalizations, getCumulativeHospitalizations
 
 r = requests.get("https://covidtracking.com/api/v1/states/daily.json")
@@ -24,15 +25,23 @@ for state in states:
     hospitalized = list(state_data['hospitalizedCumulative'])[::-1]
     dates = list(state_data['date'])[::-1]
 
-    dates = [dates[i] for i in range(len(dates)) if not math.isnan(hospitalized[i])]
-    hospitalized = [i for i in hospitalized if not math.isnan(i)]
+    index = 0
+    for i in range(len(hospitalized)):
+        if math.isnan(hospitalized[i]):
+            index += 1
+        else:
+            break
+
+    dates = dates[index:]
+    hospitalized = hospitalized[index:]
 
     for i in range(1, len(hospitalized)):
         if math.isnan(hospitalized[i]):
             hospitalized[i] = hospitalized[i-1]
 
     calculated = False
-    if len(hospitalized) < 14:
+    window = 21
+    if len(hospitalized) < window:
         current_hospitalizations = list(state_data['hospitalizedCurrently'])[::-1]
         dates = list(state_data['date'])[::-1]
 
@@ -43,8 +52,9 @@ for state in states:
             if math.isnan(current_hospitalizations[i]):
                 current_hospitalizations[i] = current_hospitalizations[i-1]
 
-        if len(current_hospitalizations) > 14:
-            hospitalized = getCumulativeHospitalizations(current_hospitalizations, 14)
+        if len(current_hospitalizations) > window:
+            hospitalized = getCumulativeHospitalizations(current_hospitalizations, window)
+            hospitalized = [0] * 7 + [np.mean(hospitalized[x - 7: x]) for x in range(7, len(hospitalized))]
             calculated = True
 
     x_ticks, x_tick_labels = [], []

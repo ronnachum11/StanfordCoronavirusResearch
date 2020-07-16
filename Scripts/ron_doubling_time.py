@@ -3,6 +3,7 @@ import os
 import math
 import matplotlib.pyplot as plt
 import numpy as np 
+from ConvertCurrentToCumulative import hasCumulativeHospitalizations, getCumulativeHospitalizations
 
 states_dict = {
     'Alabama': 'AL',
@@ -72,19 +73,42 @@ def doubling_time(m, y, window):
 
     return (window) * np.log(2) / np.log(y2 / y1)
 
-for state in ["Florida"]: # states_dict:
+for state in states_dict:
     state_data = pd.read_csv(os.path.join(path, "RawData", state, f"{states_dict[state].lower()}_covid_track_api_data.csv"))
-
     hospitalized = list(state_data['hospitalizedCumulative'])[::-1]
     dates = list(state_data['date'])[::-1]
 
-    num, count = hospitalized[0], 0
-    while math.isnan(num):
-        if count >= len(hospitalized):
+    index = 0
+    for i in range(len(hospitalized)):
+        if math.isnan(hospitalized[i]):
+            index += 1
+        else:
             break
-        num = hospitalized[count]
-        count += 1
-    hospitalized, dates = hospitalized[count:], dates[count:]
+
+    dates = dates[index:]
+    hospitalized = hospitalized[index:]
+
+    for i in range(1, len(hospitalized)):
+        if math.isnan(hospitalized[i]):
+            hospitalized[i] = hospitalized[i-1]
+
+    calculated = False
+    window = 21
+    if len(hospitalized) < window:
+        current_hospitalizations = list(state_data['hospitalizedCurrently'])[::-1]
+        dates = list(state_data['date'])[::-1]
+
+        dates = [dates[i] for i in range(len(dates)) if not math.isnan(current_hospitalizations[i])]
+        current_hospitalizations = [i for i in current_hospitalizations if not math.isnan(i)]
+
+        for i in range(1, len(current_hospitalizations)):
+            if math.isnan(current_hospitalizations[i]):
+                current_hospitalizations[i] = current_hospitalizations[i-1]
+
+        if len(current_hospitalizations) > window:
+            hospitalized = getCumulativeHospitalizations(current_hospitalizations, window)
+            hospitalized = [0] * 7 + [np.mean(hospitalized[x - 7: x]) for x in range(7, len(hospitalized))]
+            calculated = True
     
     if state == "Florida":
         names, reopening_dates = ["Phase 1", "Phase 2"], [20200504, 20200605]
@@ -119,12 +143,16 @@ for state in ["Florida"]: # states_dict:
     plt.xticks(x_ticks, x_tick_labels)
     plt.xlabel("Dates")
     plt.ylabel("Doubling Time (Days)")
-    plt.title(f"COVID-19 Hospitalization Doubling Time (7-Day Moving Avg) - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    if not calculated:
+        plt.title(f"COVID-19 Hospitalization Doubling Time (7-Day Moving Avg) - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    else:
+        plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
+    # plt.plot(doubling_times, label="Doubling Time")
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)")
     # plt.legend()
     # plt.show()
     plt.savefig(os.path.join("Graphs", "DoublingTime", f"{states_dict[state]}.png"))
-    plt.cla()
+    plt.clf()
 
     if state == "Florida":
         colors = ['r', 'y', 'g']
@@ -146,7 +174,7 @@ for state in ["Florida"]: # states_dict:
         plt.title(f"COVID-19 Cumulative Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
         plt.savefig(os.path.join("Graphs", "DoublingTime", f"{states_dict[state]} PREDICTION.png"))
         # plt.legend()
-        plt.show()
-        plt.cla()
+        # plt.show()
+        plt.clf()
         # for i in range(len(hospitalized)):
         #    print(dates[i], doubling_time[i])
