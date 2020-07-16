@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import os 
 import math
 import time
+from ConvertCurrentToCumulative import hasCumulativeHospitalizations, getCumulativeHospitalizations
 
 r = requests.get("https://covidtracking.com/api/v1/states/daily.json")
 
@@ -30,6 +31,22 @@ for state in states:
         if math.isnan(hospitalized[i]):
             hospitalized[i] = hospitalized[i-1]
 
+    calculated = False
+    if len(hospitalized) < 14:
+        current_hospitalizations = list(state_data['hospitalizedCurrently'])[::-1]
+        dates = list(state_data['date'])[::-1]
+
+        dates = [dates[i] for i in range(len(dates)) if not math.isnan(current_hospitalizations[i])]
+        current_hospitalizations = [i for i in current_hospitalizations if not math.isnan(i)]
+
+        for i in range(1, len(current_hospitalizations)):
+            if math.isnan(current_hospitalizations[i]):
+                current_hospitalizations[i] = current_hospitalizations[i-1]
+
+        if len(current_hospitalizations) > 14:
+            hospitalized = getCumulativeHospitalizations(current_hospitalizations, 14)
+            calculated = True
+
     x_ticks, x_tick_labels = [], []
     for i in range(0, len(dates), max(1, len(dates)//7 - 1)):
         date = str(dates[i])
@@ -38,7 +55,10 @@ for state in states:
     plt.xticks(x_ticks, x_tick_labels)
     plt.xlabel("Dates")
     plt.ylabel("Total Cumulative Hospitalizations")
-    plt.title(f"COVID-19 Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    if not calculated:
+        plt.title(f"COVID-19 Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    else:
+        plt.title(f"COVID-19 Hospitalizations (Calcalated) - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
     plt.plot(hospitalized)
     plt.savefig(os.path.join("Graphs", "Cumulative Hospitalizations", f"{state}.png"))
     # plt.show()
