@@ -83,8 +83,24 @@ for state in states_dict:
     hospitalized = list(state_data['hospitalizedCumulative'])[::-1]
     dates = list(state_data['date'])[::-1]
 
-    reopening_data = reopening_df[reopening_df['State'] == state]
-    # print(list(reopening_data))
+    reopening_dates = []
+    for i, row in reopening_df.iterrows():
+        if list(row)[0] == state:
+            reopening_dates = list(row)[1:]
+
+    for i, date in enumerate(reopening_dates):
+        if isinstance(date, str):
+            date = date.split(" ")[0]
+            date = '2020' + '0' * (4 - len(date)) + date
+            reopening_dates[i] = int(date)
+        elif not math.isnan(date):
+            date = str(int(date))
+            date = '2020' + '0' * (4 - len(date)) + date
+            reopening_dates[i] = int(date)
+        else:
+            reopening_dates[i] = None
+
+    # print(reopening_dates)
 
     index = 0
     for i in range(len(hospitalized)):
@@ -129,45 +145,50 @@ for state in states_dict:
         x_ticks.append(i)
         x_tick_labels.append(date[4:6] + "/" + date[6:8])
 
-    if state == "Florida":
-        names, reopening_dates = ["Phase 1", "Phase 2"], [20200504, 20200605]
-        lag_time = 14
+    names, reopening_dates = headers, reopening_dates
+    lag_time = 14
 
-        colors = ['r', 'y', 'g']
-        reopening_indecies = [dates.index(i) for i in reopening_dates]
-        # print(dates)
-        spike_expectations = [min(i + lag_time, len(hospitalized)) for i in reopening_indecies]
+    colors = ['red', 'orangered', 'yellow', 'gold', 'lime', 'green', 'cyan', 'deepskyblue', 'blue', 'violet', 'purple', 'indigo' 'gray', 'black', 'peru']
+    reopening_indecies = [dates.index(i) if i is not None and i in dates else None for i in reopening_dates]
+    # print(dates)
+    spike_expectations = [min(i + lag_time, len(hospitalized)) if i is not None else None for i in reopening_indecies]
 
-        for num, index in enumerate(reopening_indecies):
+    exponential_doublings = [[i, doubling_times_moving_average[i + lag_time]] if i is not None and i + lag_time < len(doubling_times_moving_average) and doubling_times_moving_average[i + lag_time] < np.mean(doubling_times_moving_average[i:i+lag_time]) else None for i in reopening_indecies]
+
+    for num, index in enumerate(reopening_indecies):
+        if exponential_doublings[num] is not None:
             plt.axvline(x=index, color=colors[num], linestyle='solid', label=names[num] + " Reopening")
-        for num, index in enumerate(spike_expectations):
+    for num, index in enumerate(spike_expectations):
+        if exponential_doublings[num] is not None:
             plt.axvline(x=index, color=colors[num], linestyle='dotted')
 
-        exponential_doublings = [[i, doubling_times_moving_average[i + lag_time]] if i + lag_time < len(doubling_times_moving_average) and doubling_times_moving_average[i + lag_time] < max(doubling_times_moving_average[i:i+lag_time]) else None for i in reopening_indecies]
 
-        x = [range(i[0], len(hospitalized)) if i is not None else None for i in exponential_doublings]
-        y = [[hospitalized[i] * (2 ** ((time - i)/doubling[1])) for time in range(doubling[0], len(hospitalized))] if doubling is not None else None for doubling in exponential_doublings]
-        
-        for i in range(len(x)):
-            if x[i] is not None:
-                plt.plot(x[i], y[i], color=colors[i], linestyle="dashed")        
-        
-        plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
-        plt.xticks(x_ticks, x_tick_labels)
-        plt.xlabel("Dates")
-        plt.ylabel("Cumulative COVID-19 Hospitalizations")
-        if not calculated:
-            plt.title(f"COVID-19 Cumulative Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
-        else:
-            plt.title(f"COVID-19 Cumulative Hospitalizations - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
+    x = [range(i[0], len(hospitalized)) if i is not None else None for i in exponential_doublings]
+    y = [[hospitalized[doubling[0]] * (2 ** ((time - doubling[0])/doubling[1])) for time in range(doubling[0], len(hospitalized))] if doubling is not None else None for doubling in exponential_doublings]
+    
+    for i in range(len(x)):
+        if x[i] is not None:
+            plt.plot(x[i], y[i], color=colors[i], linestyle="dashed")        
+    
+    plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
+    plt.xticks(x_ticks, x_tick_labels)
+    plt.xlabel("Dates")
+    plt.ylabel("Cumulative COVID-19 Hospitalizations")
+    if not calculated:
+        plt.title(f"COVID-19 Cumulative Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    else:
+        plt.title(f"COVID-19 Cumulative Hospitalizations - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
 
-        plt.legend()
-        plt.savefig(os.path.join("Graphs", "DoublingTime", f"{states_dict[state]}_Prediction.png"))
-        plt.clf()
+    plt.legend()
+    plt.savefig(os.path.join("Graphs", "Analysis", "Predictions", f"{states_dict[state]}.png"))
+    # plt.show()
+    plt.clf()
 
-        for num, index in enumerate(reopening_indecies):
+    for num, index in enumerate(reopening_indecies):
+        if exponential_doublings[num] is not None:
             plt.axvline(x=index, color=colors[num], linestyle='solid', label=names[num] + " Reopening")
-        for num, index in enumerate(spike_expectations):
+    for num, index in enumerate(spike_expectations):
+        if exponential_doublings[num] is not None:
             plt.axvline(x=index, color=colors[num], linestyle='dotted')
 
     plt.xticks(x_ticks, x_tick_labels)
@@ -181,5 +202,5 @@ for state in states_dict:
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)")
     plt.legend()
     # plt.show()
-    plt.savefig(os.path.join("Graphs", "DoublingTime", f"{states_dict[state]}.png"))
+    plt.savefig(os.path.join("Graphs", "Analysis", "Doubling Times", f"{states_dict[state]}.png"))
     plt.clf()
