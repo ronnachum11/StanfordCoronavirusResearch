@@ -157,10 +157,10 @@ for state in states_dict:
 
     for num, index in enumerate(reopening_indecies):
         if exponential_doublings[num] is not None:
-            plt.axvline(x=index, color=colors[num], linestyle='solid', label=names[num] + " Reopening")
+            plt.axvline(x=index, linestyle='solid', label=names[num] + " Reopening", color=colors[num])
     for num, index in enumerate(spike_expectations):
         if exponential_doublings[num] is not None:
-            plt.axvline(x=index, color=colors[num], linestyle='dotted')
+            plt.axvline(x=index, linestyle='dotted', color=colors[num])
 
 
     x = [range(i[0], len(hospitalized)) if i is not None else None for i in exponential_doublings]
