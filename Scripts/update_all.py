@@ -6,3 +6,5 @@ import update_cumulative_hospitalizations
 import update_current_hospitalizations
 import update_net_hospitalizations
 import update_new_hospitalizations
+import update_doubling_time
+import update_analysis

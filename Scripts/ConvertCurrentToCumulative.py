@@ -23,7 +23,7 @@ def getCumulativeHospitalizations(data, window=12):
         new_people.append(round(data[0]/window))
     for index in range(1, len(data)):
         new_people.append(data[index] - (data[index - 1]) + new_people[index])
-        total_hospitalizations.append(total_hospitalizations[index - 1] + new_people[index + window - 1])
+        total_hospitalizations.append(max(total_hospitalizations[index - 1] + new_people[index + window - 1], 0))
     return total_hospitalizations
 
 

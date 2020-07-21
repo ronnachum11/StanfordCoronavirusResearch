@@ -66,9 +66,9 @@ for state in states:
     plt.xlabel("Dates")
     plt.ylabel("Total Cumulative Hospitalizations")
     if not calculated:
-        plt.title(f"COVID-19 Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"COVID-19 Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be inaccurate")
     else:
-        plt.title(f"COVID-19 Hospitalizations (Calcalated) - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"COVID-19 Hospitalizations (Calculated) - {state}\nUsed covidtracking.com/api - Some data may be inaccurate")
     plt.plot(hospitalized)
     plt.savefig(os.path.join("Graphs", "Cumulative Hospitalizations", f"{state}.png"))
     # plt.show()
