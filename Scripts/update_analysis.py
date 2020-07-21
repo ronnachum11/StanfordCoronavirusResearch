@@ -121,6 +121,7 @@ for state in states_dict:
     calculated = False
     window = 21
     if len(hospitalized) < window:
+        # print(state)
         current_hospitalizations = list(state_data['hospitalizedCurrently'])[::-1]
         dates = list(state_data['date'])[::-1]
 
