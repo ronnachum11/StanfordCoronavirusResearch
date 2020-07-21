@@ -4,6 +4,7 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np 
 import time
+import statistics 
 from ConvertCurrentToCumulative import hasCumulativeHospitalizations, getCumulativeHospitalizations
 
 states_dict = {
@@ -68,7 +69,8 @@ path = "C:\\Users\\Ron\\StanfordCoronavirusResearch"
 
 reopening_df = pd.read_csv(os.path.join(path, "RawData", "StateReopening", "FinalData.csv"))
 reopening_df = reopening_df.drop(reopening_df.columns[15:], axis=1)
-headers = reopening_df.columns
+headers = list(reopening_df.columns)
+reopening_effects = [[] for i in range(len(headers) - 1)]
 
 def doubling_time(m, y, window):
     y1, y2 = y[m - window], y[m]
@@ -138,6 +140,7 @@ for state in states_dict:
     doubling_times = [0] * window + [doubling_time(x, hospitalized, window) for x in range(window, len(hospitalized))]
     moving_average_window = 7
     doubling_times_moving_average = [0] * window + [np.mean(doubling_times[x - window: x]) for x in range(window, len(doubling_times))]
+    doubling_times_derivative = [0] + [doubling_times_moving_average[i] - doubling_times_moving_average[i-1] for i in range(1, len(doubling_times_moving_average))]
 
     x_ticks, x_tick_labels = [], []
     for i in range(0, len(dates), len(dates)//7 - 1):
@@ -148,12 +151,20 @@ for state in states_dict:
     names, reopening_dates = headers, reopening_dates
     lag_time = 14
 
-    colors = ['red', 'orangered', 'yellow', 'gold', 'lime', 'green', 'cyan', 'deepskyblue', 'blue', 'violet', 'purple', 'indigo' 'gray', 'black', 'peru']
+    colors = ['red', 'orangered', 'yellow', 'gold', 'lime', 'green', 'cyan', 'deepskyblue', 'blue', 'violet', 'purple', 'indigo', 'gray', 'black', 'peru']
     reopening_indecies = [dates.index(i) if i is not None and i in dates else None for i in reopening_dates]
     # print(dates)
     spike_expectations = [min(i + lag_time, len(hospitalized)) if i is not None else None for i in reopening_indecies]
 
-    exponential_doublings = [[i, doubling_times_moving_average[i + lag_time]] if i is not None and i + lag_time < len(doubling_times_moving_average) and doubling_times_moving_average[i + lag_time] < np.mean(doubling_times_moving_average[i:i+lag_time]) else None for i in reopening_indecies]
+    exponential_doublings = [[i, doubling_times_moving_average[i + lag_time]] if i is not None and i + lag_time*2 < len(doubling_times_derivative) and np.mean(doubling_times_derivative[i + lag_time:i + lag_time*2]) < np.mean(doubling_times_derivative[i:i+lag_time]) else None for i in reopening_indecies]
+    
+    for num, index in enumerate(reopening_indecies):
+        if index is not None and num + lag_time*2 < len(doubling_times_derivative):
+            pre = np.mean(doubling_times_derivative[index:index + lag_time])
+            post = np.mean(doubling_times_derivative[index + lag_time:index + lag_time*2])
+            # print(pre, post)
+            if not math.isnan(pre) and not math.isnan(post):
+                reopening_effects[num].append((post - pre / pre)*100)
 
     for num, index in enumerate(reopening_indecies):
         if exponential_doublings[num] is not None:
@@ -162,6 +173,7 @@ for state in states_dict:
         if exponential_doublings[num] is not None:
             plt.axvline(x=index, linestyle='dotted', color=colors[num])
 
+    # print(len(hospitalized), len(doubling_times_moving_average), len(doubling_times_derivative))
 
     x = [range(i[0], len(hospitalized)) if i is not None else None for i in exponential_doublings]
     y = [[hospitalized[doubling[0]] * (2 ** ((time - doubling[0])/doubling[1])) for time in range(doubling[0], len(hospitalized))] if doubling is not None else None for doubling in exponential_doublings]
@@ -170,6 +182,8 @@ for state in states_dict:
         if x[i] is not None:
             plt.plot(x[i], y[i], color=colors[i], linestyle="dashed")        
     
+    # print(state, hospitalized)
+
     plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
     plt.xticks(x_ticks, x_tick_labels)
     plt.xlabel("Dates")
@@ -204,3 +218,15 @@ for state in states_dict:
     # plt.show()
     plt.savefig(os.path.join("Graphs", "Analysis", "Doubling Times", f"{states_dict[state]}.png"))
     plt.clf()
+
+reopening_effects_means = [np.mean(i) for i in reopening_effects]
+reopening_effects_medians = [statistics.median(i) if len(i) != 0 else 0 for i in reopening_effects]
+print(reopening_effects_means)
+print(reopening_effects_medians)
+plt.title("Reopening Orders Effect on Doubling Time")
+plt.xlabel("Reopening Type")
+plt.ylabel("Change Before/After Reopening (%)")
+plt.xticks(range(len(headers) - 1), headers[1:], rotation=90)
+plt.bar(range(len(headers) - 1), reopening_effects_medians)
+plt.savefig(os.path.join("Graphs", "Analysis", "Doubling Times", "ReopeningData.png"))
+# plt.show()
