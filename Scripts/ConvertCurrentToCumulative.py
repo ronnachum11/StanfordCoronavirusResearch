@@ -27,23 +27,23 @@ def getCumulativeHospitalizations(data, window=12):
     return total_hospitalizations
 
 
-file = open("../RawData/Illinois/il_covid_track_api_data.csv")
-data = file.read()
-def split(string):
-    num = string.split(",")[6]
-    if num != "":
-        return float(num)
+# file = open("../RawData/Illinois/il_covid_track_api_data.csv")
+# data = file.read()
+# def split(string):
+#     num = string.split(",")[6]
+#     if num != "":
+#         return float(num)
 
 
-rows = data.split("\n")
-rows.pop(0)
-rows.remove('')
-rows = rows[::-1]
-numbers = []
-for row in rows:
-    num = row.split(",")[6]
-    if num != "":
-        numbers.append(float(num))
+# rows = data.split("\n")
+# rows.pop(0)
+# rows.remove('')
+# rows = rows[::-1]
+# numbers = []
+# for row in rows:
+#     num = row.split(",")[6]
+#     if num != "":
+#         numbers.append(float(num))
 
-print(numbers)
-print(getCumulativeHospitalizations(numbers))
+# print(numbers)
+# print(getCumulativeHospitalizations(numbers))
