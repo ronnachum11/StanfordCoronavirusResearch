@@ -39,7 +39,7 @@ for state in states:
     plt.ylabel("Total Current Hospitalizations")
     plt.title(f"COVID-19 Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
     plt.plot(hospitalized)
-    plt.savefig(os.path.join("Graphs", "Current Hospitalizations", f"{state}.png"))
+    plt.savefig(os.path.join("Graphs", "General", "Current Hospitalizations", f"{state}.png"))
     # plt.show()
     plt.cla()
 # print(len(states))

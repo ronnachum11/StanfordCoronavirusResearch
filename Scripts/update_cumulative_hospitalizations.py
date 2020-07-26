@@ -70,7 +70,7 @@ for state in states:
     else:
         plt.title(f"COVID-19 Hospitalizations (Calculated) - {state}\nUsed covidtracking.com/api - Some data may be inaccurate")
     plt.plot(hospitalized)
-    plt.savefig(os.path.join("Graphs", "Cumulative Hospitalizations", f"{state}.png"))
+    plt.savefig(os.path.join("Graphs", "General", "Cumulative Hospitalizations", f"{state}.png"))
     # plt.show()
     plt.cla()
 # print(len(states))

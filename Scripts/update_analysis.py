@@ -81,6 +81,11 @@ def doubling_time(m, y, window):
     return (window) * np.log(2) / np.log(y2 / y1)
 
 for state in states_dict:
+    # print(state)
+    save_folder = os.path.join(path, "Graphs", "Analysis", state)
+    if not os.path.isdir(save_folder):
+        os.mkdir(save_folder)
+    
     state_data = pd.read_csv(os.path.join(path, "RawData", state, f"{states_dict[state].lower()}_covid_track_api_data.csv"))
     hospitalized = list(state_data['hospitalizedCumulative'])[::-1]
     dates = list(state_data['date'])[::-1]
@@ -168,13 +173,38 @@ for state in states_dict:
                 reopening_effects[num].append((post - pre / pre)*100)
 
     for num, index in enumerate(reopening_indecies):
+        if index is not None:
+            plt.axvline(x=index, linestyle='solid', label=names[num] + " Reopening", color=colors[num])
+    for num, index in enumerate(spike_expectations):
+        if index is not None:
+            plt.axvline(x=index, linestyle='dotted', color=colors[num])
+    plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
+    plt.xticks(x_ticks, x_tick_labels)
+    plt.xlabel("Dates")
+    plt.ylabel("Cumulative COVID-19 Hospitalizations")
+    if not calculated:
+        plt.title(f"Reopenings - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    else:
+        plt.title(f"Reopenings - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
+    plt.savefig(os.path.join(save_folder, "1reopenings.png"))
+    plt.clf()
+
+    for num, index in enumerate(reopening_indecies):
         if exponential_doublings[num] is not None:
             plt.axvline(x=index, linestyle='solid', label=names[num] + " Reopening", color=colors[num])
     for num, index in enumerate(spike_expectations):
         if exponential_doublings[num] is not None:
             plt.axvline(x=index, linestyle='dotted', color=colors[num])
-
+    plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
+    plt.xticks(x_ticks, x_tick_labels)
+    plt.xlabel("Dates")
+    plt.ylabel("Cumulative COVID-19 Hospitalizations")
+    if not calculated:
+        plt.title(f"Reopenings With Negative Effects - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    else:
+        plt.title(f"Reopenings With Negative Effects - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
     # print(len(hospitalized), len(doubling_times_moving_average), len(doubling_times_derivative))
+    plt.savefig(os.path.join(save_folder, "4negative_reopenings.png"))
 
     x = [range(i[0], len(hospitalized)) if i is not None else None for i in exponential_doublings]
     y = [[hospitalized[doubling[0]] * (2 ** ((time - doubling[0])/doubling[1])) for time in range(doubling[0], len(hospitalized))] if doubling is not None else None for doubling in exponential_doublings]
@@ -185,27 +215,27 @@ for state in states_dict:
     
     # print(state, hospitalized)
 
-    plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
-    plt.xticks(x_ticks, x_tick_labels)
-    plt.xlabel("Dates")
-    plt.ylabel("Cumulative COVID-19 Hospitalizations")
     if not calculated:
         plt.title(f"COVID-19 Cumulative Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
     else:
         plt.title(f"COVID-19 Cumulative Hospitalizations - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
 
-    plt.legend()
-    plt.savefig(os.path.join("Graphs", "Analysis", "Predictions", f"{states_dict[state]}.png"))
+    # plt.legend()
+    plt.savefig(os.path.join(save_folder, "5predictions.png"))
     # plt.show()
     plt.clf()
 
     for num, index in enumerate(reopening_indecies):
-        if exponential_doublings[num] is not None:
-            plt.axvline(x=index, color=colors[num], linestyle='solid', label=names[num] + " Reopening")
+        if index is not None:
+            plt.axvline(x=index, linestyle='solid', label=names[num] + " Reopening", color=colors[num])
     for num, index in enumerate(spike_expectations):
-        if exponential_doublings[num] is not None:
-            plt.axvline(x=index, color=colors[num], linestyle='dotted')
+        if index is not None:
+            plt.axvline(x=index, linestyle='dotted', color=colors[num])
 
+    if not calculated:
+        plt.title(f"Reopenings - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    else:
+        plt.title(f"Reopenings - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
     plt.xticks(x_ticks, x_tick_labels)
     plt.xlabel("Dates")
     plt.ylabel("Doubling Time (Days)")
@@ -215,9 +245,27 @@ for state in states_dict:
         plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
     # plt.plot(doubling_times, label="Doubling Time")
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)")
-    plt.legend()
+    plt.savefig(os.path.join(save_folder, "2doubling_times_reopenings.png"))
+    plt.clf()
+
+    for num, index in enumerate(reopening_indecies):
+        if exponential_doublings[num] is not None:
+            plt.axvline(x=index, color=colors[num], linestyle='solid', label=names[num] + " Reopening")
+    for num, index in enumerate(spike_expectations):
+        if exponential_doublings[num] is not None:
+            plt.axvline(x=index, color=colors[num], linestyle='dotted')
+
     # plt.show()
-    plt.savefig(os.path.join("Graphs", "Analysis", "Doubling Times", f"{states_dict[state]}.png"))
+    plt.xticks(x_ticks, x_tick_labels)
+    plt.xlabel("Dates")
+    plt.ylabel("Doubling Time (Days)")
+    if not calculated:
+        plt.title(f"COVID-19 Hospitalization Doubling Time (7-Day Moving Avg) - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    else:
+        plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
+    # plt.plot(doubling_times, label="Doubling Time")
+    plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)")
+    plt.savefig(os.path.join(save_folder, "3doubling_times_negative_reopenings.png"))
     plt.clf()
 
 reopening_effects_means = [np.mean(i) for i in reopening_effects]
@@ -226,8 +274,8 @@ print(reopening_effects_means)
 print(reopening_effects_medians)
 plt.title("Reopening Orders Effect on Doubling Time")
 plt.xlabel("Reopening Type")
-plt.ylabel("Change Before/After Reopening (%)")
+plt.ylabel("Median Rate of Change Difference Before/After Reopening (%)")
 plt.xticks(range(len(headers) - 1), headers[1:], rotation=90)
 plt.bar(range(len(headers) - 1), reopening_effects_medians)
-plt.savefig(os.path.join("Graphs", "Analysis", "Doubling Times", "ReopeningData.png"))
+plt.savefig(os.path.join(path, "Graphs", "Analysis", "ReopeningData.png"), bbox_inches='tight')
 # plt.show()
