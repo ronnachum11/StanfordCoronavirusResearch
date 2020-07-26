@@ -1,5 +1,4 @@
-# This current structure is inefficent but allows for modularity so I am leaving it as is for the moment 
-# If you only want to update a few of these, you can comment out the ones you don't want to update and run the script
+# Run this script to update all data and graphs
 
 text = ["", "Raw Data", "Cumulative Hospitalizations", "Current Hospitalizations", "Net Hospitalizations", "New Hospitalizations", "Doubling Times", "Analysis"]
 i, length = 0, 7
