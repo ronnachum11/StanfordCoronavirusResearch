@@ -138,4 +138,5 @@ for state in states_dict:
     plt.legend()
     # plt.show()
     plt.savefig(os.path.join("Graphs", "General", "Doubling Times", f"{states_dict[state]}.png"))
+    plt.savefig(os.path.join("Graphs", "Analysis", state, "3DoublingTimes.png"))
     plt.clf()

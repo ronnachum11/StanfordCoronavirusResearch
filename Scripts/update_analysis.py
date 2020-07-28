@@ -186,7 +186,7 @@ for state in states_dict:
         plt.title(f"Reopenings - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
     else:
         plt.title(f"Reopenings - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
-    plt.savefig(os.path.join(save_folder, "1reopenings.png"))
+    plt.savefig(os.path.join(save_folder, "4reopenings.png"))
     plt.clf()
 
     for num, index in enumerate(reopening_indecies):
@@ -204,7 +204,7 @@ for state in states_dict:
     else:
         plt.title(f"Reopenings With Negative Effects - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
     # print(len(hospitalized), len(doubling_times_moving_average), len(doubling_times_derivative))
-    plt.savefig(os.path.join(save_folder, "4negative_reopenings.png"))
+    plt.savefig(os.path.join(save_folder, "7negative_reopenings.png"))
 
     x = [range(i[0], len(hospitalized)) if i is not None else None for i in exponential_doublings]
     y = [[hospitalized[doubling[0]] * (2 ** ((time - doubling[0])/doubling[1])) for time in range(doubling[0], len(hospitalized))] if doubling is not None else None for doubling in exponential_doublings]
@@ -221,7 +221,7 @@ for state in states_dict:
         plt.title(f"COVID-19 Cumulative Hospitalizations - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
 
     # plt.legend()
-    plt.savefig(os.path.join(save_folder, "5predictions.png"))
+    plt.savefig(os.path.join(save_folder, "8predictions.png"))
     # plt.show()
     plt.clf()
 
@@ -245,7 +245,7 @@ for state in states_dict:
         plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
     # plt.plot(doubling_times, label="Doubling Time")
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)")
-    plt.savefig(os.path.join(save_folder, "2doubling_times_reopenings.png"))
+    plt.savefig(os.path.join(save_folder, "5doubling_times_reopenings.png"))
     plt.clf()
 
     for num, index in enumerate(reopening_indecies):
@@ -265,7 +265,7 @@ for state in states_dict:
         plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
     # plt.plot(doubling_times, label="Doubling Time")
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)")
-    plt.savefig(os.path.join(save_folder, "3doubling_times_negative_reopenings.png"))
+    plt.savefig(os.path.join(save_folder, "6doubling_times_negative_reopenings.png"))
     plt.clf()
 
 reopening_effects_means = [np.mean(i) for i in reopening_effects]
