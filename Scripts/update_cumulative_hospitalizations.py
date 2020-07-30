@@ -7,6 +7,7 @@ import math
 import time
 import numpy as np
 from ConvertCurrentToCumulative import hasCumulativeHospitalizations, getCumulativeHospitalizations
+from utils import moving_average
 
 r = requests.get("https://covidtracking.com/api/v1/states/daily.json")
 
@@ -114,8 +115,9 @@ for state in states:
 
         if len(current_hospitalizations) > window:
             hospitalized = getCumulativeHospitalizations(current_hospitalizations, window)
-            hospitalized = [0] * 7 + [np.mean(hospitalized[x - 7: x]) for x in range(7, len(hospitalized))]
             calculated = True
+
+    hospitalized = moving_average(hospitalized)
 
     x_ticks, x_tick_labels = [], []
     for i in range(0, len(dates), max(1, len(dates)//7 - 1)):
@@ -129,7 +131,7 @@ for state in states:
         plt.title(f"COVID-19 Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be inaccurate")
     else:
         plt.title(f"COVID-19 Hospitalizations (Calculated) - {state}\nUsed covidtracking.com/api - Some data may be inaccurate")
-    plt.plot(hospitalized)
+    plt.plot(hospitalized, color='k')
     plt.savefig(os.path.join("Graphs", "General", "Cumulative Hospitalizations", f"{state}.png"))
     plt.savefig(os.path.join("Graphs", "Analysis", states_dict[state], "2CumulativeHospitalizations.png"))
     # plt.show()

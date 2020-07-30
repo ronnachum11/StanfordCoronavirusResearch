@@ -4,6 +4,7 @@ import json
 import matplotlib.pyplot as plt
 import os 
 import math
+from utils import moving_average
 
 r = requests.get("https://covidtracking.com/api/v1/states/daily.json")
 
@@ -90,6 +91,8 @@ for state in states:
         if math.isnan(hospitalized[i]):
             hospitalized[i] = hospitalized[i-1]
 
+    hospitalized = moving_average(hospitalized)
+
     x_ticks, x_tick_labels = [], []
     for i in range(0, len(dates), max(1, len(dates)//7 - 1)):
         date = str(dates[i])
@@ -100,7 +103,7 @@ for state in states:
     plt.xlabel("Dates")
     plt.ylabel("Total Current Hospitalizations")
     plt.title(f"COVID-19 Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
-    plt.plot(hospitalized)
+    plt.plot(hospitalized, color='k')
     plt.savefig(os.path.join("Graphs", "General", "Current Hospitalizations", f"{state}.png"))
     plt.savefig(os.path.join("Graphs", "Analysis", states_dict[state], "1CurrentHospitalizations.png"))
     # plt.show()

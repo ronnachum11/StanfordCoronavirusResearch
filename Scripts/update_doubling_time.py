@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import time
 from ConvertCurrentToCumulative import hasCumulativeHospitalizations, getCumulativeHospitalizations
+from utils import moving_average
 
 states_dict = {
     'Alabama': 'AL',
@@ -112,9 +113,10 @@ for state in states_dict:
 
         if len(current_hospitalizations) > window:
             hospitalized = getCumulativeHospitalizations(current_hospitalizations, window)
-            hospitalized = [0] * 7 + [np.mean(hospitalized[x - 7: x]) for x in range(7, len(hospitalized))]
             calculated = True
     
+    hospitalized = moving_average(hospitalized)
+
     window = 7
     doubling_times = [0] * window + [doubling_time(x, hospitalized, window) for x in range(window, len(hospitalized))]
     moving_average_window = 7
@@ -134,7 +136,7 @@ for state in states_dict:
     else:
         plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
     # plt.plot(doubling_times, label="Doubling Time")
-    plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)")
+    plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
     plt.legend()
     # plt.show()
     plt.savefig(os.path.join("Graphs", "General", "Doubling Times", f"{states_dict[state]}.png"))

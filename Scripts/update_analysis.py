@@ -6,6 +6,7 @@ import numpy as np
 import time
 import statistics 
 from ConvertCurrentToCumulative import hasCumulativeHospitalizations, getCumulativeHospitalizations
+from utils import moving_average 
 
 states_dict = {
     'Alabama': 'AL',
@@ -139,9 +140,10 @@ for state in states_dict:
 
         if len(current_hospitalizations) > window:
             hospitalized = getCumulativeHospitalizations(current_hospitalizations, window)
-            hospitalized = [0] * 7 + [np.mean(hospitalized[x - 7: x]) for x in range(7, len(hospitalized))]
             calculated = True
-    
+
+    hospitalized = moving_average(hospitalized)
+
     window = 7
     doubling_times = [0] * window + [doubling_time(x, hospitalized, window) for x in range(window, len(hospitalized))]
     moving_average_window = 7
@@ -244,7 +246,7 @@ for state in states_dict:
     else:
         plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
     # plt.plot(doubling_times, label="Doubling Time")
-    plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)")
+    plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
     plt.savefig(os.path.join(save_folder, "5doubling_times_reopenings.png"))
     plt.clf()
 
@@ -264,18 +266,29 @@ for state in states_dict:
     else:
         plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
     # plt.plot(doubling_times, label="Doubling Time")
-    plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)")
+    plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
     plt.savefig(os.path.join(save_folder, "6doubling_times_negative_reopenings.png"))
     plt.clf()
 
-reopening_effects_means = [np.mean(i) for i in reopening_effects]
+# reopening_effects_means = [np.mean(i) for i in reopening_effects]
 reopening_effects_medians = [statistics.median(i) if len(i) != 0 else 0 for i in reopening_effects]
-print(reopening_effects_means)
-print(reopening_effects_medians)
+# print(reopening_effects_means)
+# print(reopening_effects_medians)
+
+reopenings_with_headers = zip(reopening_effects_medians, headers[1:])
+reopenings_with_headers = sorted(reopenings_with_headers, key=lambda x: -1*x[0])
+# print(reopenings_with_headers)
+
+negative_reopenings = [x[0] for x in reopenings_with_headers if x[0] < 0]
+positive_reopenings = [x[0] for x in reopenings_with_headers if x[0] >= 0]
+print(len(negative_reopenings), len(positive_reopenings))
+headers = [x[1] for x in reopenings_with_headers]
+
 plt.title("Reopening Orders Effect on Doubling Time")
 plt.xlabel("Reopening Type")
-plt.ylabel("Median Rate of Change Difference Before/After Reopening (%)")
-plt.xticks(range(len(headers) - 1), headers[1:], rotation=90)
-plt.bar(range(len(headers) - 1), reopening_effects_medians)
+plt.ylabel("Median Change Before/After Reopening (%)")
+plt.xticks(range(len(headers)), headers, rotation=90)
+plt.bar(range(len(positive_reopenings)), positive_reopenings, color="g")
+plt.bar(range(len(positive_reopenings), len(headers)), negative_reopenings, color="r")
 plt.savefig(os.path.join(path, "Graphs", "Analysis", "ReopeningData.png"), bbox_inches='tight')
 # plt.show()

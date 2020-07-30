@@ -1,4 +1,6 @@
 # Run this script to update all data and graphs
+import matplotlib.pyplot as plt 
+plt.style.use('ggplot')
 
 text = ["", "Raw Data", "Cumulative Hospitalizations", "Current Hospitalizations", "Net Hospitalizations", "New Hospitalizations", "Doubling Times", "Analysis"]
 i, length = 0, 7
