@@ -6,6 +6,7 @@ import numpy as np
 import time
 from ConvertCurrentToCumulative import hasCumulativeHospitalizations, getCumulativeHospitalizations
 from utils import moving_average
+plt.style.use('ggplot')
 
 states_dict = {
     'Alabama': 'AL',
@@ -137,7 +138,7 @@ for state in states_dict:
         plt.title(f"COVID-19 Hospitalization Doubling Time - {state} (Calc)")
     # plt.plot(doubling_times, label="Doubling Time")
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
-    plt.legend()
+    # plt.legend()
     # plt.show()
     plt.savefig(os.path.join("Graphs", "General", "Doubling Times", f"{states_dict[state]}.png"), bbox_inches='tight')
     plt.savefig(os.path.join("Graphs", "Analysis", state, "3DoublingTimes.png"), bbox_inches='tight')
