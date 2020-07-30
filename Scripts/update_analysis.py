@@ -185,9 +185,9 @@ for state in states_dict:
     plt.xlabel("Dates")
     plt.ylabel("Cumulative COVID-19 Hospitalizations")
     if not calculated:
-        plt.title(f"Reopenings - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"Reopenings - {state}")
     else:
-        plt.title(f"Reopenings - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"Reopenings - {state} (Calc)")
     plt.savefig(os.path.join(save_folder, "4reopenings.png"))
     plt.clf()
 
@@ -202,9 +202,9 @@ for state in states_dict:
     plt.xlabel("Dates")
     plt.ylabel("Cumulative COVID-19 Hospitalizations")
     if not calculated:
-        plt.title(f"Reopenings With Negative Effects - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"Reopenings With Negative Effects - {state}")
     else:
-        plt.title(f"Reopenings With Negative Effects - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"Reopenings With Negative Effects - {state} (Calc)")
     # print(len(hospitalized), len(doubling_times_moving_average), len(doubling_times_derivative))
     plt.savefig(os.path.join(save_folder, "7negative_reopenings.png"))
 
@@ -218,9 +218,9 @@ for state in states_dict:
     # print(state, hospitalized)
 
     if not calculated:
-        plt.title(f"COVID-19 Cumulative Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"COVID-19 Cumulative Hospitalizations - {state}")
     else:
-        plt.title(f"COVID-19 Cumulative Hospitalizations - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"COVID-19 Cumulative Hospitalizations - {state} (Calc)")
 
     # plt.legend()
     plt.savefig(os.path.join(save_folder, "8predictions.png"))
@@ -235,16 +235,16 @@ for state in states_dict:
             plt.axvline(x=index, linestyle='dotted', color=colors[num])
 
     if not calculated:
-        plt.title(f"Reopenings - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"Reopenings - {state}")
     else:
-        plt.title(f"Reopenings - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"Reopenings - {state} (Calc)")
     plt.xticks(x_ticks, x_tick_labels)
     plt.xlabel("Dates")
     plt.ylabel("Doubling Time (Days)")
     if not calculated:
-        plt.title(f"COVID-19 Hospitalization Doubling Time (7-Day Moving Avg) - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"COVID-19 Hospitalization Doubling Time (7-Day Moving Avg) - {state}")
     else:
-        plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)")
     # plt.plot(doubling_times, label="Doubling Time")
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
     plt.savefig(os.path.join(save_folder, "5doubling_times_reopenings.png"))
@@ -262,9 +262,9 @@ for state in states_dict:
     plt.xlabel("Dates")
     plt.ylabel("Doubling Time (Days)")
     if not calculated:
-        plt.title(f"COVID-19 Hospitalization Doubling Time (7-Day Moving Avg) - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"COVID-19 Hospitalization Doubling Time (7-Day Moving Avg) - {state}")
     else:
-        plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)")
     # plt.plot(doubling_times, label="Doubling Time")
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
     plt.savefig(os.path.join(save_folder, "6doubling_times_negative_reopenings.png"))

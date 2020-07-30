@@ -28,7 +28,7 @@ for state in states:
     plt.xticks(x_ticks, x_tick_labels)
     plt.xlabel("Dates")
     plt.ylabel("Total Current Hospitalizations")
-    plt.title(f"COVID-19 Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    plt.title(f"COVID-19 Hospitalizations - {state}")
     plt.plot(hospitalized)
     plt.savefig(os.path.join("Graphs", f"Graph{state}.png"))
     # plt.show()

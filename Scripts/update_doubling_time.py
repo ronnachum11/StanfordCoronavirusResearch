@@ -132,9 +132,9 @@ for state in states_dict:
     plt.xlabel("Dates")
     plt.ylabel("Doubling Time (Days)")
     if not calculated:
-        plt.title(f"COVID-19 Hospitalization Doubling Time (7-Day Moving Avg) - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"COVID-19 Hospitalization Doubling Time (7-Day Moving Avg) - {state}")
     else:
-        plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)")
     # plt.plot(doubling_times, label="Doubling Time")
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
     plt.legend()

@@ -8,6 +8,7 @@ import time
 import numpy as np
 from ConvertCurrentToCumulative import hasCumulativeHospitalizations, getCumulativeHospitalizations
 from utils import moving_average
+plt.style.use('ggplot')
 
 r = requests.get("https://covidtracking.com/api/v1/states/daily.json")
 
@@ -128,9 +129,9 @@ for state in states:
     plt.xlabel("Dates")
     plt.ylabel("Total Cumulative Hospitalizations")
     if not calculated:
-        plt.title(f"COVID-19 Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be inaccurate")
+        plt.title(f"COVID-19 Hospitalizations - {state}")
     else:
-        plt.title(f"COVID-19 Hospitalizations (Calculated) - {state}\nUsed covidtracking.com/api - Some data may be inaccurate")
+        plt.title(f"COVID-19 Hospitalizations (Calculated) - {state}")
     plt.plot(hospitalized, color='k')
     plt.savefig(os.path.join("Graphs", "General", "Cumulative Hospitalizations", f"{state}.png"))
     plt.savefig(os.path.join("Graphs", "Analysis", states_dict[state], "2CumulativeHospitalizations.png"))
