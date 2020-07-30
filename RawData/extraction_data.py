@@ -30,7 +30,7 @@ for state in states:
     plt.ylabel("Total Current Hospitalizations")
     plt.title(f"COVID-19 Hospitalizations - {state}")
     plt.plot(hospitalized)
-    plt.savefig(os.path.join("Graphs", f"Graph{state}.png"))
+    plt.savefig(os.path.join("Graphs", f"Graph{state}.png"), bbox_inches='tight')
     # plt.show()
     plt.cla()
 # print(len(states))

@@ -129,12 +129,12 @@ for state in states:
     plt.xlabel("Dates")
     plt.ylabel("Total Cumulative Hospitalizations")
     if not calculated:
-        plt.title(f"COVID-19 Hospitalizations - {state}")
+        plt.title(f"COVID-19 Cumulative Hospitalizations - {state}")
     else:
-        plt.title(f"COVID-19 Hospitalizations (Calculated) - {state}")
+        plt.title(f"COVID-19 Cumulative Hospitalizations (Calculated) - {state}")
     plt.plot(hospitalized, color='k')
-    plt.savefig(os.path.join("Graphs", "General", "Cumulative Hospitalizations", f"{state}.png"))
-    plt.savefig(os.path.join("Graphs", "Analysis", states_dict[state], "2CumulativeHospitalizations.png"))
+    plt.savefig(os.path.join("Graphs", "General", "Cumulative Hospitalizations", f"{state}.png"), bbox_inches='tight')
+    plt.savefig(os.path.join("Graphs", "Analysis", states_dict[state], "2CumulativeHospitalizations.png"), bbox_inches='tight')
     # plt.show()
     plt.cla()
 # print(len(states))

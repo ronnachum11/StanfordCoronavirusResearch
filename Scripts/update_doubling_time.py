@@ -132,13 +132,13 @@ for state in states_dict:
     plt.xlabel("Dates")
     plt.ylabel("Doubling Time (Days)")
     if not calculated:
-        plt.title(f"COVID-19 Hospitalization Doubling Time (7-Day Moving Avg) - {state}")
+        plt.title(f"COVID-19 Hospitalization Doubling Time - {state}")
     else:
-        plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)")
+        plt.title(f"COVID-19 Hospitalization Doubling Time - {state} (Calc)")
     # plt.plot(doubling_times, label="Doubling Time")
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
     plt.legend()
     # plt.show()
-    plt.savefig(os.path.join("Graphs", "General", "Doubling Times", f"{states_dict[state]}.png"))
-    plt.savefig(os.path.join("Graphs", "Analysis", state, "3DoublingTimes.png"))
+    plt.savefig(os.path.join("Graphs", "General", "Doubling Times", f"{states_dict[state]}.png"), bbox_inches='tight')
+    plt.savefig(os.path.join("Graphs", "Analysis", state, "3DoublingTimes.png"), bbox_inches='tight')
     plt.clf()

@@ -165,6 +165,6 @@ for state in states:
     plt.plot(hospitalized, label="Actual Data", color='k')
 
     plt.legend()
-    plt.savefig(os.path.join("Graphs", "Analysis", f"{state}.png"))
+    plt.savefig(os.path.join("Graphs", "Analysis", f"{state}.png"), bbox_inches='tight')
     plt.cla()
     # plt.show()
