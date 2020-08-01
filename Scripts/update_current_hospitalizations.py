@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import os 
 import math
 from utils import moving_average
-
+plt.style.use('ggplot')
 r = requests.get("https://covidtracking.com/api/v1/states/daily.json")
 
 # print(r.status_code)
@@ -91,7 +91,7 @@ for state in states:
         if math.isnan(hospitalized[i]):
             hospitalized[i] = hospitalized[i-1]
 
-    hospitalized = moving_average(hospitalized)
+    hospitalized = moving_average(hospitalized, cumulative=False)
 
     x_ticks, x_tick_labels = [], []
     for i in range(0, len(dates), max(1, len(dates)//7 - 1)):

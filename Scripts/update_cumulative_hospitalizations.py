@@ -97,12 +97,17 @@ for state in states:
     dates = dates[index:]
     hospitalized = hospitalized[index:]
 
+    # data_amount = np.count_nonzero(~np.isnan(hospitalized))
+
     for i in range(1, len(hospitalized)):
         if math.isnan(hospitalized[i]):
             hospitalized[i] = hospitalized[i-1]
 
     calculated = False
     window = 21
+    
+    # print(state, data_amount)
+
     if len(hospitalized) < window:
         current_hospitalizations = list(state_data['hospitalizedCurrently'])[::-1]
         dates = list(state_data['date'])[::-1]
