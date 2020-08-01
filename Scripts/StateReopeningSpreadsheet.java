@@ -131,7 +131,7 @@ public class StateReopeningSpreadsheet {
 							break;
 						}
 					}
-					// note that info may be an empty string, especially if category = "Houses of
+					// note that info may be empty, especially if category = "Houses of
 					// Worship"
 					String info = line.substring(lInfo.length(), line.length() - endDiv.length());
 					if (info.equals("")) {
@@ -163,60 +163,69 @@ public class StateReopeningSpreadsheet {
 		// restaurants (outdoor dining only)
 		keywords.add(new ArrayList<String>());
 		keywords.get(keywords.size() - 1).add("outdoor dining");
-		// restaurants and bars
+		// dine-in restaurants and bars
 		keywords.add(new ArrayList<String>());
 		keywords.get(keywords.size() - 1).add("bars");
 		// dine-in restaurants, no bars
 		keywords.add(new ArrayList<String>());
 		keywords.get(keywords.size() - 1).add("restaurant");
+		keywords.get(keywords.size() - 1).add("dining");
 		// retail (curbside pickup only)
 		keywords.add(new ArrayList<String>());
 		keywords.get(keywords.size() - 1).add("retail open to curbside");
 		keywords.get(keywords.size() - 1).add("stores open to curbside");
 		keywords.get(keywords.size() - 1).add("retail open to pickup");
 		keywords.get(keywords.size() - 1).add("stores open to pickup");
+		keywords.get(keywords.size() - 1).add("retail by appointment");
+		keywords.get(keywords.size() - 1).add("stores by appointment");
 		// indoor retail
 		keywords.add(new ArrayList<String>());
 		keywords.get(keywords.size() - 1).add("retail");
+		keywords.get(keywords.size() - 1).add("malls");
 		// hair salons and barbershops
 		keywords.add(new ArrayList<String>());
 		keywords.get(keywords.size() - 1).add("hair");
 		keywords.get(keywords.size() - 1).add("barber");
 		// non-hair personal care
 		keywords.add(new ArrayList<String>());
-		keywords.get(keywords.size() - 1).add("nail");
-		keywords.get(keywords.size() - 1).add("tattoo");
 		keywords.get(keywords.size() - 1).add("massage");
+		keywords.get(keywords.size() - 1).add("nail");
 		keywords.get(keywords.size() - 1).add("tanning");
-		keywords.get(keywords.size() - 1).add("cosmetology");
+		keywords.get(keywords.size() - 1).add("tattoo");
+		keywords.get(keywords.size() - 1).add("spas");
+
 		// gyms and fitness centers
 		keywords.add(new ArrayList<String>());
 		keywords.get(keywords.size() - 1).add("gym");
 		keywords.get(keywords.size() - 1).add("fitness");
-		// entertainment
+		// indoor entertainment
 		keywords.add(new ArrayList<String>());
+		keywords.get(keywords.size() - 1).add("aquarium");
+		keywords.get(keywords.size() - 1).add("arcade");
 		keywords.get(keywords.size() - 1).add("bowling");
+		keywords.get(keywords.size() - 1).add("casino");
 		keywords.get(keywords.size() - 1).add("movie");
-		keywords.get(keywords.size() - 1).add("entertainment");
-		// houses of worship (ADDITIONAL CODE BELOW)
+		keywords.get(keywords.size() - 1).add("theater");
+		keywords.get(keywords.size() - 1).add("museum");
+		// houses of worship
 		keywords.add(new ArrayList<String>());
-		keywords.get(keywords.size() - 1).add("worship");
 		keywords.get(keywords.size() - 1).add("religious");
+		keywords.get(keywords.size() - 1).add("worship");
 		// office enviroments
 		keywords.add(new ArrayList<String>());
 		keywords.get(keywords.size() - 1).add("office");
-		// construction
+		// construction and distribution
 		keywords.add(new ArrayList<String>());
 		keywords.get(keywords.size() - 1).add("construction");
 		keywords.get(keywords.size() - 1).add("distribution");
 		// beaches
 		keywords.add(new ArrayList<String>());
 		keywords.get(keywords.size() - 1).add("beach");
-		// state parks
+		// parks and campgrounds
 		keywords.add(new ArrayList<String>());
-		keywords.get(keywords.size() - 1).add("state park");
-		keywords.get(keywords.size() - 1).add("state camp");
 		keywords.get(keywords.size() - 1).add("campground");
+		keywords.get(keywords.size() - 1).add("state camp");
+		keywords.get(keywords.size() - 1).add("state park");
 		//debug
 		//System.out.println(keywords);
 		// initialize urls
@@ -232,14 +241,12 @@ public class StateReopeningSpreadsheet {
 		int[] daysInMonth = {0, 0, 0, 0, 0, 31, 30, 31, 31, 30, 31, 30, 31};
 		// change endMonth and endDay as needed
 		int endMonth = 7;
-		int endDay = 16;
+		int endDay = 29;
 		while (endMonth != month || endDay != day) {
 			String stringMonth = Integer.toString(month);
 			if (month < 10) {
 				stringMonth = "0" + stringMonth;
 			}
-			
-			
 			String stringDay = Integer.toString(day);
 			if (day < 10) {
 				stringDay = "0" + stringDay;
@@ -268,13 +275,29 @@ public class StateReopeningSpreadsheet {
 		}
 		// initialize cells
 		cells = new HashMap<String, HashMap<Integer, ArrayList<String>>>();
-		// get data
+		/* get data
 		int done = 0;
 		for (String url : urls) {
 			//System.out.println(url);
 			extractData(url);
 			done++;
 			System.out.println(done + "/" + urls.size());
+		}
+		*/
+		// get data (revised)
+		for (int i = 0; i < urls.size(); i++) {
+			boolean done = false;
+			int attempts = 1;
+			while (!done) {
+				try {
+					extractData(urls.get(i));
+					done = true;
+				} catch (Exception e) {
+					System.out.println("attempt " + attempts + " failed");
+					attempts++;
+				}
+			}
+			System.out.println((i + 1) + "/" + urls.size());
 		}
 		// use data to write output files (one for each state)
 		System.out.println("Generating output...");
@@ -367,7 +390,15 @@ public class StateReopeningSpreadsheet {
 			//System.out.println("cells for this state: " + cells.get(state));
 		}
 		// make csv file based on cells
-		BufferedWriter bw = new BufferedWriter(new FileWriter("statereopening.csv"));
+		String sEndMonth = Integer.toString(endMonth);
+		if (endMonth < 10) {
+			sEndMonth = "0" + sEndMonth;
+		}
+		String sEndDay = Integer.toString(endDay);
+		if (endDay < 10) {
+			sEndDay = "0" + sEndDay;
+		}
+		BufferedWriter bw = new BufferedWriter(new FileWriter("statereopening" + sEndMonth + sEndDay + ".csv"));
 		for (String state : states) {
 			bw.write(state);
 			for (int col = 0; col < keywords.size(); col++) {
