@@ -73,7 +73,7 @@ states_dict = {states_dict[name]: name for name in states_dict}
 states = ["AZ", "FL", "GA", "OK", "SC"]
 
 for state in states:
-    state_data = pd.read_csv(os.path.join("../RawData", states_dict[state], f"{state.lower()}_covid_track_api_data.csv"))
+    state_data = pd.read_csv(os.path.join(path, "RawData", states_dict[state], f"{state.lower()}_covid_track_api_data.csv"))
 
     hospitalized = list(state_data['hospitalizedCumulative'])[::-1]
     dates = list(state_data['date'])[::-1]
@@ -112,8 +112,8 @@ for state in states:
     def logistic(t, a, b, c):
         return c / (1 + a * np.exp(-b*t))
 
-    def exponential(t, a, b):
-        return a * (2 ** (b * t))
+    def exponential(t, a, b, c):
+        return a * (b ** (c * t))
 
     # regressions = {"Logistic": logistic, "Exponential": exponential}
 
@@ -122,20 +122,49 @@ for state in states:
         index, x, y, x_values = data
         if i == len(regression_data) - 1:
             color_num = -1
-        bounds = (0, [5000., 1.1, 1000.])
-        print()
-        print("starting")
-        while True:
+        if names[i] != "Current":
+            bounds = (0, [100000., 100., 100000.])
 
-            print("still going")
-            try:
-                p0 = np.random.exponential(size=2)
-                (a, b), cov = optimize.curve_fit(exponential, x, y, p0=p0)
+            while True:
+                try:
+                    p0 = np.random.exponential(size=3)
+                    (a, b, c), cov = optimize.curve_fit(logistic, x, y, bounds=bounds, p0=p0)
+                except Exception:
+                    continue
+                break
+            y_values = logistic(x_values, a, b, c)
+            y_values -= y_values[0] - hospitalized[index]
 
-            except Exception:
-                continue
+            plt.plot(x_values, y_values, linestyle='dashed', label=f'Pre-{names[i]} Trajectory', color=colors[color_num])
+            plt.axvline(x=index - lag_time, color=colors[color_num])
+        else:
+            bounds = (0, [5000., 1.1, 1000.])
 
-            print("still going")
-            break
-        print(f"{state} : {1/b}")
+            while True:
+                try:
+                    p0 = np.random.exponential(size=3)
+                    (a, b, c), cov = optimize.curve_fit(exponential, x, y, bounds=bounds, p0=p0)
+                except Exception:
+                    continue
+                break
+            y_values = exponential(x_values, a, b, c)
+            y_values -= y_values[0] - hospitalized[-1]
 
+            plt.plot(x_values, y_values, linestyle='dashed', label=f'{names[i]} Trajectory', color='b')
+        color_num += 1
+
+    x_ticks, x_tick_labels = [], []
+    for i in range(0, len(dates), len(dates)//7 - 1):
+        date = str(dates[i])
+        x_ticks.append(i)
+        x_tick_labels.append(date[4:6] + "/" + date[6:8])
+    plt.xticks(x_ticks, x_tick_labels)
+    plt.xlabel("Dates")
+    plt.ylabel("Total Cumulative Hospitalizations")
+    plt.title(f"COVID-19 Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+    plt.plot(hospitalized, label="Actual Data", color='k')
+
+    plt.legend()
+    plt.savefig(os.path.join("Graphs", "Analysis", f"{state}.png"))
+    plt.cla()
+    # plt.show()
