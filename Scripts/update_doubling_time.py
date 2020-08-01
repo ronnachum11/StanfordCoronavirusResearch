@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import time
 from ConvertCurrentToCumulative import hasCumulativeHospitalizations, getCumulativeHospitalizations
+from utils import moving_average
+plt.style.use('ggplot')
 
 states_dict = {
     'Alabama': 'AL',
@@ -112,9 +114,10 @@ for state in states_dict:
 
         if len(current_hospitalizations) > window:
             hospitalized = getCumulativeHospitalizations(current_hospitalizations, window)
-            hospitalized = [0] * 7 + [np.mean(hospitalized[x - 7: x]) for x in range(7, len(hospitalized))]
             calculated = True
     
+    hospitalized = moving_average(hospitalized)
+
     window = 7
     doubling_times = [0] * window + [doubling_time(x, hospitalized, window) for x in range(window, len(hospitalized))]
     moving_average_window = 7
@@ -130,12 +133,13 @@ for state in states_dict:
     plt.xlabel("Dates")
     plt.ylabel("Doubling Time (Days)")
     if not calculated:
-        plt.title(f"COVID-19 Hospitalization Doubling Time (7-Day Moving Avg) - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"COVID-19 Hospitalization Doubling Time - {state}")
     else:
-        plt.title(f"COVID-19 Hospitalization Doubling Time (Moving Avg) - {state} (Calc)\nUsed covidtracking.com/api - Some data may be innacurate")
+        plt.title(f"COVID-19 Hospitalization Doubling Time - {state} (Calc)")
     # plt.plot(doubling_times, label="Doubling Time")
-    plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)")
-    plt.legend()
+    plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
+    # plt.legend()
     # plt.show()
-    plt.savefig(os.path.join("Graphs", "Doubling Times", f"{states_dict[state]}.png"))
+    plt.savefig(os.path.join("Graphs", "General", "Doubling Times", f"{states_dict[state]}.png"), bbox_inches='tight')
+    plt.savefig(os.path.join("Graphs", "Analysis", state, "3DoublingTimes.png"), bbox_inches='tight')
     plt.clf()

@@ -44,13 +44,13 @@ for state in states:
     plt.xlabel("Dates")
     plt.ylabel("Net Change in Hospitalizations")
     
-    plt.title(f"COVID-19 Net Change Hospitalizations - {state}\nUsed covidtracking.com/api - Some data may be innacurate")
-    plt.bar(range(len(change_in_hospitalizations)), change_in_hospitalizations)
+    plt.title(f"COVID-19 Net Change Hospitalizations - {state}")
+    plt.bar(range(len(change_in_hospitalizations)), change_in_hospitalizations, color='b')
     plt.plot(change_in_hospitalizations_moving_average, color='k', label='7 Day Moving Average')
     plt.plot([0 for i in range(len(change_in_hospitalizations_moving_average))], color='r', label='Zero')
     plt.legend()
 
-    plt.savefig(os.path.join("Graphs", "Net Change Hospitalizations", f"{state}.png"))
+    plt.savefig(os.path.join("Graphs", "General", "Net Change Hospitalizations", f"{state}.png"), bbox_inches='tight')
     # plt.show()
     plt.cla()
 

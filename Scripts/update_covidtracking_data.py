@@ -56,7 +56,7 @@ states = {
     'Wisconsin': 'WI',
     'Wyoming': 'WY'
 }
-directory = "C:\\Users\\Ron\\StanfordCoronavirusResearch\\RawData"
+directory = "C:\\Users\\Ron\\StanfordCoronavirusResearch"
 
 import csv
 import requests
@@ -68,7 +68,8 @@ for state in states:
     # print(abbreviation)
     df = pd.read_csv(f"https://covidtracking.com/api/v1/states/{abbreviation}/daily.csv")
 
-    if not os.path.isdir(os.path.join(directory, state)):
+    if not os.path.isdir(os.path.join(directory, "RawData", state)):
         os.mkdir(os.path.join(directory, state))
 
-    df.to_csv(os.path.join(directory, state, f'{abbreviation}_covid_track_api_data.csv'))
+    df.to_csv(os.path.join(directory, "RawData", state, f'{abbreviation}_covid_track_api_data.csv'))
+    df.to_csv(os.path.join(directory, "Graphs", "Analysis", state, f"{abbreviation}_covid_track_api_data.csv"))
