@@ -122,9 +122,9 @@ def findAverageStayTwo(current, cumulative, shift = 0):
 states_dict = {
     'Alabama': 'AL',
     'Alaska': 'AK',
-    'Arizona': 'AZ',
     'American Samoa': 'AS',
     'Arkansas': 'AR',
+    'Arizona': 'AZ',
     'California': 'CA',
     'Colorado': 'CO',
     'Connecticut': 'CT',
@@ -237,6 +237,7 @@ for window in range(5, 25):
     # print(rSquared/states)
 
 plt.bar(range(5, 25), average_errors)
+plt.xticks(range(5, 25))
 plt.xlabel("Hospital Stay Time")
 plt.ylabel("Error (%)")
 plt.title("Percent Error of Hospital Stay Times for Converting Current Hospitalizations to Cumulative")
