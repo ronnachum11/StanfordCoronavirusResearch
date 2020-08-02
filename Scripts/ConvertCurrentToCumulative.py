@@ -123,7 +123,6 @@ states_dict = {
     'Alabama': 'AL',
     'Alaska': 'AK',
     'American Samoa': 'AS',
-    'Arizona': 'AZ',
     'Arkansas': 'AR',
     'California': 'CA',
     'Colorado': 'CO',
