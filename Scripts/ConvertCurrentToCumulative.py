@@ -122,6 +122,7 @@ def findAverageStayTwo(current, cumulative, shift = 0):
 states_dict = {
     'Alabama': 'AL',
     'Alaska': 'AK',
+    'Arizona': 'AZ',
     'American Samoa': 'AS',
     'Arkansas': 'AR',
     'California': 'CA',
