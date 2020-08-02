@@ -68,10 +68,6 @@ states_dict = {
 }
 path = "C:\\Users\\Ron\\StanfordCoronavirusResearch"
 
-reopening_df = pd.read_csv(os.path.join(path, "RawData", "StateReopening", "FinalData.csv"))
-reopening_df = reopening_df.drop(reopening_df.columns[15:], axis=1)
-headers = reopening_df.columns
-
 def doubling_time(m, y, window):
     y1, y2 = y[m - window], y[m]
 
