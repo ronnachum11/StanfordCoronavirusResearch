@@ -20,7 +20,7 @@ def hasCumulativeHospitalizations(file_contents, min_count=30):
 
 # data is list of current hospitalization by day starting with day one
 # window is average hospital stay time
-def getCumulativeHospitalizations(data, window=10):
+def getCumulativeHospitalizations(data, window=12):
     total_hospitalizations = [int(data[0] * 2)]
     new_people = [data[0]/window]
     for index in range(1, window):
@@ -225,7 +225,7 @@ for window in range(5, 25):
                 if(cumNumbers[index] != 0):
                     percentAverage += abs((guesses[index] - cumNumbers[index]) / cumNumbers[index])
             if finalIndex != 0:
-                if percentAverage/finalIndex < 1:
+                if percentAverage/finalIndex < 2:
                     rSquared += (percentAverage/finalIndex)**2
                     averageError += percentAverage/finalIndex
                     states += 1
