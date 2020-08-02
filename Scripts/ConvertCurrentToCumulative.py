@@ -119,130 +119,130 @@ def findAverageStayTwo(current, cumulative, shift = 0):
 #     percentAverage += abs((guesses[index] - cumNumbers[index]) / cumNumbers[index])
 # print(percentAverage/finalIndex)
 
-states_dict = {
-    'Alabama': 'AL',
-    'Alaska': 'AK',
-    'American Samoa': 'AS',
-    'Arkansas': 'AR',
-    'Arizona': 'AZ',
-    'California': 'CA',
-    'Colorado': 'CO',
-    'Connecticut': 'CT',
-    'Delaware': 'DE',
-    'District of Columbia': 'DC',
-    'Florida': 'FL',
-    'Georgia': 'GA',
-    'Guam': 'GU',
-    'Hawaii': 'HI',
-    'Idaho': 'ID',
-    'Illinois': 'IL',
-    'Indiana': 'IN',
-    'Iowa': 'IA',
-    'Kansas': 'KS',
-    'Kentucky': 'KY',
-    'Louisiana': 'LA',
-    'Maine': 'ME',
-    'Maryland': 'MD',
-    'Massachusetts': 'MA',
-    'Michigan': 'MI',
-    'Minnesota': 'MN',
-    'Mississippi': 'MS',
-    'Missouri': 'MO',
-    'Montana': 'MT',
-    'Nebraska': 'NE',
-    'Nevada': 'NV',
-    'New Hampshire': 'NH',
-    'New Jersey': 'NJ',
-    'New Mexico': 'NM',
-    'New York': 'NY',
-    'North Carolina': 'NC',
-    'North Dakota': 'ND',
-    'Northern Mariana Islands':'MP',
-    'Ohio': 'OH',
-    'Oklahoma': 'OK',
-    'Oregon': 'OR',
-    'Pennsylvania': 'PA',
-    'Puerto Rico': 'PR',
-    'Rhode Island': 'RI',
-    'South Carolina': 'SC',
-    'South Dakota': 'SD',
-    'Tennessee': 'TN',
-    'Texas': 'TX',
-    'Utah': 'UT',
-    'Vermont': 'VT',
-    'Virgin Islands': 'VI',
-    'Virginia': 'VA',
-    'Washington': 'WA',
-    'West Virginia': 'WV',
-    'Wisconsin': 'WI',
-    'Wyoming': 'WY'
-}
+# states_dict = {
+#     'Alabama': 'AL',
+#     'Alaska': 'AK',
+#     'American Samoa': 'AS',
+#     'Arkansas': 'AR',
+#     'Arizona': 'AZ',
+#     'California': 'CA',
+#     'Colorado': 'CO',
+#     'Connecticut': 'CT',
+#     'Delaware': 'DE',
+#     'District of Columbia': 'DC',
+#     'Florida': 'FL',
+#     'Georgia': 'GA',
+#     'Guam': 'GU',
+#     'Hawaii': 'HI',
+#     'Idaho': 'ID',
+#     'Illinois': 'IL',
+#     'Indiana': 'IN',
+#     'Iowa': 'IA',
+#     'Kansas': 'KS',
+#     'Kentucky': 'KY',
+#     'Louisiana': 'LA',
+#     'Maine': 'ME',
+#     'Maryland': 'MD',
+#     'Massachusetts': 'MA',
+#     'Michigan': 'MI',
+#     'Minnesota': 'MN',
+#     'Mississippi': 'MS',
+#     'Missouri': 'MO',
+#     'Montana': 'MT',
+#     'Nebraska': 'NE',
+#     'Nevada': 'NV',
+#     'New Hampshire': 'NH',
+#     'New Jersey': 'NJ',
+#     'New Mexico': 'NM',
+#     'New York': 'NY',
+#     'North Carolina': 'NC',
+#     'North Dakota': 'ND',
+#     'Northern Mariana Islands':'MP',
+#     'Ohio': 'OH',
+#     'Oklahoma': 'OK',
+#     'Oregon': 'OR',
+#     'Pennsylvania': 'PA',
+#     'Puerto Rico': 'PR',
+#     'Rhode Island': 'RI',
+#     'South Carolina': 'SC',
+#     'South Dakota': 'SD',
+#     'Tennessee': 'TN',
+#     'Texas': 'TX',
+#     'Utah': 'UT',
+#     'Vermont': 'VT',
+#     'Virgin Islands': 'VI',
+#     'Virginia': 'VA',
+#     'Washington': 'WA',
+#     'West Virginia': 'WV',
+#     'Wisconsin': 'WI',
+#     'Wyoming': 'WY'
+# }
 
-average_errors = []
-error_info = dict()
-for window in range(5, 25):
-    averageError = 0
-    states = 0
-    rSquared = 0
-    for state in states_dict:
+# average_errors = []
+# error_info = dict()
+# for window in range(5, 25):
+#     averageError = 0
+#     states = 0
+#     rSquared = 0
+#     for state in states_dict:
 
-        file = open("C:/Users/Ron/StanfordCoronavirusResearch/RawData/{}/{}_covid_track_api_data.csv".format(state, states_dict[state].lower()))
-        data = file.read()
+#         file = open("C:/Users/Ron/StanfordCoronavirusResearch/RawData/{}/{}_covid_track_api_data.csv".format(state, states_dict[state].lower()))
+#         data = file.read()
 
-        if hasCumulativeHospitalizations(data):
-            def split(string):
-                num = string.split(",")[6]
-                if num != "":
-                    return float(num)
+#         if hasCumulativeHospitalizations(data):
+#             def split(string):
+#                 num = string.split(",")[6]
+#                 if num != "":
+#                     return float(num)
 
-            rows = data.split("\n")
-            rows.pop(0)
-            rows.remove('')
-            rows.reverse()
-            curNumbers = []
-            cumNumbers = []
-            for row in rows:
-                cur = row.split(",")[6]
-                cum = row.split(",")[7]
-                if cur != "":
-                    curNumbers.append(float(cur))
-                if cum != "":
-                    cumNumbers.append(float(cum))
+#             rows = data.split("\n")
+#             rows.pop(0)
+#             rows.remove('')
+#             rows.reverse()
+#             curNumbers = []
+#             cumNumbers = []
+#             for row in rows:
+#                 cur = row.split(",")[6]
+#                 cum = row.split(",")[7]
+#                 if cur != "":
+#                     curNumbers.append(float(cur))
+#                 if cum != "":
+#                     cumNumbers.append(float(cum))
 
-            guesses = getCumulativeHospitalizations(curNumbers, window=window)
-            guesses.reverse()
-            cumNumbers.reverse()
-            curNumbers.reverse()
+#             guesses = getCumulativeHospitalizations(curNumbers, window=window)
+#             guesses.reverse()
+#             cumNumbers.reverse()
+#             curNumbers.reverse()
 
 
-            finalIndex = len(guesses);
-            percentAverage = 0
-            for index in range(0, len(guesses)):
+#             finalIndex = len(guesses);
+#             percentAverage = 0
+#             for index in range(0, len(guesses)):
 
-                if(index >= len(cumNumbers)):
-                    finalIndex = index - 1
-                    break
-                if(cumNumbers[index] != 0):
-                    percentAverage += abs((guesses[index] - cumNumbers[index]) / cumNumbers[index])
-            if finalIndex != 0:
-                if percentAverage/finalIndex < 2:
-                    rSquared += (percentAverage/finalIndex)**2
-                    averageError += percentAverage/finalIndex
-                    states += 1
-                # print("days:{} error:{}".format(findAverageStay(curNumbers, cumNumbers), percentAverage/finalIndex))
+#                 if(index >= len(cumNumbers)):
+#                     finalIndex = index - 1
+#                     break
+#                 if(cumNumbers[index] != 0):
+#                     percentAverage += abs((guesses[index] - cumNumbers[index]) / cumNumbers[index])
+#             if finalIndex != 0:
+#                 if percentAverage/finalIndex < 2:
+#                     rSquared += (percentAverage/finalIndex)**2
+#                     averageError += percentAverage/finalIndex
+#                     states += 1
+#                 # print("days:{} error:{}".format(findAverageStay(curNumbers, cumNumbers), percentAverage/finalIndex))
     
-    error_info[window] = [averageError/states, rSquared/states]
-    average_errors.append(averageError/states * 100)
-    # print(averageError/states)
-    # print(rSquared/states)
+#     error_info[window] = [averageError/states, rSquared/states]
+#     average_errors.append(averageError/states * 100)
+#     # print(averageError/states)
+#     # print(rSquared/states)
 
-plt.bar(range(5, 25), average_errors)
-plt.xticks(range(5, 25))
-plt.xlabel("Hospital Stay Time")
-plt.ylabel("Error (%)")
-plt.title("Percent Error of Hospital Stay Times for Converting Current Hospitalizations to Cumulative")
-plt.tight_layout()
-plt.show()
+# plt.plot(range(5, 25), average_errors)
+# plt.xticks(range(5, 25))
+# plt.xlabel("Hospital Stay Time")
+# plt.ylabel("Error (%)")
+# plt.title("Percent Error of Hospital Stay Times for Converting Current Hospitalizations to Cumulative")
+# plt.tight_layout()
+# plt.show()
 
-print(error_info)
-print(average_errors)
+# print(error_info)
+# print(average_errors)
