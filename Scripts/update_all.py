@@ -2,8 +2,8 @@
 import matplotlib.pyplot as plt 
 plt.style.use('ggplot')
 
-text = ["", "Raw Data", "Cumulative Hospitalizations", "Current Hospitalizations", "Net Hospitalizations", "New Hospitalizations", "Doubling Times", "Analysis"]
-i, length = 0, 7
+text = ["", "Raw Data", "Cumulative Hospitalizations", "Current Hospitalizations", "Net Hospitalizations", "New Hospitalizations", "Doubling Times", "Analysis", "Summary Figures"]
+i, length = 0, 8
 
 i +=1; print(f"Task {i}/{length}: Updating {text[i]}")
 import update_covidtracking_data
@@ -19,3 +19,5 @@ i +=1; print(f"Task {i}/{length}: Updating {text[i]}")
 import update_doubling_time
 i +=1; print(f"Task {i}/{length}: Updating {text[i]}")
 import update_analysis
+i +=1; print(f"Task {i}/{length}: Updating {text[i]}")
+import update_summary_figures
