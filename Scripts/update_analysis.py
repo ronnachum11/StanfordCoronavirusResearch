@@ -5,8 +5,13 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import time
 import statistics 
+import plotly.express as px
+import plotly.graph_objects as go
 from ConvertCurrentToCumulative import hasCumulativeHospitalizations, getCumulativeHospitalizations
 from utils import moving_average 
+import logging
+logging.getLogger().setLevel(logging.CRITICAL)
+
 plt.style.use('ggplot')
 
 alpha = 1
@@ -84,6 +89,7 @@ reopening_effects = [[] for i in range(len(headers) - 1)]
 added_hospitalizations = [[] for i in range(len(headers) - 1)]
 state_increases = dict()
 state_increases_percent = dict() 
+state_doubling_times = dict()
 
 def doubling_time(m, y, window):
     y1, y2 = y[m - window], y[m]
@@ -124,14 +130,17 @@ def clean_hospitalizations(hospitalized, dates, state_df):
 
     calculated = False
     window = 21
-    if len(hospitalized) < window:
-        # print(state)
+    # problem_states = ["Alabama", "Arizona", "Alaska", "Connecticut", "Delaware", 
+    #               "Indiana", "Iowa", "Missouri", "New Hampshire", "Pennsylvania",
+    #               "Vermont", "West Virginia", ""]
+    problem_states = ["Arizona"]
+    if len(hospitalized) < window: # or state in problem_states:
         current_hospitalizations = list(state_df['hospitalizedCurrently'])[::-1]
         dates = list(state_df['date'])[::-1]
 
         dates = [dates[i] for i in range(len(dates)) if not math.isnan(current_hospitalizations[i])]
         current_hospitalizations = [i for i in current_hospitalizations if not math.isnan(i)]
-
+        
         for i in range(1, len(current_hospitalizations)):
             if math.isnan(current_hospitalizations[i]):
                 current_hospitalizations[i] = current_hospitalizations[i-1]
@@ -145,6 +154,10 @@ def clean_hospitalizations(hospitalized, dates, state_df):
 
 def get_doubling_time_data(hospitalized, doubling_time_window=7, moving_average_window=7):
     doubling_times = [0] * doubling_time_window + [doubling_time(x, hospitalized, doubling_time_window) for x in range(doubling_time_window, len(hospitalized))]
+    for i in range(1, len(doubling_times)):
+        if math.isinf(doubling_times[i]):
+            doubling_times[i] = doubling_times[i-1]
+    
     doubling_times_moving_average = [0] * moving_average_window + [np.mean(doubling_times[x - moving_average_window: x]) for x in range(moving_average_window, len(doubling_times))]
     doubling_times_derivative = [0] + [doubling_times_moving_average[i] - doubling_times_moving_average[i-1] for i in range(1, len(doubling_times_moving_average))]
     return doubling_times, doubling_times_moving_average, doubling_times_derivative
@@ -163,7 +176,7 @@ def update_reopening_effects(reoepning_effects, reopening_indecies, doubling_tim
             pre = np.mean(doubling_times_derivative[index:index + lag_time])
             post = np.mean(doubling_times_derivative[index + lag_time:index + lag_time*2])
             # print(pre, post)
-            if not math.isnan(pre) and not math.isnan(post):
+            if not math.isnan(pre) and not math.isnan(post) and not math.isnan((post - pre / pre)*100):
                 reopening_effects[num].append((post - pre / pre)*100)
     return reopening_effects
 
@@ -191,7 +204,7 @@ def update_plot(title, ylabel, reopening_indecies, spike_expectations, x_ticks, 
     plt.title(title)
 
 for state in states_dict:
-    # print(state)
+    print(state)
     save_folder = os.path.join(path, "Graphs", "Analysis", state)
     if not os.path.isdir(save_folder):
         os.mkdir(save_folder)
@@ -216,6 +229,13 @@ for state in states_dict:
 
     reopening_effects = update_reopening_effects(reopening_effects, reopening_indecies, doubling_times_derivative, lag_time=lag_time)
 
+    # print(dates)
+    if 20200701 in dates and 20200729 in dates:
+        july_start, july_end = dates.index(20200701), dates.index(20200729)
+        sublist = doubling_times_moving_average[july_start:july_end]
+        state_doubling_times[state] = statistics.median(sublist)
+        # print(sublist, state_doubling_times[state])
+        
     # print(reopening_indecies)
     for i, index in enumerate(reopening_indecies):
         if index is not None and index in reopening_indecies[:i]:
@@ -295,14 +315,18 @@ for state in states_dict:
                     plt.axvline(x=reopening_indecies[i], linestyle='solid', label=names[i] + " Reopening", color=colors[i], alpha=alpha) 
                     plt.axvline(x=spike_expectations[i], linestyle='dotted', color=colors[i], alpha=alpha)
     state_increases[state] = max(state_increases[state]) if len(state_increases[state]) != 0 else 0
-    state_increases_percent[state] = max(state_increases_percent[state]) if len(state_increases_percent[state]) != 0 else 0
+    state_increases_percent[state] = max(state_increases_percent[state]) * 100 if len(state_increases_percent[state]) != 0 else 0
 
     update_plot(f"Predicted Trajectories Without Reopenings - {state}", 0, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names, add_reopenings=False)
 
     plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
     # plt.show()
     plt.savefig(os.path.join(save_folder, "8predictions.png"), bbox_inches='tight')
-    plt.clf()
+    plt.clf()reopening_effects_means = [np.mean(i) for i in reopening_effects]
+
+reopening_effects_medians = [statistics.median(i) if len(i) != 0 else 0 for i in reopening_effects]
+# print(reopening_effects_means)
+# print(reopening_effects_medians)
 
 reopening_effects_means = [np.mean(i) for i in reopening_effects]
 reopening_effects_medians = [statistics.median(i) if len(i) != 0 else 0 for i in reopening_effects]
@@ -327,8 +351,8 @@ for i in [["Median", reopening_effects_medians]]: # ["Mean", reopening_effects_m
     plt.ylabel(f"{title} Change Before/After Reopening (%)")
     plt.xticks(range(len(labels)), labels, rotation=90)
     plt.bar(range(len(positive_reopenings)), positive_reopenings, color="g")
-    plt.bar(range(len(positive_reopenings), len(labels)), negative_reopenings, color="r")
-    plt.savefig(os.path.join(path, "Graphs", "Analysis", f"ReopeningData{title}-{lag_time}.png"), bbox_inches='tight')
+    plt.bar(range(len(positive_reopenings), len(positive_reopenings) + len(negative_reopenings)), negative_reopenings, color="r")
+    # plt.savefig(os.path.join(path, "Graphs", "Analysis", f"ReopeningData{title}-{lag_time}.png"), bbox_inches='tight')
     # plt.show()
 
 # state_increases = {state: max(state_increases[state]) if len(state_increases[state]) > 0 else 0 for state in state_increases}
