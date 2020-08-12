@@ -1,0 +1,190 @@
+{% extends "layout.html" %}
+
+{% block page_styles %}
+<link rel="stylesheet" href="../static/css/home.css">
+{% endblock page_styles %}
+
+{% block content %}
+    <section id="home_info_container">
+        <span style="position: relative;"><a style="position: absolute; top: -12vh;" name="home_anchor"></a></span>
+        <div id="home_info">
+            <h1>How do reopening orders affect COVID-19 spread?</h1>
+            <h3>With data analytics, we found the answer.</h3>
+            <div id="icons">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-church" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <line x1="3" y1="21" x2="21" y2="21" />
+                    <path d="M10 21v-4a2 2 0 0 1 4 0v4" />
+                    <line x1="10" y1="5" x2="14" y2="5" />
+                    <line x1="12" y1="3" x2="12" y2="8" />
+                    <path d="M6 21v-7m-2 2l8 -8l8 8m-2 -2v7" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <circle cx="9" cy="19" r="2" />
+                    <circle cx="17" cy="19" r="2" />
+                    <path d="M3 3h2l2 12a3 3 0 0 0 3 2h7a3 3 0 0 0 3 -2l1 -7h-15.2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-store" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <line x1="3" y1="21" x2="21" y2="21" />
+                    <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" />
+                    <path d="M5 21v-10.15" />
+                    <path d="M19 21v-10.15" />
+                    <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-movie" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <rect x="4" y="4" width="16" height="16" rx="2" />
+                    <line x1="8" y1="4" x2="8" y2="20" />
+                    <line x1="16" y1="4" x2="16" y2="20" />
+                    <line x1="4" y1="8" x2="8" y2="8" />
+                    <line x1="4" y1="16" x2="8" y2="16" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <line x1="16" y1="8" x2="20" y2="8" />
+                    <line x1="16" y1="16" x2="20" y2="16" />
+                </svg>
+    
+                <svg style="margin-left: 40px" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-virus" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#343a40" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <circle cx="12" cy="12" r="5" />
+                    <path d="M12 7v-4m-1 0h2" />
+                    <path d="M12 7v-4m-1 0h2" transform="rotate(45 12 12)" />
+                    <path d="M12 7v-4m-1 0h2" transform="rotate(90 12 12)" />
+                    <path d="M12 7v-4m-1 0h2" transform="rotate(135 12 12)" />
+                    <path d="M12 7v-4m-1 0h2" transform="rotate(180 12 12)" />
+                    <path d="M12 7v-4m-1 0h2" transform="rotate(225 12 12)" />
+                    <path d="M12 7v-4m-1 0h2" transform="rotate(270 12 12)" />
+                    <path d="M12 7v-4m-1 0h2" transform="rotate(315 12 12)" />
+                </svg>
+                <svg style="margin-right: 40px" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ambulance" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#343a40" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <circle cx="7" cy="17" r="2" />
+                    <circle cx="17" cy="17" r="2" />
+                    <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
+                    <path d="M6 10h4m-2 -2v4" />
+                </svg>
+                
+                {% for n in range(4) %}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-hospital" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"/>
+                        <line x1="3" y1="21" x2="21" y2="21" />
+                        <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16" />
+                        <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+                        <line x1="10" y1="9" x2="14" y2="9" />
+                        <line x1="12" y1="7" x2="12" y2="11" />
+                    </svg>
+                {% endfor %}
+            </div>
+            <div class="row" id="home-buttons">
+                <a href="{{ url_for('research') }}" class="btn-light btn-wide">Learn About the Research</a>
+                <a href="{{ url_for('graphs') }}" class="btn-light btn-wide">See Regularly Updated Graphs</a>
+                <a href="{{ url_for('data') }}" class="btn-light btn-wide">Check Out Our Data API</a>
+            </div>
+            <!-- <img src="{{ url_for('static', filename='images/LogoWhite.png') }}" style="height: 80px" alt="Logo" /> -->
+        </div>
+    </section>
+
+    <section id="about">
+        <span style="position: relative;"><a style="position: absolute; top: -12vh;" name="about_anchor"></a></span>
+        <h2>About The Team</h2>
+        <div class="row four-row">
+            <div class="column quarter">
+                <img class="about-photo" src="{{ url_for('static', filename='images/ron_nachum.jpg') }}"/>
+                <h6><strong>Ron Nachum <br> TJHSST - Vienna, VA</strong></h6>
+                <p>Hospitalizaton Data Collection and Analysis, Website Designer</p>
+            </div>
+            <div class="column quarter">
+                <img class="about-photo" src="{{ url_for('static', filename='images/placeholder.jpg') }}"/>
+                <h6><strong>William Ding <br> San Mateo HS - San Mateo, CA</strong></h6>
+                <p>Reopening Data Collection and Categorization</p>
+            </div>
+            <div class="column quarter">
+                <img class="about-photo" src="{{ url_for('static', filename='images/placeholder.jpg') }}"/>
+                <h6><strong>Nikhil Majeti <br> Palo Alto HS - Palo Alto, CA</strong></h6>
+                <p>Reopening Data Collection and Storage</p>
+            </div>
+            <div class="column quarter">
+                <img class="about-photo" src="{{ url_for('static', filename='images/placeholder.jpg') }}"/>
+                <h6><strong>Logan Pageler <br> Homestead HS - Cupertino, CA</strong></h6>
+                <p>Reopening Data Collection and Preprocessing</p>
+            </div>
+        </div>
+        <div class="row two-row">
+            <div class="column half">
+                <img class="about-photo" src="{{ url_for('static', filename='images/placeholder.jpg') }}"/>
+                <h6><strong>Nigam Shah <br> Professor - Stanford Medical School</strong></h6>
+            </div>
+            <div class="column half">
+                <img class="about-photo" src="{{ url_for('static', filename='images/placeholder.jpg') }}"/>
+                <h6><strong>Tofunmi Omiye <br> Medical Doctor - [Association]</strong></h6>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-blue">
+        <span style="position: relative;"><a style="position: absolute; top: -12vh;" name="contact_anchor"></a></span>
+        <h2>Contact Us</h2>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <!-- <legend class="border-bottom mb-4">Contact Us</legend> -->
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        {% if form.name.errors %} {{ form.name(class="form-control is-invalid", placeholder="Name") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %} 
+                            {{ form.name(class="form-control", placeholder="Name") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {% if form.email.errors %} {{ form.email(class="form-control is-invalid", placeholder="Email") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %} 
+                            {{ form.email(class="form-control", placeholder="Email") }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        {% if form.subject.errors %} {{ form.subject(class="form-control is-invalid", placeholder="Subject") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.subject.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.subject(class="form-control", placeholder="Subject") }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        {% if form.message.errors %} {{ form.message(class="form-control is-invalid textareas", placeholder="Message") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.message.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.message(class="form-control textareas", placeholder="Message") }}
+                        {% endif %}
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn-light btn-wide") }}
+            </div>
+        </form>
+    </section>
+
+{% endblock content %}
+
