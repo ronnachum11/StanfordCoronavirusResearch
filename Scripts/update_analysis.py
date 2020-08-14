@@ -133,8 +133,8 @@ def clean_hospitalizations(hospitalized, dates, state_df):
     # problem_states = ["Alabama", "Arizona", "Alaska", "Connecticut", "Delaware", 
     #               "Indiana", "Iowa", "Missouri", "New Hampshire", "Pennsylvania",
     #               "Vermont", "West Virginia", ""]
-    problem_states = ["Arizona"]
-    if len(hospitalized) < window: # or state in problem_states:
+    problem_states = ["Arizona", "Pennsylvania"]
+    if len(hospitalized) < window or state in problem_states:
         current_hospitalizations = list(state_df['hospitalizedCurrently'])[::-1]
         dates = list(state_df['date'])[::-1]
 
@@ -322,8 +322,9 @@ for state in states_dict:
     plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
     # plt.show()
     plt.savefig(os.path.join(save_folder, "8predictions.png"), bbox_inches='tight')
-    plt.clf()reopening_effects_means = [np.mean(i) for i in reopening_effects]
-
+    plt.clf()
+    
+reopening_effects_means = [np.mean(i) for i in reopening_effects]
 reopening_effects_medians = [statistics.median(i) if len(i) != 0 else 0 for i in reopening_effects]
 # print(reopening_effects_means)
 # print(reopening_effects_medians)
@@ -352,7 +353,7 @@ for i in [["Median", reopening_effects_medians]]: # ["Mean", reopening_effects_m
     plt.xticks(range(len(labels)), labels, rotation=90)
     plt.bar(range(len(positive_reopenings)), positive_reopenings, color="g")
     plt.bar(range(len(positive_reopenings), len(positive_reopenings) + len(negative_reopenings)), negative_reopenings, color="r")
-    # plt.savefig(os.path.join(path, "Graphs", "Analysis", f"ReopeningData{title}-{lag_time}.png"), bbox_inches='tight')
+    plt.savefig(os.path.join(path, "Graphs", "Analysis", f"ReopeningData{title}-{lag_time}.png"), bbox_inches='tight')
     # plt.show()
 
 # state_increases = {state: max(state_increases[state]) if len(state_increases[state]) > 0 else 0 for state in state_increases}

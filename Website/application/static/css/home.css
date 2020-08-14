@@ -75,7 +75,12 @@ html {
 .about-photo{
     width: 40%;
     padding-bottom: 7px;
+    border-radius: 50%;
     /* height: 20%; */
+}
+
+.about-photo:hover{
+    opacity: 70%;
 }
 
 #about {
@@ -123,5 +128,5 @@ html {
     box-shadow: none;
   }
   #contact textarea {
-    height: 200px;
+    height: 100px;
   }

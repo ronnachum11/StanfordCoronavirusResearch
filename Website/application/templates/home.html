@@ -6,7 +6,7 @@
 
 {% block content %}
     <section id="home_info_container">
-        <span style="position: relative;"><a style="position: absolute; top: -12vh;" name="home_anchor"></a></span>
+        <span style="position: relative;"><a style="position: absolute; top: -60px;" name="home_anchor"></a></span>
         <div id="home_info">
             <h1>How do reopening orders affect COVID-19 spread?</h1>
             <h3>With data analytics, we found the answer.</h3>
@@ -86,28 +86,34 @@
     </section>
 
     <section id="about">
-        <span style="position: relative;"><a style="position: absolute; top: -12vh;" name="about_anchor"></a></span>
-        <h2>About The Team</h2>
+        <span style="position: relative;"><a style="position: absolute; top: -60px;" name="about_anchor"></a></span>
+        <h2 style="padding-bottom: 7px">About The Team</h2>
         <div class="row four-row">
             <div class="column quarter">
-                <img class="about-photo" src="{{ url_for('static', filename='images/ron_nachum.jpg') }}"/>
+                <div class="container">
+                    <a href="https://www.linkedin.com/in/ron-nachum/" target="_blank">
+                        <img class="about-photo" src="{{ url_for('static', filename='images/ron_nachum.jpg') }}"/>                    <div class="overlay">
+                        <img style="height: 20px" src="{{ url_for('static', filename='images/linked_in.png') }}">
+                    </a>
+                    </div>
+                </div>
                 <h6><strong>Ron Nachum <br> TJHSST - Vienna, VA</strong></h6>
-                <p>Hospitalizaton Data Collection and Analysis, Website Designer</p>
+                <p>Hospitalization Data Collection <br> and Analysis, Website Designer</p>
             </div>
             <div class="column quarter">
                 <img class="about-photo" src="{{ url_for('static', filename='images/placeholder.jpg') }}"/>
                 <h6><strong>William Ding <br> San Mateo HS - San Mateo, CA</strong></h6>
-                <p>Reopening Data Collection and Categorization</p>
+                <p>Reopening Data Collection <br> and Categorization</p>
             </div>
             <div class="column quarter">
                 <img class="about-photo" src="{{ url_for('static', filename='images/placeholder.jpg') }}"/>
                 <h6><strong>Nikhil Majeti <br> Palo Alto HS - Palo Alto, CA</strong></h6>
-                <p>Reopening Data Collection and Storage</p>
+                <p>Reopening Data Collection <br> and Dictionary Storage</p>
             </div>
             <div class="column quarter">
                 <img class="about-photo" src="{{ url_for('static', filename='images/placeholder.jpg') }}"/>
                 <h6><strong>Logan Pageler <br> Homestead HS - Cupertino, CA</strong></h6>
-                <p>Reopening Data Collection and Preprocessing</p>
+                <p>Hospitalization Data Collection <br>and Preprocessing</p>
             </div>
         </div>
         <div class="row two-row">
@@ -123,7 +129,7 @@
     </section>
 
     <section id="contact" class="bg-blue">
-        <span style="position: relative;"><a style="position: absolute; top: -12vh;" name="contact_anchor"></a></span>
+        <span style="position: relative;"><a style="position: absolute; top: -60px;" name="contact_anchor"></a></span>
         <h2>Contact Us</h2>
         <form method="POST" action="">
             {{ form.hidden_tag() }}

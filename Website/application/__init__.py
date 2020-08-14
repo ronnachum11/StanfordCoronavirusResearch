@@ -18,6 +18,12 @@ app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 
+if path.exists(os.path.join('Website', 'application', 'environment_variables.txt')):
+    f = open(os.path.join('Website', 'application', 'environment_variables.txt'), 'r')
+    app.config["PATH"] = f.readline().strip()
+else:
+    app.config["PATH"] = None
+
 app.config['MAIL_USERNAME'] = None
 app.config['MAIL_PASSWORD'] = None
 

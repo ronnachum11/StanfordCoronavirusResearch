@@ -106,9 +106,12 @@ for state in states:
     calculated = False
     window = 21
     
-    # print(state, data_amount)
 
-    if len(hospitalized) < window:
+    # problem_states = ["Alabama", "Arizona", "Alaska", "Connecticut", "Delaware", 
+    #               "Indiana", "Iowa", "Missouri", "New Hampshire", "Pennsylvania",
+    #               "Vermont", "West Virginia", ""]
+    problem_states = ["Arizona", "Pennsylvania"]
+    if len(hospitalized) < window or state in problem_states:
         current_hospitalizations = list(state_data['hospitalizedCurrently'])[::-1]
         dates = list(state_data['date'])[::-1]
 
@@ -138,8 +141,8 @@ for state in states:
     else:
         plt.title(f"COVID-19 Cumulative Hospitalizations (Calculated) - {state}")
     plt.plot(hospitalized, color='k')
-    plt.savefig(os.path.join("../Graphs", "General", "Cumulative Hospitalizations", f"{state}.png"), bbox_inches='tight')
-    plt.savefig(os.path.join("../Graphs", "Analysis", states_dict[state], "2CumulativeHospitalizations.png"), bbox_inches='tight')
+    plt.savefig(os.path.join("Graphs", "General", "Cumulative Hospitalizations", f"{state}.png"), bbox_inches='tight')
+    plt.savefig(os.path.join("Graphs", "Analysis", states_dict[state], "2CumulativeHospitalizations.png"), bbox_inches='tight')
     # plt.show()
     plt.cla()
 # print(len(states))

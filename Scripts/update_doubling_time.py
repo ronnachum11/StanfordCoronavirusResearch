@@ -76,7 +76,7 @@ def doubling_time(m, y, window):
 
     return (window) * np.log(2) / np.log(y2 / y1)
 
-for state in ["Florida"]: # states_dict:
+for state in states_dict:
     state_data = pd.read_csv(os.path.join(path, "RawData", state, f"{states_dict[state].lower()}_covid_track_api_data.csv"))
     hospitalized = list(state_data['hospitalizedCumulative'])[::-1]
     dates = list(state_data['date'])[::-1]
@@ -97,7 +97,12 @@ for state in ["Florida"]: # states_dict:
 
     calculated = False
     window = 21
-    if len(hospitalized) < window:
+
+    # problem_states = ["Alabama", "Arizona", "Alaska", "Connecticut", "Delaware", 
+    #               "Indiana", "Iowa", "Missouri", "New Hampshire", "Pennsylvania",
+    #               "Vermont", "West Virginia", ""]
+    problem_states = ["Arizona", "Pennsylvania"]
+    if len(hospitalized) < window or state in problem_states:        
         current_hospitalizations = list(state_data['hospitalizedCurrently'])[::-1]
         dates = list(state_data['date'])[::-1]
 
@@ -139,6 +144,6 @@ for state in ["Florida"]: # states_dict:
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
     # plt.legend()
     # plt.show()
-    # plt.savefig(os.path.join("Graphs", "General", "Doubling Times", f"{states_dict[state]}.png"), bbox_inches='tight')
-    plt.savefig(os.path.join("Graphs", "Analysis", f"SensitivityAnalysis{window}.png"), bbox_inches='tight')
+    plt.savefig(os.path.join("Graphs", "General", "Doubling Times", f"{states_dict[state]}.png"), bbox_inches='tight')
+    plt.savefig(os.path.join("Graphs", "Analysis", state, "3DoublingTimes.png"), bbox_inches='tight')
     plt.clf()

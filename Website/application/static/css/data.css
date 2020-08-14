@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+
+#text-container {
+    padding-left: 20%;
+    padding-right: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    padding-top: 10px;
+}
+
+ul {
+    padding: 0;
+    padding-left: 60px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
