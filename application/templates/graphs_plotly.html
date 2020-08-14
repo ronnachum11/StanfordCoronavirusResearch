@@ -22,6 +22,10 @@
     <div id="graphs">
         {% if graphs|length == 0 %}
             <h3 style="padding-top: 20px">No graphs available for this state.</h3>
+        {% elif graphs|length == 1 %}
+            <div class="graph">
+                {{ graphs[0] | safe }}
+            </div>
         {% else %}
             <div class="row">
                 <div class="col-md-6 graph">
