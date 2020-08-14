@@ -7,7 +7,12 @@ from flask_login import LoginManager
 from flask_mail import Mail
 import googlemaps
 
+from graph_creation import update_all_graphs
+from Scripts.update_covidtracking_data import update_raw_data
+
+from apscheduler.schedulers.background import BackgroundScheduler
 app = Flask(__name__)
+
 app.config['SECRET_KEY'] = "5791628bb0b13ce0c676dfde280ba245"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 
@@ -31,5 +36,11 @@ mail = Mail(app)
 
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
+sched = BackgroundScheduler(daemon=True)
+sched.add_job(update_all_graphs, 'cron', minute=0)
+sched.add_job(update_raw_data, 'cron', minute=0)
+sched.start()
+
 from application.routes import main_routes
 from application.routes import data_api
+from application.routes import handlers

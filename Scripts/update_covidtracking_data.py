@@ -63,13 +63,14 @@ import requests
 import pandas as pd
 import os
 
-for state in states:
-    abbreviation = states[state].lower()
-    # print(abbreviation)
-    df = pd.read_csv(f"https://covidtracking.com/api/v1/states/{abbreviation}/daily.csv")
+def update_raw_data():
+    for state in states:
+        abbreviation = states[state].lower()
+        # print(abbreviation)
+        df = pd.read_csv(f"https://covidtracking.com/api/v1/states/{abbreviation}/daily.csv")
 
-    if not os.path.isdir(os.path.join(directory, "RawData", state)):
-        os.mkdir(os.path.join(directory, state))
+        if not os.path.isdir(os.path.join(directory, "RawData", state)):
+            os.mkdir(os.path.join(directory, state))
 
-    df.to_csv(os.path.join(directory, "RawData", state, f'{abbreviation}_covid_track_api_data.csv'))
-    df.to_csv(os.path.join(directory, "Graphs", "Analysis", state, f"{abbreviation}_covid_track_api_data.csv"))
+        df.to_csv(os.path.join(directory, "RawData", state, f'{abbreviation}_covid_track_api_data.csv'))
+        df.to_csv(os.path.join(directory, "Graphs", "Analysis", state, f"{abbreviation}_covid_track_api_data.csv"))
