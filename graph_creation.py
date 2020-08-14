@@ -309,7 +309,8 @@ def update_graphs(state):
     plt.savefig(os.path.join(save_folder, "8predictions.png"), bbox_inches='tight')
     plt.clf()
 
-# for state in states_dict:
-#     update_graphs(state)
+def update_all_graphs():
+    for state in states_dict:
+        update_graphs(state)
 
 # update_graphs("Florida")

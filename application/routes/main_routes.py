@@ -8,7 +8,7 @@ from application.forms.forms import ContactForm
 import codecs
 import os 
 
-from graph_creation import update_graphs
+from graph_creation import update_graphs, update_all_graphs
 
 states_dict = {
     'Alabama': 'AL',
