@@ -11,3 +11,4 @@ googlemaps==4.3.1
 pandas==1.0.3
 Flask_Bcrypt==0.7.1
 Flask_Login==0.5.0
+gunicorn==20.0.4
