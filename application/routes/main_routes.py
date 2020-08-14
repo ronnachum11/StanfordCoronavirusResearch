@@ -89,9 +89,9 @@ def graphs():
     graph_folder = os.path.join('application', 'static', 'graphs', 'usa')
     graph_names = ['hospitalization_increase.html']
     graphs = []
-    print(graph_names)
     for graph in graph_names:
         graph_path = os.path.join(graph_folder, graph)
+        print(os.getcwd(), print(graph_path))
         graph = codecs.open(graph_path, "r").read() 
         graph = Markup(graph)
         graphs.append(graph)
