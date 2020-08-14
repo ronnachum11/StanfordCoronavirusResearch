@@ -113,6 +113,7 @@ def graphs_state(state):
 
     return render_template("graphs_plotly.html", title="graphs", state=state, states=states, graphs=graphs)
 
+@app.route("/data/api", methods=["GET"])
 @app.route("/data", methods=["GET"])
 def data():
     return render_template("data.html", title="Data API")

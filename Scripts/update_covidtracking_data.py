@@ -69,8 +69,12 @@ def update_raw_data():
         # print(abbreviation)
         df = pd.read_csv(f"https://covidtracking.com/api/v1/states/{abbreviation}/daily.csv")
 
-        if not os.path.isdir(os.path.join(directory, "RawData", state)):
-            os.mkdir(os.path.join(directory, state))
+        if not os.path.isdir(os.path.join("RawData", state)):
+            os.mkdir(os.path.join("RawData", state))
 
-        df.to_csv(os.path.join(directory, "RawData", state, f'{abbreviation}_covid_track_api_data.csv'))
-        df.to_csv(os.path.join(directory, "Graphs", "Analysis", state, f"{abbreviation}_covid_track_api_data.csv"))
+        df.to_csv(os.path.join("RawData", state, f'{abbreviation}_covid_track_api_data.csv'))
+        df.to_csv(os.path.join("Graphs", "Analysis", state, f"{abbreviation}_covid_track_api_data.csv"))
+    
+    # df = pd.read_json("https://covidtracking.com/api/v1/states/daily.json", encoding="utf-8")
+    # print(df)
+    # df.to_csv(os.path.join("RawData", "overall_data.csv"))
