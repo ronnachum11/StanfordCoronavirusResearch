@@ -102,6 +102,7 @@ def graphs():
 def graphs_state(state):
     graph_folder = os.path.join('application', 'static', 'graphs', state.title())
     graph_names = os.listdir(graph_folder)
+    graph_names = sorted(graph_names)
     graphs = []
     for graph in graph_names:
         if graph[-1] == "l":
