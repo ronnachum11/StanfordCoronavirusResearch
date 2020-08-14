@@ -22,7 +22,7 @@ if path.exists(os.path.join('Website', 'application', 'environment_variables.txt
     f = open(os.path.join('Website', 'application', 'environment_variables.txt'), 'r')
     app.config["PATH"] = f.readline().strip()
 else:
-    app.config["PATH"] = None
+    app.config["PATH"] = ""
 
 app.config['MAIL_USERNAME'] = None
 app.config['MAIL_PASSWORD'] = None
