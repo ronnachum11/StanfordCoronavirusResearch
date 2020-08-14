@@ -90,12 +90,12 @@ def graphs():
     graph_names = ['hospitalization_increase.html']
     graphs = []
     print(graph_names)
-    for graph in graph_names:
-        graph_path = os.path.join(graph_folder, graph)
-        graph = codecs.open(graph_path, "r").read() 
-        graph = graph[graph.index('<div>'):graph.index('</body>')-1]
-        graph = Markup(graph)
-        graphs.append(graph)
+    # for graph in graph_names:
+    #     graph_path = os.path.join(graph_folder, graph)
+    #     graph = codecs.open(graph_path, "r").read() 
+    #     graph = graph[graph.index('<div>'):graph.index('</body>')-1]
+    #     graph = Markup(graph)
+    #     graphs.append(graph)
 
     return render_template("graphs_plotly.html", title="graphs", states=states, graphs=graphs)
 
