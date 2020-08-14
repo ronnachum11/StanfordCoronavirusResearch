@@ -86,7 +86,7 @@ def research():
 @app.route("/graphs", methods=["GET"])
 def graphs():
     path = "C:\\Users\\Ron\\StanfordCoronavirusResearch"
-    graph_folder = os.path.join(app.config["PATH"], 'Website', 'application', 'static', 'graphs', 'usa')
+    graph_folder = os.path.join('application', 'static', 'graphs', 'usa')
     graph_names = ['hospitalization_increase.html']
     graphs = []
     for graph in graph_names:
