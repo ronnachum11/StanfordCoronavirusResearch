@@ -19,7 +19,7 @@ alpha = 1
 lag_time = 14
 doubling_time_window=7
 
-path = "C:\\Users\\Ron\\StanfordCoronavirusResearch"
+# path = "C:\\Users\\Ron\\StanfordCoronavirusResearch"
 
 states_dict = {
     'Alabama': 'AL',
@@ -78,7 +78,7 @@ path = "C:\\Users\\Ron\\StanfordCoronavirusResearch"
 colors = ['red', 'orangered', 'yellow', 'gold', 'lime', 'green', 'cyan', 'deepskyblue', 'blue', 'violet', 'purple', 'indigo', 'gray', 'black', 'peru']
 
 
-reopening_df = pd.read_excel(os.path.join(path, "RawData", "StateReopening", "FinalData.xlsx"))
+reopening_df = pd.read_excel(os.path.join("RawData", "StateReopening", "FinalData.xlsx"))
 reopening_df = reopening_df.drop(reopening_df.columns[15:], axis=1)
 
 headers = list(reopening_df.columns)
