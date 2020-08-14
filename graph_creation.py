@@ -7,8 +7,11 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import time
 import statistics 
+import plotly
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.tools as tls
+
 from current_to_cumulative import hasCumulativeHospitalizations, getCumulativeHospitalizations
 import logging
 logging.getLogger().setLevel(logging.CRITICAL)
@@ -76,7 +79,6 @@ states_dict = {
 }
 path = "C:\\Users\\Ron\\StanfordCoronavirusResearch"
 colors = ['red', 'orangered', 'yellow', 'gold', 'lime', 'green', 'cyan', 'deepskyblue', 'blue', 'violet', 'purple', 'indigo', 'gray', 'black', 'peru']
-
 
 reopening_df = pd.read_excel(os.path.join("RawData", "StateReopening", "FinalData.xlsx"))
 reopening_df = reopening_df.drop(reopening_df.columns[15:], axis=1)
@@ -173,32 +175,48 @@ def get_xticks(dates):
         x_tick_labels.append(date[4:6] + "/" + date[6:8])
     return x_ticks, x_tick_labels
 
-def plot_reopenings(reopening_indecies=None, spike_expectations=None, names=None, colors=colors, alpha=1, include_spike_expectations=True):
-    for num, index in enumerate(reopening_indecies):
-        if index is not None:
-            plt.axvline(x=index, linestyle='solid', label=names[num] + " Reopening", color=colors[num], alpha=alpha)
-    for num, index in enumerate(spike_expectations):
-        if index is not None and include_spike_expectations:
-            plt.axvline(x=index, linestyle='dotted', color=colors[num], alpha=alpha)
+def plotly_plot(info, d, title, save_name, plot_reopenings=False, plot_spike_expectations=False, plot_predictions=False, negative_only=False):
+    df, state, x_ticks, x_tick_labels, reopening_indecies, spike_expectations, names, x, y, exponential_doublings, hospitalized = info
 
-def update_plot(title, ylabel, reopening_indecies=None, spike_expectations=None, x_ticks=None, x_tick_labels=None, calculated=False, names=None, include_spike_expectations=True, add_reopenings=True):
-    if add_reopenings:
-        plot_reopenings(reopening_indecies, spike_expectations, names, include_spike_expectations=include_spike_expectations)
-    plt.xticks(x_ticks, x_tick_labels)
-    plt.xlabel("Dates")
-    if ylabel == 0:
-        plt.ylabel("Cumulative COVID-19 Hospitalizations")
-    elif ylabel == 1:
-        plt.ylabel("COVID-19 Hospitalization Doubling Time (Days)")
-    else:
-        plt.ylabel(ylabel)
-    # if calculated:
-    #     title += " (Calc)"
-    plt.title(title)
+    data = ["Cumulative COVID-19 Hospitalizations", "Hospitalization Doubling Time (Days)", "Hospitalization Doubling Time Rate of Change (Days/Day)"]
+    d = data[d]
+
+    fig = px.line(df, x="Dates", y=d, title=f"{title} - {state}")
+    fig.update_traces(mode="markers+lines", hovertemplate=None)
+    fig.update_layout(
+        xaxis = dict(
+            tickmode = 'array',
+            tickvals = x_ticks,
+            ticktext = x_tick_labels
+        ),
+        hovermode="x unified",
+    )
+
+    if plot_reopenings:
+        for num, i in enumerate(reopening_indecies):
+            if i is not None and (not negative_only or exponential_doublings[num] is not None and y[num][-1] < hospitalized[-1]):
+                fig.add_trace(go.Scatter(x=[i, i], y=[min([0] + list(df[d])), max(list(df[d]))], mode="lines", 
+                            name=names[num] + " Reopening", line=dict(color=colors[num])))
+    
+    if plot_spike_expectations:
+        for num, i in enumerate(spike_expectations):
+            if i is not None and (not negative_only or exponential_doublings[num] is not None and y[num][-1] < hospitalized[-1]):
+                fig.add_trace(go.Scatter(x=[i, i], y=[min([0] + list(df[d])), max(list(df[d]))], mode="lines", 
+                    name=names[num] + " Spike Expectation", line=dict(color=colors[num], dash='dot')))
+    
+    if plot_predictions:
+        for i in range(len(x)):
+            if x[i] is not None:
+                if y[i][-1] < hospitalized[-1]:
+                    fig.add_trace(go.Scatter(x=list(x[i]), y=y[i], mode="lines", name=names[i] + " Non-Reopening Trajectory",
+                                  line=dict(color=colors[i], dash='dash')))
+
+    fig.write_html(os.path.join('application', 'static', 'graphs', state, save_name), full_html=False, include_plotlyjs=False)
 
 def update_graphs(state):
     print(state)
-    save_folder = os.path.join(path, "Website", "application", "static", "graphs", state)
+    # fig = plt.figure()
+    save_folder = os.path.join("application", "static", "graphs", state)
     if not os.path.isdir(save_folder):
         os.mkdir(save_folder)
     
@@ -217,10 +235,15 @@ def update_graphs(state):
     doubling_times, doubling_times_moving_average, doubling_times_derivative = get_doubling_time_data(hospitalized, doubling_time_window)
     x_ticks, x_tick_labels = get_xticks(dates)
 
+    df = pd.DataFrame({"Dates": range(len(hospitalized)), "Date Values": dates,
+                      "Cumulative COVID-19 Hospitalizations": hospitalized, 
+                      "Hospitalization Doubling Time (Days)": doubling_times_moving_average,
+                      "Hospitalization Doubling Time Rate of Change (Days/Day)": doubling_times_derivative })
+
     names, reopening_dates = headers[1:], reopening_dates
     reopening_indecies = [dates.index(i) if i is not None and i in dates else None for i in reopening_dates]
     spike_expectations = [min(i + lag_time, len(hospitalized)) if i is not None else None for i in reopening_indecies]
-        
+
     for i, index in enumerate(reopening_indecies):
         if index is not None and index in reopening_indecies[:i]:
             nums_to_try = [1, -1, 2, -2, 3, -3, 4, -4, 5, -5]
@@ -232,85 +255,28 @@ def update_graphs(state):
             spike_expectations[i] += nums_to_try[count-1]
 
     exponential_doublings = [[i, doubling_times_moving_average[i + lag_time]] if i is not None and i + lag_time*1.5 < len(doubling_times_derivative) and np.mean(doubling_times_derivative[i + lag_time:min(i + lag_time*2, len(doubling_times_derivative))]) < np.mean(doubling_times_derivative[i:i+lag_time]) else None for i in reopening_indecies]
-
-    update_plot(f"COVID-19 Cumulative Hospitalizations - {state}", 0, x_ticks=x_ticks, x_tick_labels=x_tick_labels, add_reopenings=False)
-    plt.plot(hospitalized, color='k')
-    plt.savefig(os.path.join(save_folder, "2cumulative_hospitalizations.png"), bbox_inches='tight')
-    plt.clf()
-
-    update_plot(f"COVID-19 Hospitalization Doubling Time - {state}", 1, x_ticks=x_ticks, x_tick_labels=x_tick_labels, add_reopenings=False)
-    plt.plot(doubling_times_moving_average, color='k')
-    plt.savefig(os.path.join(save_folder, "3doubling_times.png"), bbox_inches='tight')
-    plt.clf() 
-
-    plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
-    update_plot(f"Reopenings - {state}", 0, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names, include_spike_expectations=False)
-    plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
-    plt.savefig(os.path.join(save_folder, "4reopenings.png"), bbox_inches='tight')
-    # mpld3.show()
-    plt.clf()
-
-    plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
-    update_plot(f"Reopenings - {state}", 0, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names)
-    plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
-    # plt.show()
-    plt.savefig(os.path.join(save_folder, "4reopenings_with_lag_times.png"), bbox_inches='tight')
-    plt.clf()
-
-    update_plot(f"Reopenings - {state}", 1, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names)
-    plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
-    plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
-    plt.savefig(os.path.join(save_folder, "5doubling_times_reopenings.png"), bbox_inches='tight')
-    plt.clf()
-
     x = [range(i[0], len(hospitalized)) if i is not None else None for i in exponential_doublings]
     y = [[hospitalized[doubling[0]] * (2 ** ((time - doubling[0])/doubling[1])) for time in range(doubling[0], len(hospitalized))] if doubling is not None else None for doubling in exponential_doublings]
+    
+    info = [df, state, x_ticks, x_tick_labels, reopening_indecies, spike_expectations, names, x, y, exponential_doublings, hospitalized]
 
-    for num, index in enumerate(reopening_indecies):
-        if exponential_doublings[num] is not None and y[num][-1] < hospitalized[-1]:
-            plt.axvline(x=index, color=colors[num], linestyle='solid', label=names[num] + " Reopening", alpha=alpha)
-    for num, index in enumerate(spike_expectations):
-        if exponential_doublings[num] is not None and y[num][-1] < hospitalized[-1]:
-            plt.axvline(x=index, color=colors[num], linestyle='dotted', alpha=alpha)
+    if not os.path.isdir(os.path.join('application', 'static', 'graphs', state)):
+        os.mkdir(os.path.join('application', 'static', 'graphs', state))
 
-    update_plot(f"Reopenings With Negative Effects - {state}", 1, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names, add_reopenings=False)
-    plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
-    plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
-    # plt.show()
-    plt.savefig(os.path.join(save_folder, "6doubling_times_negative_reopenings.png"), bbox_inches='tight')
-    plt.clf()
-
-    for num, index in enumerate(reopening_indecies):
-        if exponential_doublings[num] is not None and y[num][-1] < hospitalized[-1]:
-            plt.axvline(x=index, linestyle='solid', label=names[num] + " Reopening", color=colors[num], alpha=alpha)
-    for num, index in enumerate(spike_expectations):
-        if exponential_doublings[num] is not None and y[num][-1] < hospitalized[-1]:
-            plt.axvline(x=index, linestyle='dotted', color=colors[num], alpha=alpha)
-    plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
-    update_plot(f"Reopenings With Negative Effects - {state}", 0, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names, add_reopenings=False)
-    plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
-    # plt.show()
-    plt.savefig(os.path.join(save_folder, "7negative_reopenings.png"), bbox_inches='tight')
-    plt.clf()
-
-    plt.plot(hospitalized, color="k")
-    for i in range(len(x)):
-        if x[i] is not None:
-            if y[i][-1] < hospitalized[-1]:
-                plt.plot(x[i], y[i], color=colors[i], linestyle="dashed")
-                if exponential_doublings[i] is not None:
-                    plt.axvline(x=reopening_indecies[i], linestyle='solid', label=names[i] + " Reopening", color=colors[i], alpha=alpha) 
-                    plt.axvline(x=spike_expectations[i], linestyle='dotted', color=colors[i], alpha=alpha)
-
-    update_plot(f"Predicted Trajectories Without Reopenings - {state}", 0, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names, add_reopenings=False)
-
-    plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
-    # plt.show()
-    plt.savefig(os.path.join(save_folder, "8predictions.png"), bbox_inches='tight')
-    plt.clf()
+    plotly_plot(info, 0, "COVID-19 Cumulative Hospitalizations", "Acumulative_hospitalizations.html")
+    plotly_plot(info, 1, "COVID-19 Doubling Time", "Bdoubling_times.html")
+    plotly_plot(info, 0, "COVID-19 Cumulative Hospitalizations + Reopenings", "Creopenings.html", True)
+    plotly_plot(info, 1, "COVID-19 Doubling Time + Spike Expectations", "Dreopenings_spikes.html", False, True)
+    plotly_plot(info, 0, "COVID-19 Cumulative Hospitalizations + Negative Reopenings", "Enegative_reopenings.html", True, negative_only=True)
+    plotly_plot(info, 0, "COVID-19 Cumulative Hospitalizations + Non-Reopening Trajectory Predictions", "Fpredictions.html", True, negative_only=True, plot_predictions=True)
 
 def update_all_graphs():
     for state in states_dict:
         update_graphs(state)
 
-# update_graphs("Florida")
+if __name__ == "__main__":
+    # update_graphs("California")
+
+    start = time.time()
+    update_all_graphs()
+    print(time.time() - start)

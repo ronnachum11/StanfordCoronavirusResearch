@@ -73,7 +73,7 @@ def home():
 
     if form.validate_on_submit():
         flash('Form submitted successfully, however functionality has not been implemented yet', 'danger')
-        send_contact_email(form.name.data, form.email.data, form.subject.data, form.message.data)
+        # send_contact_email(form.name.data, form.email.data, form.subject.data, form.message.data)
         redirect(url_for('home'))
 
     return render_template("home.html", form=form)
@@ -90,25 +90,27 @@ def graphs():
     graph_names = ['hospitalization_increase.html']
     graphs = []
     print(graph_names)
-    # for graph in graph_names:
-    #     graph_path = os.path.join(graph_folder, graph)
-    #     graph = codecs.open(graph_path, "r").read() 
-    #     graph = graph[graph.index('<div>'):graph.index('</body>')-1]
-    #     graph = Markup(graph)
-    #     graphs.append(graph)
+    for graph in graph_names:
+        graph_path = os.path.join(graph_folder, graph)
+        graph = codecs.open(graph_path, "r").read() 
+        graph = Markup(graph)
+        graphs.append(graph)
 
     return render_template("graphs_plotly.html", title="graphs", states=states, graphs=graphs)
 
 @app.route("/graphs/<string:state>", methods=["GET"])
 def graphs_state(state):
-    # update_graphs(state)
-    graph_list = ["2cumulative_hospitalizations.png", "3doubling_times.png", "4reopenings.png",
-                  "4reopenings_with_lag_times.png", "5doubling_times_reopenings.png", 
-                  "6doubling_times_negative_reopenings.png", "7negative_reopenings.png",
-                  "8predictions.png"]
-    graph_list = ['graphs/' + state + "/" + graph for graph in graph_list]
-    print(graph_list)
-    return render_template("graphs_matplotlib.html", title="graphs", state=state, states=states, graphs=graph_list)
+    graph_folder = os.path.join('application', 'static', 'graphs', state.title())
+    graph_names = os.listdir(graph_folder)
+    graphs = []
+    for graph in graph_names:
+        if graph[-1] == "l":
+            graph_path = os.path.join(graph_folder, graph)
+            graph = codecs.open(graph_path, "r").read() 
+            graph = Markup(graph)
+            graphs.append(graph)
+
+    return render_template("graphs_plotly.html", title="graphs", state=state, states=states, graphs=graphs)
 
 @app.route("/data", methods=["GET"])
 def data():

@@ -2,6 +2,7 @@
 
 {% block page_styles %}
 <link rel="stylesheet" href="../static/css/graphs.css">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 {% endblock page_styles %}
 
 {% block content %}
@@ -21,12 +22,19 @@
     <div id="graphs">
         {% if graphs|length == 0 %}
             <h3 style="padding-top: 20px">No graphs available for this state.</h3>
-        {% endif %}
-        {% for graph in graphs %}
-            <div class="graph">
-                {{ graph | safe }}
+        {% else %}
+            <div class="row">
+                <div class="col-md-6 graph">
+                    {{ graphs[0] | safe }}
+                </div>
+                <div class="col-md-6 graph">
+                    {{ graphs[1] | safe }}
+                </div>
             </div>
-        {% endfor %}
+            {% for graph in graphs[2:] %}
+                {{ graph | safe }}
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock content %}
 

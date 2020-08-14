@@ -9,13 +9,13 @@ html {
 }
 
 #graphs {
-    padding-right: 15%;
-    padding-left: 15%;
+    padding-right: 5%;
+    padding-left: 5%;
 }
 
 .graph {
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 0%;
+    padding-bottom: 0%;
 }
 
 #graphs img {
