@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block page_styles %}
+<link rel="stylesheet" href="../static/css/data.css">
+{% endblock page_styles %}
+
+{% block content %}
+    <h1 class="page-title">Data API</h1>
+    <div id="text-container">
+        <p>
+            &emsp; Our data API consists of two types of data: <strong>COVID-19 spread</strong> 
+            data (<a href="https://covidtracking.com/data/api" target="_blank">source</a>) and <strong>
+            state-issued reopening order dates</strong> 
+            (<a href="https://www.nytimes.com/interactive/2020/us/states-reopen-map-coronavirus.html" target="_blank">source</a>).
+            As such, our API is divided into two main sections to allow access to both types of data.
+            When using this API, we kindly ask that you credit The Atlantic's COVID Tracking Project, the 
+            New York Times, and our own work here as well.
+            <br>
+            &emsp; Our datasets differ from all current existing ones for two main reasons. First, our
+            novel algorithm can convert current to cumulative hospitalizations with a low error rate
+            This ensures that <strong>all states have values for cumulative hospitalizations</strong>, 
+            which is incredibly useful for calculating doubling time and other important spread metrics.
+            Furthermore, our reopening order database is the <strong>first of its kind</strong> for 
+            <strong>state-issued orders</strong>, providing a <strong>streamlined data process</strong>
+            for future works with easy-to-use categorizations. 
+        </p>
+
+        <h3>COVID-19 Spread Data</h3>
+        <p>
+            <strong>/data/api/covid</strong>: Get all COVID-19 data for all states (cases, 
+            tests, hospitalziations, deaths, and more).
+            <br><br>
+            <strong>/data/api/covid/{state}</strong>: Get all COVID-19 data for one state
+            (cases, tests, hospitalziations, deaths, etc.).
+            <br><br> &emsp; <strong>Possible Options for {state}</strong>:
+        </p>
+
+        <p>
+            <ul>
+                <li>Two-letter state abbreviation (ex: fl, tx, ny, dc)</li>
+            </ul>
+        </p>
+
+        <p>
+            <br>&emsp; <strong>Example:</strong> /data/api/covid/fl
+            <br><br>
+
+            <strong>/data/api/covid/{field}</strong>: Get one type of COVID-19 data for all states.
+            <br><br> &emsp; <strong>Possible Options for {field}</strong>:
+        </p>
+        <p>
+            <ul>
+                <li><strong>positive</strong> (total number of cases) </li>
+                <li><strong>negative</strong> (total number of negative tests) </li>
+                <li><strong>pending</strong> (number of pending tests) </li>
+                <li><strong>hospitalizedCurrently</strong> (number of currently hospitalized patients) </li>
+                <li><strong>hospitalizedCumulative</strong> (total number of hospitalized patients) </li>
+                <li><strong>death</strong> (total number of deaths) </li>
+                <li><strong>recovered</strong> (total number of recovered patients) </li>
+            </ul>
+        </p>
+
+        <p>
+            <br> &emsp; <strong>Example:</strong> /data/api/covid/positive
+            <br><br> <strong>/data/api/covid/{state}/{field}</strong>: Get one type of COVID-19 data for one state.
+        </p>
+
+        <h3>State-Issued Reopening Order Data</h3>
+        <p>
+            <strong>/data/api/reopening</strong>: Get state-issued reopening order dates for all states and all categories.
+            <br><br>
+            <strong>/data/api/reopening/{state}</strong>: Get state-issued reopening order dates for one state, all categories.
+            <br><br> &emsp; <strong>Possible Options for {state}</strong>:
+        </p>
+
+        <p>
+            <ul>
+                <li>Two-letter state abbreviation (ex: fl, tx, ny, dc)</li>
+            </ul>
+        </p>
+
+        <p>
+            <br>&emsp; <strong>Example:</strong> /data/api/reopening/fl
+            <br><br><strong>/data/api/reopening/{type}</strong>:
+            <br><br> &emsp; <strong>Possible Options for {type}</strong>:
+        </p>
+        <p>
+            <ul>
+                <li><strong>restaurants_and_bars</strong> (Indoor Dining with Bars)</li>
+                <li><strong>restaurants</strong> (Indoor Dining without Bars)</li>
+                <li><strong>restaurants_outdoors</strong> (Outdoor Dining)</li>
+                <li><strong>limited_retail</strong> (Curbside Pickup Retail)</li>
+                <li><strong>retail</strong> (Indoor Retail)</li>
+                <li><strong>gyms</strong> (Gyms and Fitness Centers)</li>
+                <li><strong>entertainment</strong> (Indoor Entertainment)</li>
+                <li><strong>hair_salons</strong> (Hair Salons and Barbershops)</li>
+                <li><strong>personal_care</strong> (Non-Hair Personal Care)</li>
+                <li><strong>office</strong> (Office Environments)</li>
+                <li><strong>houses_of_worship</strong> (Houses of Worship)</li>
+                <li><strong>construction</strong> (Construction)</li>
+                <li><strong>beaches</strong> (Beaches)</li>
+                <li><strong>parks</strong> (Campgrounds and State Parks)</li>
+            </ul>
+        </p>
+
+        <p>
+            <br>&emsp; <strong>Example:</strong> /data/api/reopening/restaurants
+            
+            <br><br>
+            <strong>/data/api/reopening/{state}/{type}</strong>: Get state-issued reopening order dates for one state, one category.
+
+            <br><br>&emsp; <strong>Example:</strong> /data/api/reopening/restaurants
+        </p>
+    </div>
+{% endblock content %}
+

@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block page_styles %}
+<link rel="stylesheet" href="../static/css/research.css">
+{% endblock page_styles %}
+
+{% block content %}
+    <h1 class="page-title">About the Research</h1>
+    <div id="text-container">
+        <p>
+            &emsp; This study was conducted as a summer research project under the advisement of
+            Professor Nigam Shah of Stanford Medical Schools' bioinformatics department. The main 
+            research focus of the study was <strong>quantifying the effects of reopening orders on
+            COVID-19 spread</strong> in order to understand which types are <strong>most unsafe</strong> 
+            and to <strong>predict effects</strong> of future reopenings that are issued. We used 
+            a variety of techniques to develop this system, incluidng <strong>statistical analysis</strong>
+            and <strong>machine learning</strong> to analyze the dataset we created.
+        <p>
+        
+        <h3>Data Collection</h3>
+        <p>
+            &emsp; To answer this question, we needed to collect data on COVID-19 spread and on 
+            reopening orders issued by governments. We developed an <strong>autonomous system</strong>
+            to aggregate all of this data into our database regularly to perform analysis.
+        </p>
+        <h5>COVID-19 Data</h5>
+        <p>
+            &emsp; For COVID-19 spread, our options for data were
+            mainly: cases, hospitalizations, and deaths. We chose <strong>hospitalizations</strong> 
+            since case amounts are very dependent on testing and deaths often lag too far behind real spread, 
+            with many backlogs compounding this problem. Hospitaliations are a more <strong>consistent</strong> 
+            and <strong>accurate</strong> metric because they are not influenced by testing capacity and 
+            also reported in a streamlined accurate manner. We extracted the necessary hospitalization data
+            from The Atlantic's <strong>COVID Tracking Project</strong>'s data API. Some states had data for 
+            current hospitalizations, some only cumulative hospitalizations, and many contained both. For our 
+            analysis, we required cumulative hospitalizations and, as such, trained a <strong>machine learning</strong>
+            structure on states which had both types of data in order to properly <strong>convert</strong> 
+            data for the states with only current hospitalizations to cumulative counts with minimal error.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <img style="width: 70%" src="{{ url_for('static', filename='images/doubling_times_june.png') }}">
+            </div>
+            <div class="col-md-6">
+                <img style="width: 100%" src="{{ url_for('static', filename='images/hospitalization_converter.png') }}">
+            </div>
+        </div>
+        <h5>Reopening Data</h5>
+        <p>
+            &emsp; For reopening orders, we decided to observe state-issued reopening orders as they were
+            most conistently recorded and easiest to compare with one another. We collected this data via. 
+            the <strong>New York Times's</strong> "See How All 50 States Are Reopening (and Closing Again)"
+            website. We used the Internet archive's <strong>Wayback Machine</strong> to access previous 
+            versions of the article and compared changes between them to determine when reopening orders were 
+            reported. These reopenings were split into 14 categories whcih we then used in our analysis.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <img style="width: 90%" src="{{ url_for('static', filename='images/reopening_scraping.png') }}">
+            </div>
+            <div class="col-md-6">
+                <img style="width: 90%" src="{{ url_for('static', filename='images/reopening_categories.png') }}">
+            </div>
+        </div>
+        <h3>Data Analysis</h3>
+        <p>
+            &emsp; Once we had collected all the data, the remaining steps revolved around the best methods 
+            of analysis to combine the two datasets and observe relationships. We decided to use <strong>doubling
+            time rate of change</strong> as our main analytical metric, as it is largely unreflective of previous 
+            outbreak history and is able to illuminate important current trends. We observed changes before and 
+            after reopenings across all 50 states from <strong>statistical</strong> and <strong>learning-based</strong>
+            perspectives to find reopenings with the most negative effect and their expected typical effects on doubling
+            time rate of change.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <img style="width: 90%" src="{{ url_for('static', filename='images/fl_predictions.png') }}">
+            </div>
+            <div class="col-md-6">
+                <img style="width: 90%" src="{{ url_for('static', filename='images/ca_predictions.png') }}">
+            </div>
+        </div>
+        <h3>Conclusions</h3>
+        <p>
+            &emsp; Through our analysis, we found <strong>6</strong> main reopenings that had <strong>negative 
+            effects</strong>, while the others largely had no negative impact. There is much more analysis we 
+            have done with this data, including estimating added hospitalizations of each reopening, observing 
+            how different reopening combinations and orderings affect spread, and different analytical structures
+            to further solidify and diversify our findings.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <h6><strong>Non-Negative Reopenings</strong><br><small>(Most to Least)</small></h6>
+                <p style="text-align: center">
+                    Indoor Retail <br>
+                    Construction <br>
+                    Parks <br>
+                    Outdoor Restaurants <br>
+                    Offices <br>
+                    Beaches <br>
+                    Personal Care <br>
+                    Indoor Restaurants (No Bars) <br>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <h6><strong>Negative Reopenings</strong><br><small>(Most to Least)</small></h5>
+                <p style="text-align: center">
+                    Indoor Restaurants with Bars <br>
+                    Houses of Worship <br> 
+                    Entertainment <br> 
+                    Indoor Retail <br> 
+                    Hair Salons <br> 
+                    Gyms <br>
+                </p>
+            </div>
+        </div>
+        <img style="width: 60%" src="{{ url_for('static', filename='images/final_analysis.png') }}">
+    </div>
+{% endblock content %}
+
