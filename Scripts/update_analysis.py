@@ -15,7 +15,7 @@ logging.getLogger().setLevel(logging.CRITICAL)
 plt.style.use('ggplot')
 
 alpha = 1
-lag_time = 14
+lag_time = 28
 doubling_time_window=7
 
 states_dict = {
@@ -235,6 +235,15 @@ for state in states_dict:
         sublist = doubling_times_moving_average[july_start:july_end]
         state_doubling_times[state] = statistics.median(sublist)
         # print(sublist, state_doubling_times[state])
+
+    if 20200729 in dates:
+        index = dates.index(20200729)
+    elif 20200728 in dates:
+        index = dates.index(20200728)
+    else:
+        index = len(dates)
+    dates = dates[:index]
+    hospitalized = hospitalized[:index]
         
     # print(reopening_indecies)
     for i, index in enumerate(reopening_indecies):
@@ -253,22 +262,29 @@ for state in states_dict:
 
     plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
     update_plot(f"Reopenings - {state}", 0, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names, include_spike_expectations=False)
+    # plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
+    # plt.show()
+    # plt.savefig(os.path.join(save_folder, "4reopenings.png"), bbox_inches='tight')
+    plt.clf()
+
+    plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
+    update_plot(f"Reopenings - {state}", 0, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names, include_spike_expectations=False)
     plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
     # plt.show()
-    plt.savefig(os.path.join(save_folder, "4reopenings.png"), bbox_inches='tight')
+    # plt.savefig(os.path.join(save_folder, "legend.png"), bbox_inches='tight')
     plt.clf()
 
     plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
     update_plot(f"Reopenings - {state}", 0, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names)
-    plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
+    # plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
     # plt.show()
-    plt.savefig(os.path.join(save_folder, "4reopenings_with_lag_times.png"), bbox_inches='tight')
+    # plt.savefig(os.path.join(save_folder, "4reopenings_with_lag_times.png"), bbox_inches='tight')
     plt.clf()
 
     update_plot(f"Reopenings - {state}", 1, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names)
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
-    plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
-    plt.savefig(os.path.join(save_folder, "5doubling_times_reopenings.png"), bbox_inches='tight')
+    # plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
+    # plt.savefig(os.path.join(save_folder, "5doubling_times_reopenings.png"), bbox_inches='tight')
     plt.clf()
 
     x = [range(i[0], len(hospitalized)) if i is not None else None for i in exponential_doublings]
@@ -283,9 +299,22 @@ for state in states_dict:
 
     update_plot(f"Reopenings With Negative Effects - {state}", 1, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names, add_reopenings=False)
     plt.plot(doubling_times_moving_average, label="Doubling Time (7-Day Moving Average)", color='k')
-    plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
+    # plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
     # plt.show()
-    plt.savefig(os.path.join(save_folder, "6doubling_times_negative_reopenings.png"), bbox_inches='tight')
+    # plt.savefig(os.path.join(save_folder, "6doubling_times_negative_reopenings.png"), bbox_inches='tight')
+    plt.clf()
+
+    for num, index in enumerate(reopening_indecies):
+        if exponential_doublings[num] is not None and y[num][-1] < hospitalized[-1]:
+            plt.axvline(x=index, linestyle='solid', label=names[num] + " Reopening", color=colors[num], alpha=alpha)
+    for num, index in enumerate(spike_expectations):
+        if exponential_doublings[num] is not None and y[num][-1] < hospitalized[-1]:
+            plt.axvline(x=index, linestyle='dotted', color=colors[num], alpha=alpha)
+    plt.plot(hospitalized, color='k', label='Actual Hospitalizations')
+    update_plot(f"Reopenings With Negative Effects - {state}", 0, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names, add_reopenings=False)
+    # plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
+    # plt.show()
+    # plt.savefig(os.path.join(save_folder, "7negative_reopenings.png"), bbox_inches='tight')
     plt.clf()
 
     for num, index in enumerate(reopening_indecies):
@@ -298,7 +327,7 @@ for state in states_dict:
     update_plot(f"Reopenings With Negative Effects - {state}", 0, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names, add_reopenings=False)
     plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
     # plt.show()
-    plt.savefig(os.path.join(save_folder, "7negative_reopenings.png"), bbox_inches='tight')
+    # plt.savefig(os.path.join(save_folder, "legend2.png"), bbox_inches='tight')
     plt.clf()
 
     plt.plot(hospitalized, color="k")
@@ -314,15 +343,18 @@ for state in states_dict:
                 if exponential_doublings[i] is not None:
                     plt.axvline(x=reopening_indecies[i], linestyle='solid', label=names[i] + " Reopening", color=colors[i], alpha=alpha) 
                     plt.axvline(x=spike_expectations[i], linestyle='dotted', color=colors[i], alpha=alpha)
+    
+    update_plot(f"Predicted Trajectories Without Reopenings - {state}", 0, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names, add_reopenings=False)
+
+    # plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
+    # plt.show()
+    plt.savefig(os.path.join(save_folder, f"8predictions.png"), bbox_inches='tight')
+    plt.clf()
+
     state_increases[state] = max(state_increases[state]) if len(state_increases[state]) != 0 else 0
     state_increases_percent[state] = max(state_increases_percent[state]) * 100 if len(state_increases_percent[state]) != 0 else 0
 
-    update_plot(f"Predicted Trajectories Without Reopenings - {state}", 0, reopening_indecies, spike_expectations, x_ticks, x_tick_labels, calculated, names, add_reopenings=False)
 
-    plt.legend(bbox_to_anchor=(1.04, 0.5), loc="center left")
-    # plt.show()
-    plt.savefig(os.path.join(save_folder, "8predictions.png"), bbox_inches='tight')
-    plt.clf()
     
 reopening_effects_means = [np.mean(i) for i in reopening_effects]
 reopening_effects_medians = [statistics.median(i) if len(i) != 0 else 0 for i in reopening_effects]
@@ -353,7 +385,7 @@ for i in [["Median", reopening_effects_medians]]: # ["Mean", reopening_effects_m
     plt.xticks(range(len(labels)), labels, rotation=90)
     plt.bar(range(len(positive_reopenings)), positive_reopenings, color="g")
     plt.bar(range(len(positive_reopenings), len(positive_reopenings) + len(negative_reopenings)), negative_reopenings, color="r")
-    plt.savefig(os.path.join(path, "Graphs", "Analysis", f"ReopeningData{title}-{lag_time}.png"), bbox_inches='tight')
+    # # plt.savefig(os.path.join(path, "Graphs", "Analysis", f"ReopeningData{title}-{lag_time}.png"), bbox_inches='tight')
     # plt.show()
 
 # state_increases = {state: max(state_increases[state]) if len(state_increases[state]) > 0 else 0 for state in state_increases}

@@ -67,9 +67,39 @@ for state in states_dict:
     save_folder = os.path.join(path, "Graphs", "Analysis", state)
     if not os.path.isdir(save_folder):
         continue
-
+    
+    files = list(os.listdir(save_folder))
     names = ["1CurrentHospitalizations.png", "2CumulativeHospitalizations.png", "3DoublingTimes.png", "4reopenings.png", "4reopenings_with_lag_times.png", "5doubling_times_reopenings.png", "6doubling_times_negative_reopenings.png", "7negative_reopenings.png", "8predictions.png"]
-    imgs = [cv2.resize(cv2.imread(os.path.join(save_folder, name)), (900, 450)) for name in names[3:]]
+    
+    empty = np.zeros((460, 610, 3), dtype=np.uint8)
+    empty.fill(255)
 
-    image = np.concatenate((imgs[0], imgs[1], imgs[2], imgs[3], imgs[4], imgs[5]), axis=0)
-    cv2.imwrite(os.path.join(save_folder, "1Asummary_pic.png"), image)
+    imgs = [cv2.resize(cv2.imread(os.path.join(save_folder, name)), (610, 460)) for name in names[3:-1]]
+    imgs2 = [cv2.resize(cv2.imread(os.path.join(save_folder, file)), (610, 460)) for file in files if "8predictions-" in file and "8predictions-all" not in file]
+
+    imgs3 = [cv2.resize(cv2.imread(os.path.join(save_folder, name)), (610, 460)) for name in names[3:6]]
+    imgs4 = [cv2.resize(cv2.imread(os.path.join(save_folder, name)), (610, 460)) for name in names[6:9]]
+    image2 = None
+    image3_pt1 = np.concatenate(imgs3, axis=1)
+    image3_pt2 = np.concatenate(imgs4, axis=1)
+    image3 = np.concatenate((image3_pt1, image3_pt2), axis=0)
+    cv2.imwrite(os.path.join(save_folder, "1AAAcondensed_summary_pic.png"), image3)
+
+    if len(imgs2) == 0:
+        image = np.concatenate(imgs, axis=0)
+    else:
+        diff = len(imgs) - len(imgs2)
+        print(len(imgs), len(imgs2), diff)
+        if diff > 0:
+            imgs2 = imgs2 + [empty]*diff
+        else:
+            diff *= -1
+            imgs = imgs + [empty]*diff
+        image1 = np.concatenate(imgs, axis=1)
+        image2 = np.concatenate(imgs2, axis=1)
+        image = np.concatenate((image1, image2), axis=0)
+        
+    cv2.imwrite(os.path.join(save_folder, "1AAsummary_pic.png"), image)
+    if image2 is not None:
+        cv2.imwrite(os.path.join(save_folder, "8predictions-all.png"), image2)
+
