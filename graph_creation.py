@@ -155,6 +155,7 @@ def clean_hospitalizations(state, hospitalized, dates, state_df):
             calculated = True
 
     hospitalized = moving_average(hospitalized)
+    hospitalized = [round(i, 0) for i in hospitalized]
     return hospitalized, dates, calculated
 
 def get_doubling_time_data(hospitalized, doubling_time_window=7, moving_average_window=7):
@@ -169,7 +170,7 @@ def get_doubling_time_data(hospitalized, doubling_time_window=7, moving_average_
 
 def get_xticks(dates):
     x_ticks, x_tick_labels = [], []
-    for i in range(0, len(dates), len(dates)//7 - 1):
+    for i in [int(i) for i in np.linspace(0, len(dates)-1, 8)]:
         date = str(dates[i])
         x_ticks.append(i)
         x_tick_labels.append(date[4:6] + "/" + date[6:8])
@@ -178,18 +179,18 @@ def get_xticks(dates):
 def plotly_plot(info, d, title, save_name, plot_reopenings=False, plot_spike_expectations=False, plot_predictions=False, negative_only=False):
     df, state, x_ticks, x_tick_labels, reopening_indecies, spike_expectations, names, x, y, exponential_doublings, hospitalized = info
 
-    data = ["Cumulative COVID-19 Hospitalizations", "Hospitalization Doubling Time (Days)", "Hospitalization Doubling Time Rate of Change (Days/Day)"]
+    data = ["Hospitalizations", "Hospitalization Doubling Time", "Hospitalization Doubling Time Rate of Change"]
     d = data[d]
 
-    fig = px.line(df, x="Dates", y=d, title=f"{title} - {state}")
-    fig.update_traces(mode="markers+lines", hovertemplate=None)
+    fig = px.line(df, x="Index", y=d, title=f"{title} - {state}", hover_data=["Date", d])
+    fig.update_traces(mode="markers+lines")
     fig.update_layout(
         xaxis = dict(
             tickmode = 'array',
             tickvals = x_ticks,
             ticktext = x_tick_labels
         ),
-        hovermode="x unified",
+        hovermode="unified",
     )
 
     if plot_reopenings:
@@ -234,11 +235,15 @@ def update_graphs(state):
     hospitalized, dates, calculated = clean_hospitalizations(state, hospitalized, dates, state_df)
     doubling_times, doubling_times_moving_average, doubling_times_derivative = get_doubling_time_data(hospitalized, doubling_time_window)
     x_ticks, x_tick_labels = get_xticks(dates)
+    date_strings = []
+    for date in dates:
+        date = str(date)
+        date_strings.append(date[4:6] + "/" + date[6:8])
 
-    df = pd.DataFrame({"Dates": range(len(hospitalized)), "Date Values": dates,
-                      "Cumulative COVID-19 Hospitalizations": hospitalized, 
-                      "Hospitalization Doubling Time (Days)": doubling_times_moving_average,
-                      "Hospitalization Doubling Time Rate of Change (Days/Day)": doubling_times_derivative })
+    df = pd.DataFrame({"Index": range(len(hospitalized)), "Date Values": dates,
+                       "Date": date_strings, "Hospitalizations": hospitalized, 
+                      "Hospitalization Doubling Time": doubling_times_moving_average,
+                      "Hospitalization Doubling Time Rate of Change": doubling_times_derivative })
 
     names, reopening_dates = headers[1:], reopening_dates
     reopening_indecies = [dates.index(i) if i is not None and i in dates else None for i in reopening_dates]
